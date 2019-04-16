@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "12283476384",
+    "firebase_url": "https://franchise-570ce.firebaseio.com",
+    "project_id": "franchise-570ce",
+    "storage_bucket": "franchise-570ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12283476384:android:99617a082502e48c",
+        "android_client_info": {
+          "package_name": "com.franshise.franshise"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "12283476384-mdi6bful5addmcbu3q0kaa0no05hhlp1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.franshise.franshise",
+            "certificate_hash": "37e11340f38ad107c5c40e1142333e3f396f91e7"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8T8MFNOWpHXmkA41j77XPZWPYGS3Gojk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "12283476384-3q476865798coppdjhp3o0bv2ft3t3vo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

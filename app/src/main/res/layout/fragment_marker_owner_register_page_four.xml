@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MarkerOwnerRegisterPageFour"
+    android:background="@color/send_blue"
+android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/textView15h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_subscribtion_button"
+        android:paddingStart="20dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:text="@string/add_franchises"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/CountryOfOrigin"
+            android:textColor="@color/white" />
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+
+            android:background="@drawable/owner_register_editext_back"
+            android:inputType="number">
+            <Spinner
+                android:id="@+id/spinner_origin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/texhtView23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:text="@string/DateEstablished"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/owner_register_editext_back"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="@null" />
+
+
+        <TextView
+            android:id="@+id/texhsxtView23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:layout_marginBottom="5dp"
+            android:text="@string/numberofbranches"
+            android:textColor="@color/white" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:text="@string/existing"
+                android:textColor="@color/white" />
+
+            <EditText
+                android:id="@+id/local_exist"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="0.8"
+                android:background="@drawable/owner_register_editext_back"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="number"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.6"
+                android:text="@string/Underconstruction"
+                android:textColor="@color/white" />
+
+            <EditText
+                android:id="@+id/local_under"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:background="@drawable/owner_register_editext_back"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="number"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/zazz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:layout_marginBottom="5dp"
+            android:text="@string/numberofbranches"
+            android:textColor="@color/white" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <TextView
+                android:id="@+id/tesxtView24"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:text="@string/existing"
+                android:textColor="@color/white" />
+
+            <EditText
+                android:id="@+id/out_exist"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="0.8"
+                android:background="@drawable/owner_register_editext_back"
+                android:ems="10"
+                android:inputType="number"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp" />
+
+            <TextView
+                android:id="@+id/tezxtView25"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.6"
+                android:text="@string/Underconstruction"
+                android:textColor="@color/white" />
+
+            <EditText
+                android:id="@+id/out_under"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:background="@drawable/owner_register_editext_back"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="number"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tezxtVffiew25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/Average_space"
+            android:layout_marginTop="5dp"/>
+
+        <LinearLayout
+            android:id="@+id/spaceParent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+<Button
+    android:id="@+id/add"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="@color/black"
+    android:background="@drawable/owner_register_editext_back"
+    android:textSize="15dp"
+    android:text="+"
+    android:gravity="start|center_vertical"
+    android:paddingStart="20dp"
+    android:paddingLeft="20dp"
+    android:layout_marginTop="10dp"
+    />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/owner_register_editext_back"
+            android:gravity="center"
+            android:text="@string/next"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+</ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#e0e1e3</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="white">#fff</color>
+    <color name="lang_button">#9a8d58</color>
+    <color name="login_gray">#e0e1e3</color>
+    <color name="black">#000000</color>
+    <color name="text_register">#658693</color>
+    <color name="category">#3d335e</color>
+    <color name="blue">#43a5ad</color>
+    <color name="red">#e43338</color>
+    <color name="details_blue">#94b6d6</color>
+    <color name="send_blue">#43a5ad</color>
+    <color name="blue_subscribtion_button">#7fc6d7</color>
+
+</resources>

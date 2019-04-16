@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Franshise</string>
+    <string name="arabic">العربية</string>
+    <string name="english">ENGLISH</string>
+
+
+    <string name="username_or_mail">اسم المستخدم او البريد الالكترونى</string>
+    <string name="password">كلمة المور</string>
+    <string name="login">دخول</string>
+    <string name="forget_password">هل نسيت كلمة المرور</string>
+    <string name="new_user">مستخدم جديد </string>
+
+    <string name="change">تعديل</string>
+    <string name="name">الاسم الثلاثى</string>
+    <string name="user_name">اسم المستخدم</string>
+    <string name="confirm_password">تاكيد الرقم السرى</string>
+    <string name="email">البريد الالكترونى</string>
+    <string name="confirm_email">تاكيد البريد الالكترونى</string>
+    <string name="country">الدولة</string>
+    <string name="phone">الجوال</string>
+    <string name="city">المدينة</string>
+    <string name="read_rules">قرآت الشروط والاحكام </string>
+
+    <string name="sendpassword">عزيزنا العميل لقد قمنا بارسال كلمة السر الجديدة الى بريدك الالكترونى</string>
+    <array name="countries"><item>السعودية</item>
+        <item>السعودية</item>
+        <item>السعودية</item>
+    </array>
+    <string name="meter">m²</string>
+
+
+    <string name="change_password">تغير اسم المستخدم وكلمة السر</string>
+    <string name="data">بياناتى</string>
+    <string name="all">الكل</string>
+    <string name="confirm_line1">من اجل تاكيد الدخول لحسابك</string>
+    <string name="confirm_line2">رجاء كتابة الرقم المرسل الىبريدك الالكترونى</string>
+    <string name="confirm_line3">المكون من 5 ارقام</string>
+    <string name="confirm">تاكيد</string>
+
+
+    <string name="title_activity_main">Main</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="home">الرئيسية</string>
+    <string name="category">الاقسام</string>
+    <string name="favourite">المفضلة</string>
+    <string name="search">بحث</string>
+    <string name="notification">اشعارات</string>
+
+
+    <string name="main_category">الاقسام الرئيسية</string>
+
+    <string name="restaurant">مطاعم</string>
+
+    <string-array name="markersdetails">
+        <item>Country Of Origin </item>
+        <item>Date Established </item>
+        <item>Number Of Unit (Local) </item>
+        <item>Number Of Unit (Outside) </item>
+        <item>Average Area Per Location </item>
+        <item>Average InvestmentPer Single Unit in (USD)   </item>
+        <item>Term of Franchise Agreement </item>
+        <item>Monthly Royality </item>
+        <item>Marketing Fee (Genral) </item>
+        <item>Priority Markets for Franchise Expansion </item>
+    </string-array>
+
+    <string-array name="markersdetailsarabic">
+        <item> بلدالمنشأ</item>
+        <item>تاريخ التاسيس</item>
+        <item>عدد الفروع (محلى)</item>
+        <item> عدد الفروع (خارجى)</item>
+        <item> متوسط المساحة المخصصة لكل منفذ تسويق</item>
+        <item> متوسط الاستثمار فى كل منفذ تسويقى (دولار امريكى)  </item>
+        <item> مدة اتفاقية الامتياز التجارى</item>
+        <item>عمولة المبيعات الشهرية</item>
+        <item>عمولة التسويق (عام)</item>
+        <item> اولوية الاسواق المستهدفة للتوسع والانتشار </item>
+    </string-array>
+
+
+
+    <string name="moredeteails">للمزيد</string>
+    <string name="fav">اضف المفضلة</string>
+    <string name="Sendtoconsultants">ارسال للاستشارى</string>
+    <string name="Sendtothefranchise">ارسال للامتياز التجارى</string>
+
+
+    <string name="silver_package">الباقة الفضية</string>
+    <string name="dimond_package">الباقة الماسية</string>
+    <string name="golden_package">الباقة الذهبية</string>
+
+
+    <string name="details_line1">Country Of Origin بلدالمنشأ</string>
+    <string name="details_line2">Date Established تاريخ التاسيس</string>
+    <string name="details_line3">Number Of Unit (Local) (عدد الفروع (محلى</string>
+    <string name="details_line4">Number Of Unit (Outside) (عدد الفروع (خارجى</string>
+    <string name="details_line5">Average Area Per Location متوسط المساحة المخصصة لكل منفذ تسويق</string>
+    <string name="details_line6">Average InvestmentPer Single Unit in (USD) (متوسط الاستثمار فى كلمنفذ تسويقى (دولار امريكى  </string>
+    <string name="details_line7">Term of Franchise Agreement مدة اتفاقية الامتياز التجارى</string>
+    <string name="details_line8">Area Development Franchise Fees (USD) رسوم الامتياز التجارى تطوير منطقة</string>
+    <string name="details_line9">Single Unit Franchise (individual)(USD) (رسوم الامتباز التجارى منفذ تسويق (فرع واحد </string>
+    <string name="details_line10">Monthly Royality عمولة المبيعات الشهرية</string>
+    <string name="details_line11">Marketing Fee (Genral) (عمولة التسويق (عام</string>
+    <string name="details_line12">Priority Markets for Franchise Expansion اولوية الاسواق المستهدفة للتوسع والانتشار </string>
+
+
+    <string name="CountryOfOrigin">بلد المنشأ</string>
+    <string name="DateEstablished">تاريخ التاسيس</string>
+    <string name="numberofbranches">عدد الفروع محلى</string>
+    <string name="Average_space">متوسط المساحة المخصصة لكل منفذ بيع</string>
+
+    <string name="Commercialconcession">امتياز تجارى تطوير منطقة فرع واحد</string>
+    <string name="Typeofscholarship">نوع اسلوب المنح المتوفر</string>
+    <string name="MajorCommercial">امتياز تحارى رئيسى</string>
+    <string-array name="commission">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
+        <item>38</item>
+        <item>39</item>
+        <item>40</item>
+        <item>41</item>
+        <item>42</item>
+        <item>43</item>
+        <item>44</item>
+        <item>45</item>
+        <item>46</item>
+        <item>47</item>
+        <item>48</item>
+        <item>49</item>
+        <item>50</item>
+        <item>51</item>
+        <item>52</item>
+        <item>53</item>
+        <item>54</item>
+        <item>55</item>
+        <item>56</item>
+        <item>57</item>
+        <item>58</item>
+        <item>59</item>
+        <item>60</item>
+        <item>61</item>
+        <item>62</item>
+        <item>63</item>
+        <item>64</item>
+        <item>65</item>
+        <item>66</item>
+        <item>67</item>
+        <item>68</item>
+        <item>69</item>
+        <item>70</item>
+        <item>71</item>
+        <item>72</item>
+        <item>73</item>
+        <item>74</item>
+        <item>75</item>
+        <item>76</item>
+        <item>77</item>
+        <item>78</item>
+        <item>79</item>
+        <item>80</item>
+        <item>81</item>
+        <item>82</item>
+        <item>83</item>
+        <item>84</item>
+        <item>85</item>
+        <item>86</item>
+        <item>87</item>
+        <item>88</item>
+        <item>89</item>
+        <item>90</item>
+        <item>91</item>
+        <item>92</item>
+        <item>93</item>
+        <item>94</item>
+        <item>95</item>
+        <item>96</item>
+        <item>97</item>
+        <item>98</item>
+        <item>99</item>
+        <item>100</item>
+    </string-array>
+
+    <string name="Averagetotal">متوسط اجمالى الاستثمار لمنفذ البيع
+</string>
+    <string name="TermoftheCommercial">مدة اتفاقية الامتياز التجارى</string>
+
+    <string name="Thepriority">اولوية الاسواق المستهدفة للتوسع والانتشار</string>
+
+    <string name="setting">الاعدادات</string>
+    <string name="franshise">ماهو الامتياز التجارى</string>
+    <string name="events">فعاليات ومعارض</string>
+    <string name="training">الدورات التدريبية</string>
+    <string name="services">خدماتنا</string>
+    <string name="terms">الشروط والاحكام</string>
+    <string name="subscriptions">الاشتراكات</string>
+    <string name="share">مشاركة التطبيق</string>
+    <string name="questions">الاسئلة الشائعة</string>
+    <string name="contact">تواصل معنا</string>
+    <string name="logout">تسجيل خروج</string>
+    <string name="language">english</string>
+
+    <string name="myfranchise">علاماتى</string>
+    <string name="mony">رأس المال</string>
+    <string name="categories">الفئات</string>
+
+    <string name="Complaints">شكاوى ومقترحات</string>
+
+    <string name="ToMangmentFranchise">الى ادارةالامتياز التجارى</string>
+    <string name="Send">ارسال</string>
+    <string name="Attachphotobank">ارفاق صورة الايداع البنكى</string>
+    <string name="subscription">اتمام عملية الاشتراك</string>
+    <string name="dearCustomer">عزيزنا العميل
+        تاكد من ارفاق قسيمة الايداع البنكى لقيمة
+        الاشتراك المختارة قبل اتمام عملية الاشتراك</string>
+
+    <string name="complaint">شكوى</string>
+    <string name="suggestion">مقترح</string>
+    <string name="inquiry">استفسار</string>
+
+    <string name="Franchises">العلامات التجارية</string>
+
+    <string name="franchisesregisterpleas">عميلنا العزيز لابد من اتماء اجراء التسجيل قبل اضافة او تعديل علاماتك التجارية</string>
+
+    <string name="institutionname">اسم المنشأة</string>
+    <string name="type">النوع</string>
+    <string name="company">شركة</string>
+    <string name="institution">مؤسسة</string>
+    <string name="fax">فاكس</string>
+    <string name="category1">الفئة</string>
+    <string name="manager">مدير الامتياز</string>
+    <string name="transference">تحويلة</string>
+    <string name="completeRegister">اكمال التسجيل</string>
+
+    <string name="add_franchises">اضافة العلامة التجارية</string>
+    <string name="next">التالى</string>
+    <string name="brief_about">نبذة عن العلامة</string>
+    <string name="nomore">عزيزنا العميل لاتزيد عن 450كلمة</string>
+
+    <string name="existing">قائم</string>
+    <string name="Underconstruction">تحت الانشاء</string>
+    <string name="multi_unit">متعدد الوحدات</string>,.
+    <string name="outlet">منفذ (فرع واحد)</string>
+    <string name="monthly_commissions">العمولات الشهرية</string>
+    <string name="property_commission">عمولة الملكية</string>
+    <string name="marketing_commission">عمولة تسويق</string>
+    <string name="other">اخرى</string>
+    <string name="images_franchises">صور العلامة</string>
+    <string name="images_products">صور المنتج</string>
+    <string name="upload_franchise">رفع العلامة</string>
+    <string name="delete">حذف العلامة</string>
+    <string name="emailwrong">من فضلك ادخل اميل صالح</string>
+    <string name="fill_data">من فضلك قم بادخال كافة البيانات </string>
+
+    <string name="incorrect">اسم المستخدم او كلمة السرغير صحيح</string>
+    <string name="register">تسجيل</string>
+    <string name="base_url">http://192.168.1.21/franchise/api/</string>
+
+    <string name="code_wrong">الكود غير صحيح حاولمرة اخرى</string>
+    <string name="base_image_url">http://192.168.1.107/franchise/public/uploads/thumbs/</string>
+
+    <string name="Commercial_Concession">http://192.168.1.107/franchise/api/page/ar/Commercial_Concession</string>
+
+    <string name="questionss">http://192.168.1.107/franchise/api/page/ar/questions</string>
+
+    <string name="termss">http://192.168.1.107/franchise/api/page/ar/terms</string>
+
+    <string name="service">http://192.168.1.107/franchise/api/services/ar</string>
+    <string name="courses">http://192.168.1.107/franchise/api/courses/ar</string>
+    <string name="conferances">http://192.168.1.107/franchise/api/conferances/ar</string>
+</resources>

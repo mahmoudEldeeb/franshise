@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activites.FranchiseOfCategory"
+    android:layout_marginTop="50dp"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+android:background="#7d7d7d"
+            android:focusableInTouchMode="true"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+
+                android:orientation="horizontal"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:layoutDirection="ltr">
+
+
+                <TextView
+                    android:id="@+id/catName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/restaurant"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="5dp"
+
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+
+                android:orientation="horizontal"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:layoutDirection="ltr">
+                <Spinner
+                    android:id="@+id/spinner_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="end|center_vertical"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="right">
+                </Spinner>
+            </LinearLayout>
+        </FrameLayout>
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+
+            android:id="@+id/slider"/>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/markers_resycel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

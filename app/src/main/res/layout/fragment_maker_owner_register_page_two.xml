@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MakerOwnerRegisterPageTwo"
+    android:background="@color/send_blue">
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginStart="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginRight="10dp"
+    >
+    <TextView
+        android:id="@+id/textView15h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Franchises"
+        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:background="@color/blue_subscribtion_button"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp">
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/institutionname"
+        android:gravity="start"
+
+        android:textColor="@color/white"
+        />
+
+        <EditText
+            android:id="@+id/company_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/owner_register_editext_back"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+
+            android:paddingLeft="5dp"
+            android:paddingStart="5dp"
+            android:text="@null" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.7"
+                android:gravity="center_vertical"
+                android:text="@string/type"
+                android:textColor="@color/white"
+                 />
+
+            <RadioGroup
+                android:id="@+id/type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.3"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/instit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/white"
+
+                    android:text="@string/institution"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/com"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/white"
+
+                    android:text="@string/company"
+                    android:textColor="@color/white" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="5dp"
+                android:layout_marginEnd="5dp">
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/white"/>
+
+                <EditText
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/owner_register_editext_back"
+                    android:ems="10"
+                    android:paddingLeft="5dp"
+                    android:paddingStart="5dp"
+                    android:inputType="number"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textVidew19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fax"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/white"/>
+
+                <EditText
+                    android:id="@+id/fax"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/owner_register_editext_back"
+                    android:ems="10"
+
+                    android:paddingLeft="5dp"
+                    android:paddingStart="5dp"
+                    android:inputType="number"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/category1"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/owner_register_editext_back"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+            <Spinner
+                android:id="@+id/cat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="5dp"
+                android:layout_marginEnd="5dp">
+
+
+                <TextView
+                    android:id="@+id/textViewss19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/manager"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/white"/>
+
+                <EditText
+                    android:id="@+id/manager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/owner_register_editext_back"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingStart="5dp"
+                    android:paddingBottom="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tesdsxtVidew19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/transference"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/white"/>
+
+                <EditText
+                    android:id="@+id/conversion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/owner_register_editext_back"
+                    android:ems="10"
+
+                    android:paddingLeft="5dp"
+                    android:paddingStart="5dp"
+                    android:inputType="number"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/complete_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/owner_register_editext_back"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="@string/completeRegister"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+</LinearLayout>
+</android.support.v4.widget.NestedScrollView>

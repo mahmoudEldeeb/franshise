@@ -1,0 +1,312 @@
+<resources>
+    <string name="app_name">Franshise</string>
+    <string name="arabic">العربية</string>
+    <string name="english">ENGLISH</string>
+    <string name="username_or_mail">User Name or Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="new_user">New User</string>
+
+    <string name="name">Name</string>
+    <string name="user_name">User Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="email">Email</string>
+    <string name="confirm_email">Confirm Email</string>
+    <string name="country">Country</string>
+    <string name="phone">Phone</string>
+    <string name="city">City</string>
+    <string name="read_rules">Read rules</string>
+    <array name="countries">
+        <item>soudea</item>
+        <item>soudea</item>
+        <item>soudea</item>
+    </array>
+    <string name="data">My data</string>
+    <string name="all">All</string>
+    <string name="confirm_line1">To complete your register</string>
+    <string name="confirm_line2">Please write the number what sent to your email</string>
+    <string name="confirm_line3">Consist from five numbers</string>
+    <string name="confirm">Confirm</string>
+    <string name="title_activity_main">Main</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="home">Home</string>
+    <string name="category">Categorys</string>
+    <string name="favourite">Favourite</string>
+    <string name="search">Search</string>
+    <string name="notification">Notification</string>
+
+
+    <string name="main_category">Main Categorys</string>
+
+    <string name="restaurant">resturant</string>
+
+    <string-array name="markersdetails">
+        <item>Country Of Origin </item>
+        <item>Date Established </item>
+        <item>Number Of Unit (Local) </item>
+        <item>Number Of Unit (Outside) </item>
+        <item>Average Area Per Location </item>
+        <item>Average InvestmentPer Single Unit in (USD)   </item>
+        <item>Term of Franchise Agreement </item>
+        <item>Monthly Royality </item>
+        <item>Marketing Fee (Genral) </item>
+        <item>Priority Markets for Franchise Expansion </item>
+    </string-array>
+    <string name="change">change</string>
+    <string name="moredeteails">more deteails</string>
+    <string name="fav">Add to favourite</string>
+    <string name="Sendtoconsultants">Send to consultants</string>
+    <string name="Sendtothefranchise">Send to franchise</string>
+    <string name="change_password">change password and user name</string>
+    <string name="sendpassword">dear customer we send the new password to your mail</string>
+    <string-array name="markersdetailsarabic">
+        <item> بلدالمنشأ</item>
+        <item>تاريخ التاسيس</item>
+        <item>عدد الفروع (محلى)</item>
+        <item> عدد الفروع (خارجى)</item>
+        <item> متوسط المساحة المخصصة لكل منفذ تسويق</item>
+        <item> متوسط الاستثمار فى كل منفذ تسويقى (دولار امريكى)  </item>
+        <item> مدة اتفاقية الامتياز التجارى</item>
+
+        <item>عمولة المبيعات الشهرية</item>
+        <item>عمولة التسويق (عام)</item>
+        <item> اولوية الاسواق المستهدفة للتوسع والانتشار </item>
+    </string-array>
+
+    <string name="details_line1">Country Of Origin بلدالمنشأ</string>
+    <string name="details_line2">Date Established تاريخ التاسيس</string>
+    <string name="details_line3">Number Of Unit (Local) (عدد الفروع (محلى</string>
+    <string name="details_line4">Number Of Unit (Outside) (عدد الفروع (خارجى</string>
+    <string name="details_line5">Average Area Per Location متوسط المساحة المخصصة لكل منفذ تسويق</string>
+    <string name="details_line6">Average InvestmentPer Single Unit in (USD) (متوسط الاستثمار فى كلمنفذ تسويقى (دولار امريكى  </string>
+    <string name="details_line7">Term of Franchise Agreement مدة اتفاقية الامتياز التجارى</string>
+    <string name="details_line8">Area Development Franchise Fees (USD) رسوم الامتياز التجارى تطوير منطقة</string>
+    <string name="details_line9">Single Unit Franchise (individual)(USD) (رسوم الامتباز التجارى منفذ تسويق (فرع واحد </string>
+    <string name="details_line10">Monthly Royality عمولة المبيعات الشهرية</string>
+    <string name="details_line11">Marketing Fee (Genral) (عمولة التسويق (عام</string>
+    <string name="details_line12">Priority Markets for Franchise Expansion اولوية الاسواق المستهدفة للتوسع والانتشار </string>
+    <string name="silver_package">Silver Package</string>
+    <string name="dimond_package">Diamond Package</string>
+    <string name="golden_package">Golden Package</string>
+
+
+    <string name="CountryOfOrigin">Country Of Origin</string>
+    <string name="DateEstablished">Date Established</string>
+    <string name="numberofbranches">number of branches local</string>
+    <string name="Average_space">Average space per sale port</string>
+
+
+    <string name="Typeofscholarship">Type of scholarship available</string>
+    <string name="Commercialconcession">Commercial concession Development of one branch area</string>
+    <string name="MajorCommercial">Major Commercial Franchise</string>
+    <string-array name="commission">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
+        <item>38</item>
+        <item>39</item>
+        <item>40</item>
+        <item>41</item>
+        <item>42</item>
+        <item>43</item>
+        <item>44</item>
+        <item>45</item>
+        <item>46</item>
+        <item>47</item>
+        <item>48</item>
+        <item>49</item>
+        <item>50</item>
+        <item>51</item>
+        <item>52</item>
+        <item>53</item>
+        <item>54</item>
+        <item>55</item>
+        <item>56</item>
+        <item>57</item>
+        <item>58</item>
+        <item>59</item>
+        <item>60</item>
+        <item>61</item>
+        <item>62</item>
+        <item>63</item>
+        <item>64</item>
+        <item>65</item>
+        <item>66</item>
+        <item>67</item>
+        <item>68</item>
+        <item>69</item>
+        <item>70</item>
+        <item>71</item>
+        <item>72</item>
+        <item>73</item>
+        <item>74</item>
+        <item>75</item>
+        <item>76</item>
+        <item>77</item>
+        <item>78</item>
+        <item>79</item>
+        <item>80</item>
+        <item>81</item>
+        <item>82</item>
+        <item>83</item>
+        <item>84</item>
+        <item>85</item>
+        <item>86</item>
+        <item>87</item>
+        <item>88</item>
+        <item>89</item>
+        <item>90</item>
+        <item>91</item>
+        <item>92</item>
+        <item>93</item>
+        <item>94</item>
+        <item>95</item>
+        <item>96</item>
+        <item>97</item>
+        <item>98</item>
+        <item>99</item>
+        <item>100</item>
+    </string-array>
+
+    <string name="Averagetotal">Average total investment to the sales outlet
+</string>
+    <string name="TermoftheCommercial">Term of the Commercial Concession Agreement
+</string>
+    <string name="Thepriority">The priority of the target markets is to expand and spread</string>
+
+    <string name="setting">Settings</string>
+    <string name="franshise">what is the franshise</string>
+    <string name="events">Events and exhibitions</string>
+    <string name="training">training courses</string>
+    <string name="services">our services</string>
+    <string name="terms">Terms and Conditions</string>
+    <string name="subscriptions">Subscriptions</string>
+    <string name="share">share</string>
+    <string name="questions">common questions</string>
+    <string name="contact">contact with us</string>
+    <string name="myfranchise">My Franchises</string>
+    <string name="logout">log out</string>
+    <string name="language">عربى</string>
+    <string name="Complaints">Complaints and Suggestions</string>
+
+    <string name="mony">Mony</string>
+    <string name="categories">Categories</string>
+
+    <string name="ToMangmentFranchise">To the Mangment of Franchise</string>
+    <string name="Send">Send</string>
+
+    <string name="Attachphotobank">Attach the photo of the bank deposit</string>
+    <string name="subscription">Subscription</string>
+    <string name="dearCustomer">
+Dear customer
+        make sure to attach the bank deposit slip to
+        the selected subscription value before completing the subscription process</string>
+
+    <string name="complaint">Complaint</string>
+    <string name="suggestion">Suggestion</string>
+    <string name="inquiry">Inquiry</string>
+
+    <string name="Franchises">Franchises</string>
+    <string name="franchisesregisterpleas">Dear Customer You must register before you add or modify your Franchises</string>
+
+    <string name="institutionname">Institution Name</string>
+    <string name="type">Type</string>
+    <string name="company">Company</string>
+    <string name="institution">Institution</string>
+
+    <string name="fax">Fax</string>
+    <string name="category1">Category</string>
+    <string name="manager">Manager of Franchise</string>
+    <string name="transference">Transference</string>
+    <string name="completeRegister">Complete Register</string>
+    <string name="add_franchises">Add Franchise</string>
+    <string name="next">NEXT</string>
+    <string name="brief_about">Brief about the Franchise</string>
+    <string name="nomore">No more than 450 word please</string>
+    <string name="existing">Existing</string>
+    <string name="Underconstruction">Under construction</string>
+
+    <string name="multi_unit">Multi unit</string>
+    <string name="outlet">outlet (one branch)</string>
+    <string name="monthly_commissions">Monthly commissions</string>
+    <string name="property_commission">Property commission</string>
+    <string name="marketing_commission">Marketing commission</string>
+    <string name="other">other</string>
+
+    <string name="images_franchises">Image of Franchise</string>
+    <string name="images_products">Image of Products</string>
+
+    <string name="upload_franchise">upload the Franchise</string>
+    <string name="delete">delete</string>
+    <string name="emailwrong">Email is wrong rewrite itagain please</string>
+    <string name="fill_data">fill all data field</string>
+
+    <string name="incorrect">user name or password incorect</string>
+    <string name="register">register</string>
+    <string name="code_wrong">the code is wrong try again</string>
+
+    <string name="base_url">http://192.168.1.107/franchise/api/</string>
+    <string name="base_image_url">http://192.168.1.107/franchise/public/uploads/thumbs/</string>
+    <string name="title_activity_franchises_of_category">FranchisesOfCategory</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="Commercial_Concession">http://192.168.1.107/franchise/api/page/en/Commercial_Concession</string>
+
+    <string name="questionss">http://192.168.1.107/franchise/api/page/en/questions</string>
+
+    <string name="termss">http://192.168.1.107/franchise/api/page/en/terms</string>
+
+    <string name="service">http://192.168.1.107/franchise/api/services/en</string>
+    <string name="courses">http://192.168.1.107/franchise/api/courses/en</string>
+    <string name="conferances">http://192.168.1.107/franchise/api/conferances/en</string>
+    <string name="title_activity_franchise_view">FranchiseView</string>
+    <string name="title_activity_navigation_show">NavigationShow</string>
+    <string name="title_activity_franchise_of_category">FranchiseOfCategory</string>
+    <string name="title_activity_setting">Setting</string>
+    <string name="title_activity_my_data">MyData</string>
+    <string name="meter">m²</string>
+</resources>

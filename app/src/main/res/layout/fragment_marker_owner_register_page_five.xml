@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MarkerOwnerRegisterPageFive"
+    android:orientation="vertical"
+    android:background="@color/send_blue"
+
+    >
+
+    <TextView
+        android:id="@+id/textView15h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_subscribtion_button"
+        android:paddingStart="20dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:text="@string/add_franchises"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/next"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="@color/white"
+    android:textSize="15dp"
+    android:text="@string/Typeofscholarship"
+    />
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/spaceParent"
+           android:orientation="vertical">
+
+       </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/monthly_commissions"
+            android:textColor="@color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:weightSum="100"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageCheck1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="10"
+                android:src="@drawable/sub" />
+            <TextView
+                android:id="@+id/checkBox4"
+                android:layout_width="0dp"
+                android:layout_weight="60"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/property_commission"
+                android:textColor="@color/white"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                />
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="30"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/owner_register_editext_back"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                >
+
+                <Spinner
+                    android:id="@+id/propirty_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/commission"
+
+                    />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="%"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+                android:weightSum="100"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageCheck2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="10"
+                android:src="@drawable/sub" />
+            <TextView
+                android:id="@+id/chegckBox4"
+                android:layout_width="0dp"
+                android:layout_weight="60"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/marketing_commission"
+                android:textColor="@color/white"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+
+                />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="30"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/owner_register_editext_back"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <Spinner
+                    android:id="@+id/market_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/commission"
+
+                    />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textVhiew27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="%"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+                android:weightSum="100"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageCheck3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="10"
+                android:src="@drawable/sub" />
+            <TextView
+                android:id="@+id/chegckBdfox4"
+                android:layout_width="0dp"
+                android:layout_weight="10"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+               android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="@string/other"
+                android:textColor="@color/white"
+                android:checked="true"/>
+
+            <EditText
+                android:id="@+id/other_commsion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="50"
+                android:background="@drawable/owner_register_editext_back"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="30"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/owner_register_editext_back"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <Spinner
+                    android:id="@+id/other_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/commission"
+
+                    />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tegxtVhiew27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="%"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/nextpage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/owner_register_editext_back"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="next" />
+
+
+    </LinearLayout>
+</ScrollView>
+
+</LinearLayout>

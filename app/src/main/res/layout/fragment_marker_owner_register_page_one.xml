@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.MarkerOwnerRegisterPageOne"
+    android:background="@color/send_blue"
+    >
+
+    <TextView
+        android:id="@+id/textView15h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Franchises"
+        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:background="@color/blue_subscribtion_button"/>
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/franchisesregisterpleas"
+        android:gravity="center"
+        android:background="@color/blue_subscribtion_button"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/white"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        />
+
+    <Button
+        android:id="@+id/complete_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/white"
+
+        android:text="@string/completeRegister" />
+</LinearLayout>

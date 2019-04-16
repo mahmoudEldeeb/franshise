@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:weightSum="100"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activites.FranchiseView"
+    tools:showIn="@layout/app_bar_franchise_view"
+    >
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="92"
+    tools:layout_editor_absoluteY="2dp" >
+
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="@drawable/marker_back"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/slider"/>
+
+
+
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/slider">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/marker_back"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="5dp"
+                android:text="."
+                app:layout_constraintBottom_toBottomOf="@+id/scrollView3"
+                app:layout_constraintEnd_toEndOf="@+id/scrollView3"
+                app:layout_constraintStart_toStartOf="@+id/scrollView3"
+                app:layout_constraintTop_toTopOf="@+id/scrollView3" />
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/marker_details_resycle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/slider"
+
+                />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="108dp"
+        android:src="@drawable/company"
+        app:civ_border_color="@color/white"
+        app:civ_border_width="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/slider"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="@+id/slider"
+        app:layout_constraintTop_toTopOf="@+id/slider" />
+
+</android.support.constraint.ConstraintLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="10"
+    android:gravity="center_vertical">
+
+    <Button
+        android:id="@+id/send_to_own"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/red"
+        android:textSize="10dp"
+        android:text="@string/Sendtoconsultants"
+        />
+
+    <Button
+        android:id="@+id/send_to_marker"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_weight="1"
+        android:textSize="10dp"
+        android:background="@color/blue"
+        android:text="@string/Sendtothefranchise" />
+
+
+    <Button
+        android:id="@+id/fav"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#159f5c"
+        android:text="@string/fav"
+        android:textSize="10dp"/>
+
+</LinearLayout>
+</LinearLayout>

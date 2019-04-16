@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.Search">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@color/login_gray"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_search_black_24dp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/search"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/search_page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/search"
+            android:textSize="30dp"
+            android:gravity="start"
+            />
+         <RelativeLayout
+            android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+
+             <EditText
+                 android:id="@+id/search_word"
+                 android:layout_width="match_parent"
+                 android:layout_height="50dp"
+                 android:background="@drawable/login_edittext"
+                 android:ems="10"
+                 android:inputType="textPersonName" />
+            </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textVisew9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mony"
+            android:textSize="30dp"
+            android:gravity="start"
+            android:layout_marginTop="20dp"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/register_edittext">
+            <Spinner
+                android:id="@+id/money_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textsView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/category"
+            android:textSize="30dp"
+            android:gravity="start"
+            android:layout_marginTop="20dp"
+            />
+        <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@drawable/register_edittext">
+    <Spinner
+            android:id="@+id/spinner_cat"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+             />
+</RelativeLayout>
+        <Button
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/send_button_back"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/search"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/franchise_res"
+        android:layout_marginTop="50dp"
+        android:visibility="gone"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+</FrameLayout>
+
+</FrameLayout>

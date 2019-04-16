@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MarkerOwnerRegisterPagetHREE"
+    android:background="@color/send_blue"
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    >
+
+    <TextView
+        android:id="@+id/textView15h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_franchises"
+        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:background="@color/blue_subscribtion_button"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textColor="@color/white"
+
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"/>
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/owner_register_editext_back"
+        android:ems="10"
+
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:inputType="textPersonName"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:text="@null" />
+
+    <TextView
+        android:id="@+id/textViewh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/category1"
+        android:textColor="@color/white"
+
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/owner_register_editext_back">
+        <Spinner
+            android:id="@+id/spinner_cat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/brief_about"
+        android:textColor="@color/white"
+
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        >
+
+        <EditText
+            android:id="@+id/about_franchise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/owner_register_editext_back"
+            android:ems="10"
+            android:gravity="top|start"
+            android:inputType="textMultiLine"
+            android:lines="13"
+            android:text="@null"
+            android:paddingBottom="20dp"/>
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nomore"
+            android:textColor="@color/red"
+            android:gravity="center"
+            android:layout_gravity="bottom"/>
+    </FrameLayout>
+
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/owner_register_editext_back"
+        android:text="@string/next" />
+
+
+</LinearLayout>
+</ScrollView>
