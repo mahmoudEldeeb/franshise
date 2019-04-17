@@ -2,16 +2,26 @@ package com.franshise.franshise.models.dataModels;
 
 import com.franshise.franshise.models.BannarModel;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class FranchiseModel
+public class
+FranchiseModel implements Serializable
 {
     private  int id,franchise_type_id,franchise_type_value;
     private String details;
     private String name;
+    private int category_id;
+
+    public int getCategory_id() {
+        return category_id;
+    }
+
+    public void setCategory_id(int category_id) {
+        this.category_id = category_id;
+    }
+
     private DataModel countries;
-
-
 
     private String establish_date,image,other_commission;
             private int existing_local_branch,undercost_local_branch,existing_outside_branch,undercost_outside_branch

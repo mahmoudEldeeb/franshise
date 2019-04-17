@@ -35,7 +35,6 @@ public class SplashActivity extends AppCompatActivity {
                     overridePendingTransition(R.anim.push_up_enter, R.anim.push_up_exit);
                 }
             else {
-                    new SharedPrefrenceModel(SplashActivity.this).setFirstTime(true);
                     startActivity(new Intent(SplashActivity.this, LanguageActivity.class)
                             .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
                     overridePendingTransition(R.anim.push_up_enter, R.anim.push_up_exit);

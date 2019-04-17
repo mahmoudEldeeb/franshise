@@ -7,6 +7,7 @@ import com.franshise.franshise.models.ResultNetworkModels.FranchiseResultModel;
 import com.franshise.franshise.models.ResultNetworkModels.FranchiseResultsView;
 import com.franshise.franshise.models.ResultNetworkModels.FranchisesResult;
 import com.franshise.franshise.models.ResultNetworkModels.PeriodResult;
+import com.franshise.franshise.models.ResultNetworkModels.SubscribtioResult;
 import com.franshise.franshise.models.ResultNetworkModels.UserProfileResult;
 import com.franshise.franshise.models.dataModels.CategorysModels;
 import com.franshise.franshise.models.dataModels.StatusModel;
@@ -216,5 +217,14 @@ public interface NetworkData {
     Single<FranchisesResult> search(@Field("name") String name,
                                     @Field("min") int min, @Field("max") int max,
                                     @Field("category_id") int category_id);
+    @GET("subscription-types")
+    Single<SubscribtioResult> subscription_types();
+    @Multipart
+    @POST("new-subscription")
+    Single<StatusModel> new_subscription(@Part("user_id") RequestBody user_id,
+                                         @Part("subscriptiontype_id") RequestBody subscriptiontype_id,@Part MultipartBody.Part imagepart);
+
+
+
 
 }

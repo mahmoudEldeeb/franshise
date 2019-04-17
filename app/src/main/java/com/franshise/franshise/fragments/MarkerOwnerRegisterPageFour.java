@@ -31,6 +31,7 @@ import com.franshise.franshise.interfaces.FragmentTransformer;
 import com.franshise.franshise.models.ResultNetworkModels.DataResult;
 import com.franshise.franshise.models.SharedPrefrenceModel;
 import com.franshise.franshise.models.dataModels.CreatFranchiseModel;
+import com.franshise.franshise.models.dataModels.FranchiseModel;
 import com.franshise.franshise.viewmodels.CreateFranchiseViewModel;
 
 import java.text.SimpleDateFormat;
@@ -68,6 +69,7 @@ EditText origin,local_exist,local_under,out_exist,out_under;
     CreateFranchiseViewModel createFranchiseViewModel;
       DataResult dataResult1;
      int spacecount=0;
+     FranchiseModel franchiseModel;
     List<String>countryList=new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -83,8 +85,25 @@ EditText origin,local_exist,local_under,out_exist,out_under;
         local_under=view.findViewById(R.id.local_under);
         out_exist=view.findViewById(R.id.out_exist);
         out_under=view.findViewById(R.id.out_under);
+        Bundle bundle=getArguments();
+
+        if(bundle!=null) {
+            Log.v("aaaaa",bundle.getInt("loc_exist")+"");
+        local_exist.setText(bundle.getInt("loc_exist")+"");
+        local_under.setText(bundle.getInt("loc_under")+"");
+        out_under.setText(bundle.getInt("out_under")+"");
+        out_exist.setText(bundle.getInt("out_exist")+"");
+        ArrayList<String>spaces=bundle.getStringArrayList("spaces");
+        date.setText(bundle.getString("date"));
+        Log.v("aaaaaaaa",spaces.size()+"");
+            for(int j=0;j<spaces.size();j++){
+                addElement(spaces.get(j));
+            }
+
+        }else addElement("");
             spaceArray=new ArrayList<>();
-        addElement("");
+
+
 
 countryIdList=new ArrayList<>();
         adp1 = new ArrayAdapter<String>(getActivity(),
@@ -106,7 +125,6 @@ if(count==0) {
 }
 else {
     putCountrys(dataResult1);
-
     AddFranchiseData addFranchiseData= (AddFranchiseData) getActivity();
     CreatFranchiseModel data=addFranchiseData.getData();
     for(int j=0;j>data.getSpaceModels().size();j++){
@@ -154,10 +172,6 @@ date.setText(data.getDate());
             }
         });
 
-
-
-
-
         DatePickerDialog.OnDateSetListener date1 = new DatePickerDialog.OnDateSetListener() {
 
             @Override
@@ -192,6 +206,7 @@ date.setText(data.getDate());
         date.setText(sdf.format(myCalendar.getTime()));
     }
     private void addElement(String val) {
+        Log.v("aaaaa","fghjk");
         View view1=layoutInflater.inflate(R.layout.space_model, spaceParent, false);
         re=view1.findViewById(R.id.re);
         re.setText("Model "+i);

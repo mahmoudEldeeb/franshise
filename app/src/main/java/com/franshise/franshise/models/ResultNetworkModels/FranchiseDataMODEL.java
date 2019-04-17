@@ -2,9 +2,10 @@ package com.franshise.franshise.models.ResultNetworkModels;
 
 import com.franshise.franshise.models.BannarModel;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class FranchiseDataMODEL {
+public class FranchiseDataMODEL implements Serializable {
     List<String>data;
     List<String>franchiseType;
     List<BannarModel>images;

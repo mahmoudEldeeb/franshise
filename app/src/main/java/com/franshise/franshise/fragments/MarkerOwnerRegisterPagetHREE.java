@@ -50,16 +50,26 @@ static CategorysResult categorysResult=new CategorysResult();
     Button complete_register;
     ArrayAdapter<String> adp1;
     List<String> list=new ArrayList<>();
+    Bundle bundle;
+    int cat_id=-1;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_marker_owner_register_paget_hree, container, false);
+        bundle=getArguments();
+
         next=view.findViewById(R.id.next);
         about_franchise=view.findViewById(R.id.about_franchise);
         name=view.findViewById(R.id.name);
         spinner_cat=view.findViewById(R.id.spinner_cat);
-
+        if(bundle!=null)
+        {
+            name.setText(bundle.getString("name"));
+            cat_id=bundle.getInt("cat_id");
+            about_franchise.setText(bundle.getString("about"));
+        }
         categoryList=new ArrayList<>();
         adp1 = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_list_item_1, list);
@@ -88,7 +98,7 @@ static CategorysResult categorysResult=new CategorysResult();
                 if(!about_franchise.getText().toString().isEmpty()||!name.getText().toString().isEmpty()||
                         categoryList.get(spinner_cat.getSelectedItemPosition())==null){
                     if(getcount(about_franchise.getText().toString())<=450){
-                fragmentTransformer= (FragmentTransformer) getActivity();
+                    fragmentTransformer= (FragmentTransformer) getActivity();
                 addFranchiseData.addfromFragmentthree(about_franchise.getText().toString(),name.getText().toString(),
                         categoryList.get(spinner_cat.getSelectedItemPosition()));
                 selected=spinner_cat.getSelectedItemPosition();
@@ -105,7 +115,6 @@ static CategorysResult categorysResult=new CategorysResult();
 
             CustomProgressDialog.showProgress(getActivity());
             homeViewModel.getCategorys().observe(MarkerOwnerRegisterPagetHREE.this,categoryObserver);
-
         }
         else {
             putCategory();
@@ -124,7 +133,6 @@ static CategorysResult categorysResult=new CategorysResult();
         }
     }
 
-
     public int getcount(String str){
     String words = str.trim();
     if (words.isEmpty())
@@ -142,7 +150,15 @@ static CategorysResult categorysResult=new CategorysResult();
             }
         }
         adp1.notifyDataSetChanged();
-        spinner_cat.setSelection(selected);
+        spinner_cat.setSelection(getselectionposition(cat_id));
+    }
+
+    public int getselectionposition(int id){
+        int selection=0;
+        for(int i=0;i<categoryList.size();i++){
+            if(id==categoryList.get(i))selection=i;
+        }
+        return selection;
     }
 }
 

@@ -1,6 +1,8 @@
 package com.franshise.franshise.models.dataModels;
 
-public class PortModel {
+import java.io.Serializable;
+
+public class PortModel implements Serializable {
     private String space;
     private String total_Investment;
 
