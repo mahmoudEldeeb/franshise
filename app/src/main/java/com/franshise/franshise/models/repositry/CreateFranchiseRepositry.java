@@ -53,6 +53,126 @@ public class CreateFranchiseRepositry {
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
 
     }
+    public static Single<StatusModel> updateFranchise(int franchiseId,List<MultipartBody.Part> imagespart, MultipartBody.Part imagepart,List<Integer>ids, CreatFranchiseModel model, int id){
+
+        return RetrofitConnections.getNetworkConnection().updatefranchise(
+                createPartFromString(franchiseId+""),
+                createPartFromString(model.getName()),
+                createPartFromString(id+""),
+                createPartFromString(model.getDetails())
+                ,createPartFromString(""+model.getCat_id()),
+                createPartFromString(model.getOrigin()+""),
+                createPartFromString(model.getDate()),
+                createPartFromString(model.getPeriodId()+""),
+                createPartFromString(model.getLoca_exist()+"")
+                ,createPartFromString(model.getLocal_under()+""),
+                createPartFromString(model.getOut_exist()+""),
+                createPartFromString(model.getOut_under()+""),
+                createPartFromString(model.getOtherCommsionName()+""),
+                createPartFromString(model.getOtherCommsion()+""),
+                imagespart,imagepart,ids,
+                model.getFranchiseTypeIds(),
+                model.getFranchiseTypeValues(),
+                createPartFromString(model.getPropertyCommsion()+""),
+                createPartFromString(model.getMarketCommsion()+""),
+                model.getMarketCounties(),
+                model.getSpaceModels()
+                ,model.getInvestModels())
+
+                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+
+    }
+
+    public static Single<StatusModel> updateFranchise(int franchiseId,List<MultipartBody.Part> imagespart,List<Integer>ids, CreatFranchiseModel model, int id){
+
+        return RetrofitConnections.getNetworkConnection().updatefranchise(
+                createPartFromString(franchiseId+""),
+                createPartFromString(model.getName()),
+                createPartFromString(id+""),
+                createPartFromString(model.getDetails())
+                ,createPartFromString(""+model.getCat_id()),
+                createPartFromString(model.getOrigin()+""),
+                createPartFromString(model.getDate()),
+                createPartFromString(model.getPeriodId()+""),
+                createPartFromString(model.getLoca_exist()+"")
+                ,createPartFromString(model.getLocal_under()+""),
+                createPartFromString(model.getOut_exist()+""),
+                createPartFromString(model.getOut_under()+""),
+                createPartFromString(model.getOtherCommsionName()+""),
+                createPartFromString(model.getOtherCommsion()+""),
+                imagespart,ids,
+                model.getFranchiseTypeIds(),
+                model.getFranchiseTypeValues(),
+                createPartFromString(model.getPropertyCommsion()+""),
+                createPartFromString(model.getMarketCommsion()+""),
+                model.getMarketCounties(),
+                model.getSpaceModels()
+                ,model.getInvestModels())
+
+                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+
+    }
+    public static Single<StatusModel> updateFranchise(int franchiseId, MultipartBody.Part imagepart,List<Integer>ids, CreatFranchiseModel model, int id){
+
+        return RetrofitConnections.getNetworkConnection().updatefranchise(
+                createPartFromString(franchiseId+""),
+                createPartFromString(model.getName()),
+                createPartFromString(id+""),
+                createPartFromString(model.getDetails())
+                ,createPartFromString(""+model.getCat_id()),
+                createPartFromString(model.getOrigin()+""),
+                createPartFromString(model.getDate()),
+                createPartFromString(model.getPeriodId()+""),
+                createPartFromString(model.getLoca_exist()+"")
+                ,createPartFromString(model.getLocal_under()+""),
+                createPartFromString(model.getOut_exist()+""),
+                createPartFromString(model.getOut_under()+""),
+                createPartFromString(model.getOtherCommsionName()+""),
+                createPartFromString(model.getOtherCommsion()+""),
+                imagepart,ids,
+                model.getFranchiseTypeIds(),
+                model.getFranchiseTypeValues(),
+                createPartFromString(model.getPropertyCommsion()+""),
+                createPartFromString(model.getMarketCommsion()+""),
+                model.getMarketCounties(),
+                model.getSpaceModels()
+                ,model.getInvestModels())
+
+                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+
+    }
+    public static Single<StatusModel> updateFranchise(int franchiseId,List<Integer>ids, CreatFranchiseModel model, int id){
+
+        return RetrofitConnections.getNetworkConnection().updatefranchise(
+                createPartFromString(franchiseId+""),
+                createPartFromString(model.getName()),
+                createPartFromString(id+""),
+                createPartFromString(model.getDetails())
+                ,createPartFromString(""+model.getCat_id()),
+                createPartFromString(model.getOrigin()+""),
+                createPartFromString(model.getDate()),
+                createPartFromString(model.getPeriodId()+""),
+                createPartFromString(model.getLoca_exist()+"")
+                ,createPartFromString(model.getLocal_under()+""),
+                createPartFromString(model.getOut_exist()+""),
+                createPartFromString(model.getOut_under()+""),
+                createPartFromString(model.getOtherCommsionName()+""),
+                createPartFromString(model.getOtherCommsion()+""),
+                ids,
+                model.getFranchiseTypeIds(),
+                model.getFranchiseTypeValues(),
+                createPartFromString(model.getPropertyCommsion()+""),
+                createPartFromString(model.getMarketCommsion()+""),
+                model.getMarketCounties(),
+                model.getSpaceModels()
+                ,model.getInvestModels())
+
+                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+
+    }
+
+
+
     @NonNull
     private static RequestBody createPartFromString(String descriptionString) {
       //   RequestBody.create(
@@ -60,6 +180,7 @@ public class CreateFranchiseRepositry {
         return RequestBody.create(MediaType.parse("text/plain"), descriptionString);
 
     }
+
 
 
     public static Single<PeriodResult> getPeriod(){

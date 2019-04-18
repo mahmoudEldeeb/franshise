@@ -51,7 +51,7 @@ TextView marker_name,tomarker;
         from=findViewById(R.id.from);
         email=findViewById(R.id.email);
         message=findViewById(R.id.message);
-        country=findViewById(R.id.password);
+        country=findViewById(R.id.country);
         send=findViewById(R.id.send);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +69,7 @@ TextView marker_name,tomarker;
             public void onChanged(@Nullable StatusModel statusModel) {
                 CustomProgressDialog.clodseProgress();
                 Toast.makeText(getBaseContext(),statusModel.getMessage(),Toast.LENGTH_SHORT).show();
+                finish();
             }
         };
 

@@ -45,7 +45,7 @@ String type="";
         from=view.findViewById(R.id.from);
         email=view.findViewById(R.id.email);
         message=view.findViewById(R.id.message);
-        country=view.findViewById(R.id.password);
+        country=view.findViewById(R.id.country);
         send=view.findViewById(R.id.send);
         typegroup=view.findViewById(R.id.typegroup);
 

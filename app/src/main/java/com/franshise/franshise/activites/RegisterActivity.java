@@ -58,7 +58,7 @@ CheckBox rules;
         password=findViewById(R.id.password);
         city=findViewById(R.id.city);
         phone=findViewById(R.id.phone);
-        country=findViewById(R.id.password);
+        country=findViewById(R.id.country);
         phone_key=findViewById(R.id.phone_key);
         rules=findViewById(R.id.rules);
 

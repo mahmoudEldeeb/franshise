@@ -49,7 +49,7 @@ EditText email,password;
         login=findViewById(R.id.change);
         newUser=findViewById(R.id.newUser);
         email=findViewById(R.id.email);
-        password=findViewById(R.id.password);
+        password=findViewById(R.id.country);
         forget=findViewById(R.id.forget);
         forget.setOnClickListener(new View.OnClickListener() {
             @Override

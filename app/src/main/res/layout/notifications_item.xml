@@ -7,7 +7,9 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:id="@+id/noti_layout"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:weightSum="100"
+    >
 
     <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/image"
@@ -21,7 +23,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"/>
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="90"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_vertical"
@@ -58,4 +61,11 @@ android:layout_gravity="start"
             android:paddingRight="10dp"
             android:paddingEnd="10dp"/>
     </LinearLayout>
+    <ImageButton
+        android:id="@+id/edit"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_edit_black_24dp"
+        android:layout_gravity="center"/>
 </LinearLayout>

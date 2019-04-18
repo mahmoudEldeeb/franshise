@@ -42,6 +42,7 @@ import com.franshise.franshise.models.ResultNetworkModels.PeriodResult;
 import com.franshise.franshise.models.SharedPrefrenceModel;
 import com.franshise.franshise.models.dataModels.PeriodMode;
 import com.franshise.franshise.viewmodels.CreateFranchiseViewModel;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -54,7 +55,7 @@ import static android.app.Activity.RESULT_OK;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class UpdateFranchiseSix extends Fragment {
+public class UpdateFranchiseSix extends Fragment implements GiftStyleAdapter.DeleteListener{
 
 
     public UpdateFranchiseSix() {
@@ -91,6 +92,10 @@ public class UpdateFranchiseSix extends Fragment {
     ScolerTypeAdapter scolerTypeAdapter;
 int period_id=-1;
     ArrayList<String>invesList=new ArrayList<>();
+
+    ArrayList<String>imagesList=new ArrayList<>();
+    String mainImage;
+    int modelNumber=0;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -114,15 +119,28 @@ int period_id=-1;
         countryArray=new ArrayList<>();
         Bundle b=getArguments();
         if(b!=null) {
+            modelNumber=b.getInt("modelNumber");
             invesList=b.getStringArrayList("invesList");
-            for (int i = 0; i < invesList.size(); i++) {
-                addElement1(invesList.get(i));
+            for (int i = 0; i < modelNumber; i++) {
+               try{ addElement1(invesList.get(i));}
+               catch (IndexOutOfBoundsException e){
+                   addElement1("");
+               }
             }
             period_id=b.getInt("period");
             marketList=b.getIntegerArrayList("marketList");
+            mainImage=b.getString("mainImage");
+            imagesList=b.getStringArrayList("imagesList");
+
+             Picasso.get()
+                    .load(getActivity().getResources().getString(R.string.base_image_url)+
+                            mainImage)
+                    .into(images);
+            image_franchise.setVisibility(View.VISIBLE);
+
 
         }
-        // addElement2();
+        //
         fragmentTransformer= (FragmentTransformer) getActivity();
         createFranchiseViewModel= ViewModelProviders.of(this).get(CreateFranchiseViewModel.class);
 
@@ -225,7 +243,7 @@ int period_id=-1;
         RecyclerView.LayoutManager mLayoutManager1 = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
         image_res1.setLayoutManager(mLayoutManager1);
         imagelist=new ArrayList<>();
-        giftStyleAdapter=new GiftStyleAdapter(getActivity(),imagelist);
+        giftStyleAdapter=new GiftStyleAdapter(getActivity(),UpdateFranchiseSix.this::delete,imagelist,imagesList);
         image_res1.setAdapter(giftStyleAdapter);
         return  view;
     }
@@ -259,7 +277,11 @@ int period_id=-1;
         re=v1.findViewById(R.id.re);
         TextView meter=v1.findViewById(R.id.meter);
         EditText value=v1.findViewById(R.id.value);
-        value.setText(val);
+       try {
+           value.setText(val);
+       }catch (NullPointerException e){
+
+       }
         meter.setVisibility(View.GONE);
         ImageButton delete=v1.findViewById(R.id.delete);
         delete.setVisibility(View.GONE);
@@ -304,6 +326,8 @@ int period_id=-1;
         Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         pickIntent.setType("image/*");
 
+        pickIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+
         Intent chooserIntent = Intent.createChooser(getIntent, "Select Image");
         chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {pickIntent});
 
@@ -313,7 +337,6 @@ int period_id=-1;
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PICK_IMAGE) {
             if (resultCode == RESULT_OK) {
-
                 try {
                     final Uri imageUri = data.getData();
 
@@ -340,16 +363,6 @@ int period_id=-1;
             }
         }
     }
-    private boolean checkImageSize(Bitmap selectedImage) {
-        Bitmap bitmap = selectedImage;
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-        byte[] imageInByte = stream.toByteArray();
-        long lengthbmp = imageInByte.length;
-        if(lengthbmp/1024<=500)return true;
-        else return false;
-
-    }
 
     public void getInvestModelsValues(){
         Log.v("tttt","0");
@@ -374,31 +387,31 @@ int period_id=-1;
     }
 
     private void getCountry() {
-        Log.v("tttt","2");
         countryArray.clear();
         for(int i=0;i<spaceParent2.getChildCount();i++) {
             View v2 = spaceParent2.getChildAt(i);
             Spinner s = v2.findViewById(R.id.value);
+            Log.v("rrrrrrr",countryIdList.get(s.getSelectedItemPosition())+"");
             countryArray.add(countryIdList.get(s.getSelectedItemPosition()));
         }
         if(countryArray.size()==spaceParent2.getChildCount())
         {
-            if(imageFranchiseUri==null||imagesOfProdust.size()==0){
-                Toast.makeText(getActivity(),R.string.fill_data,Toast.LENGTH_SHORT).show();
-            }
-            else {
-                AddFranchiseData addFranchiseData= (AddFranchiseData) getActivity();
-                for(int i=0;i<countryArray.size();i++){
-                    Log.v("rrrr",countryArray.get(i)+"");
-                }
-                addFranchiseData.addFromFragmentSix(periodId,investArray,countryArray,imageFranchiseUri,imagesOfProdust);
-                Log.v("eee","dddd");
-                // fragmentTransformer.goToNextFragment(7);
-            }
+
+            AddFranchiseData addFranchiseData= (AddFranchiseData) getActivity();
+
+            addFranchiseData.addFromFragmentSix(periodId,investArray,countryArray,imageFranchiseUri,imagesOfProdust);
+
+
         }
     }
 
-
-
+    @Override
+    public void delete(int type, int position) {
+        Log.v("tttttt",position+"   ");
+        if(type==0){
+            imagesOfProdust.remove(position);
+           // imagelist.remove(position);
+        }
+    }
 }
 

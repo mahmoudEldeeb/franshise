@@ -27,6 +27,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -62,6 +63,7 @@ public class FranchiseOfCategory extends AppCompatActivity
     Spinner spinner_type;
     List<String>franchiseTypeList;
     List<Integer>franchiseTypeIdList;
+    ImageButton back;
     List<FranchiseModel> data1=new ArrayList<>(),dataChanged;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +88,7 @@ public class FranchiseOfCategory extends AppCompatActivity
         markers_resycel=findViewById(R.id.markers_resycel);
         markers_resycel.setNestedScrollingEnabled(false);
         slider=findViewById(R.id.slider);
-
+        back=findViewById(R.id.back);
         //      mainCategorysAdapter=new MainCategorysAdapter(this);
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -185,6 +187,12 @@ public class FranchiseOfCategory extends AppCompatActivity
        @Override
        public void onNothingSelected(AdapterView<?> parent) {
 
+       }
+   });
+   back.setOnClickListener(new View.OnClickListener() {
+       @Override
+       public void onClick(View v) {
+           onBackPressed();
        }
    });
     }

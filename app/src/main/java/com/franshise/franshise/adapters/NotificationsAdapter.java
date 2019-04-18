@@ -1,16 +1,19 @@
 package com.franshise.franshise.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.franshise.franshise.R;
+import com.franshise.franshise.activites.UpdateFranchise;
 import com.franshise.franshise.models.dataModels.CategorysModels;
 import com.franshise.franshise.models.dataModels.FranchiseModel;
 import com.squareup.picasso.Picasso;
@@ -70,7 +73,7 @@ int row_index=-1;
         TextView title,details;
         CircleImageView image;
         LinearLayout noti_layout;
-
+ImageButton edit;
         ViewHolder(View itemView) {
             super(itemView);
             image=itemView.findViewById(R.id.image);
@@ -78,6 +81,15 @@ int row_index=-1;
             details=itemView.findViewById(R.id.details);
             noti_layout=itemView.findViewById(R.id.noti_layout);
             itemView.setOnClickListener(this);
+            edit=itemView.findViewById(R.id.edit);
+            edit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(context, UpdateFranchise.class);
+                    intent.putExtra("id",list.get(getAdapterPosition()).getId());
+                    context.startActivity(intent);
+                }
+            });
             itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
@@ -107,6 +119,7 @@ row_index=-1;
             FranchiseClicked franchiseClicked= (FranchiseClicked) context;
             franchiseClicked.clicked(list.get(getAdapterPosition()).getId(),list.get(getAdapterPosition()).getName());
             notifyDataSetChanged();
+
         }
     }
 

@@ -16,17 +16,22 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-android:background="#7d7d7d"
+            android:background="@color/login_gray"
             android:focusableInTouchMode="true"
             >
             <LinearLayout
                 android:layout_width="wrap_content"
-
                 android:orientation="horizontal"
                 android:layout_height="match_parent"
                 android:layout_gravity="left"
                 android:layoutDirection="ltr">
-
+<ImageButton
+    android:id="@+id/back"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    android:src="@drawable/ic_keyboard_backspace_black_24dp"
+    android:layout_gravity="center_vertical"/>
 
                 <TextView
                     android:id="@+id/catName"
@@ -34,7 +39,7 @@ android:background="#7d7d7d"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:text="@string/restaurant"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="18dp"
                     android:textStyle="bold"
                     android:layout_marginLeft="5dp"

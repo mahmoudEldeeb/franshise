@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.franshise.franshise.R;
@@ -28,7 +27,7 @@ LoginViewModel loginViewModel;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_passowrs);
         email=findViewById(R.id.email);
-        password=findViewById(R.id.password);
+        password=findViewById(R.id.country);
         change=findViewById(R.id.change);
         loginViewModel= ViewModelProviders.of(this).get(LoginViewModel.class);
         UserModel userModel=new SharedPrefrenceModel(this).getUserModel();

@@ -226,5 +226,115 @@ public interface NetworkData {
 
 
 
+    @Multipart
+    @POST("update-franchise")
+    Single<StatusModel> updatefranchise(@Part("id") RequestBody id,
+                                        @Part("name") RequestBody name,
+                                        @Part("user_id") RequestBody user_id,
+                                        @Part("details") RequestBody details,
+                                        @Part("category_id") RequestBody category_id,
+                                        @Part("country_id") RequestBody country_id,
+                                        @Part("establish_date") RequestBody establish_date,
+                                        @Part("period_id") RequestBody period_id,
+                                        @Part("existing_local_branch") RequestBody existing_local_branch,
+                                        @Part("undercost_local_branch") RequestBody undercost_local_branch,
+                                        @Part("existing_outside_branch") RequestBody existing_outside_branch,
+                                        @Part("undercost_outside_branch") RequestBody undercost_outside_branch,
+                                        @Part("other_commission") RequestBody other_commission,
+                                        @Part("other_commission_value") RequestBody other_commission_value,
+                                        @Part List<MultipartBody.Part> banners,
+                                        @Part MultipartBody.Part imagepart,
+                                        @Part ("ids[]")List<Integer>ids,
+                                        @Part("franchise_type_id[]") List<Integer> franchise_type_id,
+                                        @Part("value[]") List<Integer> value,
+                                        @Part("owner_ship_commission") RequestBody owner_ship_commission,
+                                        @Part("marketing_commission") RequestBody marketing_commission,
+                                        @Part("franchise_market[]") List<Integer> franchise_market,
+                                        @Part("space[]") List<String> space,
+                                        @Part("total_Investment[]") List<String> total_Investment
 
+    );
+
+    @Multipart
+    @POST("update-franchise")
+    Single<StatusModel> updatefranchise(@Part("id") RequestBody id,
+                                        @Part("name") RequestBody name,
+                                        @Part("user_id") RequestBody user_id,
+                                        @Part("details") RequestBody details,
+                                        @Part("category_id") RequestBody category_id,
+                                        @Part("country_id") RequestBody country_id,
+                                        @Part("establish_date") RequestBody establish_date,
+                                        @Part("period_id") RequestBody period_id,
+                                        @Part("existing_local_branch") RequestBody existing_local_branch,
+                                        @Part("undercost_local_branch") RequestBody undercost_local_branch,
+                                        @Part("existing_outside_branch") RequestBody existing_outside_branch,
+                                        @Part("undercost_outside_branch") RequestBody undercost_outside_branch,
+                                        @Part("other_commission") RequestBody other_commission,
+                                        @Part("other_commission_value") RequestBody other_commission_value,
+                                        @Part List<MultipartBody.Part> banners,
+                                        @Part ("ids[]")List<Integer>ids,
+                                        @Part("franchise_type_id[]") List<Integer> franchise_type_id,
+                                        @Part("value[]") List<Integer> value,
+                                        @Part("owner_ship_commission") RequestBody owner_ship_commission,
+                                        @Part("marketing_commission") RequestBody marketing_commission,
+                                        @Part("franchise_market[]") List<Integer> franchise_market,
+                                        @Part("space[]") List<String> space,
+                                        @Part("total_Investment[]") List<String> total_Investment
+
+    );
+
+    @Multipart
+    @POST("update-franchise")
+    Single<StatusModel> updatefranchise(@Part("id") RequestBody id,
+                                        @Part("name") RequestBody name,
+                                        @Part("user_id") RequestBody user_id,
+                                        @Part("details") RequestBody details,
+                                        @Part("category_id") RequestBody category_id,
+                                        @Part("country_id") RequestBody country_id,
+                                        @Part("establish_date") RequestBody establish_date,
+                                        @Part("period_id") RequestBody period_id,
+                                        @Part("existing_local_branch") RequestBody existing_local_branch,
+                                        @Part("undercost_local_branch") RequestBody undercost_local_branch,
+                                        @Part("existing_outside_branch") RequestBody existing_outside_branch,
+                                        @Part("undercost_outside_branch") RequestBody undercost_outside_branch,
+                                        @Part("other_commission") RequestBody other_commission,
+                                        @Part("other_commission_value") RequestBody other_commission_value,
+                                        @Part MultipartBody.Part imagepart,
+                                        @Part ("ids[]")List<Integer>ids,
+                                        @Part("franchise_type_id[]") List<Integer> franchise_type_id,
+                                        @Part("value[]") List<Integer> value,
+                                        @Part("owner_ship_commission") RequestBody owner_ship_commission,
+                                        @Part("marketing_commission") RequestBody marketing_commission,
+                                        @Part("franchise_market[]") List<Integer> franchise_market,
+                                        @Part("space[]") List<String> space,
+                                        @Part("total_Investment[]") List<String> total_Investment
+
+    );
+
+    @Multipart
+    @POST("update-franchise")
+    Single<StatusModel> updatefranchise(@Part("id") RequestBody id,
+                                        @Part("name") RequestBody name,
+                                        @Part("user_id") RequestBody user_id,
+                                        @Part("details") RequestBody details,
+                                        @Part("category_id") RequestBody category_id,
+                                        @Part("country_id") RequestBody country_id,
+                                        @Part("establish_date") RequestBody establish_date,
+                                        @Part("period_id") RequestBody period_id,
+                                        @Part("existing_local_branch") RequestBody existing_local_branch,
+                                        @Part("undercost_local_branch") RequestBody undercost_local_branch,
+                                        @Part("existing_outside_branch") RequestBody existing_outside_branch,
+                                        @Part("undercost_outside_branch") RequestBody undercost_outside_branch,
+                                        @Part("other_commission") RequestBody other_commission,
+                                        @Part("other_commission_value") RequestBody other_commission_value,
+                                        @Part ("ids[]")List<Integer>ids,
+                                        @Part("franchise_type_id[]") List<Integer> franchise_type_id,
+                                        @Part("value[]") List<Integer> value,
+                                        @Part("owner_ship_commission") RequestBody owner_ship_commission,
+                                        @Part("marketing_commission") RequestBody marketing_commission,
+                                        @Part("franchise_market[]") List<Integer> franchise_market,
+                                        @Part("space[]") List<String> space,
+                                        @Part("total_Investment[]") List<String> total_Investment
+
+    );
 }

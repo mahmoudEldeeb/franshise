@@ -3,25 +3,39 @@ package com.franshise.franshise.adapters;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.franshise.franshise.R;
+import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GiftStyleAdapter extends RecyclerView.Adapter<GiftStyleAdapter.ViewHolder> {
 List<Bitmap>bitmapList;
-
-    public GiftStyleAdapter(Context context, List<Bitmap> imagelist) {
+    ArrayList<String> imagesList=new ArrayList<>();
+    Context context;
+    DeleteListener deleteListener;
+    public GiftStyleAdapter(Context c,DeleteListener delete, List<Bitmap> imagelist, ArrayList<String> imagesList) {
 bitmapList=imagelist;
+        this.imagesList=imagesList;
+        context=c;
+        deleteListener=delete;
     }
+
+    public GiftStyleAdapter(Context c, List<Bitmap> imagelist) {
+        bitmapList=imagelist;
+       // this.imagesList=imagesList;
+        context=c;
+    }
+
 
     // inflates the row layout from xml when needed
     @Override
@@ -33,14 +47,30 @@ bitmapList=imagelist;
 
     @Override
     public void onBindViewHolder(@NonNull GiftStyleAdapter.ViewHolder viewHolder, int i) {
-viewHolder.images.setImageBitmap(bitmapList.get(i));
+        if(imagesList.size()>0){
+            if(i>=imagesList.size())
+            {
+
+                viewHolder.images.setImageBitmap(bitmapList.get(i-imagesList.size()));
+            }
+            else {
+
+                Picasso.get()
+                        .load(context.getResources().getString(R.string.base_image_url)+
+                                imagesList.get(i))
+                        .into(viewHolder.images);
+            }
+        }
+        else
+        viewHolder.images.setImageBitmap(bitmapList.get(i));
+
     }
 
 
     // total number of rows
     @Override
     public int getItemCount() {
-        return bitmapList.size();
+        return bitmapList.size()+imagesList.size();
     }
 
 
@@ -60,9 +90,20 @@ ImageButton delete;
 
         @Override
         public void onClick(View view) {
-                bitmapList.remove(getAdapterPosition());
+            int position=getAdapterPosition();
+            DeleteListener d= (DeleteListener) context;
+            if(position<imagesList.size()) {
+                imagesList.remove(position);
+                d.delete(1,position);
+            }
+            else {
+                bitmapList.remove(position - imagesList.size());
+            deleteListener.delete(0,position-imagesList.size());
+            }
             notifyDataSetChanged();
         }
     }
-
+public  interface DeleteListener{
+        public void delete(int type,int position);
+}
 }

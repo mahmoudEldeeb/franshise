@@ -44,7 +44,13 @@ import com.franshise.franshise.models.SharedPrefrenceModel;
 import com.franshise.franshise.utils.CustomProgressDialog;
 import com.franshise.franshise.viewmodels.LoginViewModel;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
 
 public class Main extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ItemClickListener , NotificationsAdapter.FranchiseClicked {
@@ -67,6 +73,7 @@ public class Main extends AppCompatActivity
                 getBaseContext().getResources().getDisplayMetrics());
 
         setContentView(R.layout.activity_main2);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 Log.v("ppppp",new SharedPrefrenceModel(this).getId()+"");

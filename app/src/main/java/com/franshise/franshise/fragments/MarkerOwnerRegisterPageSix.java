@@ -16,7 +16,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +33,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.franshise.franshise.R;
-import com.franshise.franshise.activites.RegisterActivity;
 import com.franshise.franshise.adapters.GiftStyleAdapter;
 import com.franshise.franshise.adapters.ScolerTypeAdapter;
 import com.franshise.franshise.interfaces.AddFranchiseData;
@@ -46,7 +44,6 @@ import com.franshise.franshise.models.dataModels.PeriodMode;
 import com.franshise.franshise.viewmodels.CreateFranchiseViewModel;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -277,6 +274,7 @@ createFranchiseViewModel.getCountry(0).observe(this, new Observer<DataResult>() 
 
         Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         pickIntent.setType("image/*");
+        pickIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
 
         Intent chooserIntent = Intent.createChooser(getIntent, "Select Image");
         chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {pickIntent});

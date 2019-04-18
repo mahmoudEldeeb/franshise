@@ -142,12 +142,15 @@ public void putCategory(){
 }
 private void putMoney(){
     dataModelList = dataResult1.getData();
-    for (int i = 0; i < dataResult1.getData().size(); i++) {
+try {
+    {for (int i = 0; i < dataResult1.getData().size(); i++) {
         DataModel dataModel1 = dataResult1.getData().get(i);
         String value = dataModel1.getMin() + "-" + dataModel1.getMax();
         listMoney.add(value);
         adp1.notifyDataSetChanged();
     }
+    }
+}catch (NullPointerException e){}
 
 
 }
