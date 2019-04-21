@@ -3,6 +3,7 @@ package com.franshise.franshise.models.networks;
 import com.franshise.franshise.models.ResultNetworkModels.BannersResult;
 import com.franshise.franshise.models.ResultNetworkModels.CategorysResult;
 import com.franshise.franshise.models.ResultNetworkModels.DataResult;
+import com.franshise.franshise.models.ResultNetworkModels.EventsModelResults;
 import com.franshise.franshise.models.ResultNetworkModels.FranchiseResultModel;
 import com.franshise.franshise.models.ResultNetworkModels.FranchiseResultsView;
 import com.franshise.franshise.models.ResultNetworkModels.FranchisesResult;
@@ -75,6 +76,11 @@ public interface NetworkData {
     @FormUrlEncoded
     Single<CategorysResult> getCategorysBanner(@Field("id") int id);
 
+    @POST("get-franchise-by-type")
+    @FormUrlEncoded
+    Single<FranchiseResultModel> getFranchiseByType(@Field("type_id") int type_id,@Field("category_id") int category_id );
+
+
     @POST("getuserfranchises")
     @FormUrlEncoded
     Single<FranchisesResult> getMyFranchise(@Field("user_id") int user_id);
@@ -92,7 +98,8 @@ public interface NetworkData {
 
     @POST("register-token")
     @FormUrlEncoded
-    Single<ResponseBody> registerToken(@Field("token") String token, @Field("platform") String platform, @Field("api_token") String api_token);
+    Single<ResponseBody> registerToken(@Field("token") String token, @Field("platform") String platform, @Field("api_token") String api_token,
+                                       @Field("user_id") int user_id );
 
 
     @POST("remove-token")
@@ -159,6 +166,7 @@ public interface NetworkData {
     @POST("franchise")
     @FormUrlEncoded
     Single<FranchiseResultsView> getFranchises(@Field("id") int id);
+    //get-franchise-by-type
 
     @Multipart
     @POST("createfranchise")
@@ -217,6 +225,12 @@ public interface NetworkData {
     Single<FranchisesResult> search(@Field("name") String name,
                                     @Field("min") int min, @Field("max") int max,
                                     @Field("category_id") int category_id);
+
+    @POST("get-userdata-by-franchise")
+    @FormUrlEncoded
+    Single<ResponseBody> get_userdata_by_franchise(@Field("user_id") int user_id);
+
+
     @GET("subscription-types")
     Single<SubscribtioResult> subscription_types();
     @Multipart
@@ -337,4 +351,15 @@ public interface NetworkData {
                                         @Part("total_Investment[]") List<String> total_Investment
 
     );
+
+    @GET("services/{lang}")
+    Single<EventsModelResults> services	(@Path("lang") String lang);
+
+    @GET("courses/{lang}")
+    Single<EventsModelResults> courses(@Path("lang") String lang);
+
+    @GET("conferances/{lang}")
+    Single<EventsModelResults> conferances(@Path("lang") String lang);
+
+
 }

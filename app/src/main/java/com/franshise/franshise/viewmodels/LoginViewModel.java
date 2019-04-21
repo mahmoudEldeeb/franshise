@@ -19,6 +19,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
@@ -54,6 +57,8 @@ public LiveData<Integer> login(final Context c,String email,String password) {
                     userModel.setCountry(userObject.getString("country"));
                     userModel.setCity(userObject.getString("city"));
                     userModel.setPhone(userObject.getString("phone"));
+                    userModel.setDate(userObject.getString("end_date"));
+                    userModel.setSubscribe(userObject.getInt("subscribe"));
                     userModel.setPassword(password);
                     new SharedPrefrenceModel(c).storeUser(userModel);
 
@@ -73,7 +78,6 @@ public LiveData<Integer> login(final Context c,String email,String password) {
                 Log.v("dddddd","dfghjkl;'");
                 e.printStackTrace();
             }
-
         }
 
         @Override
@@ -168,8 +172,8 @@ LoginRepositry.removetoken(token,api_token).subscribeWith(new SingleObserver<Sta
 
         return logoutResult;
     }
-    public void registerToken(String token,String api_token){
-    LoginRepositry.registerToken(token,api_token)
+    public void registerToken(String token,String api_token,int user_id){
+    LoginRepositry.registerToken(token,api_token,user_id)
             .subscribeWith(new SingleObserver<ResponseBody>() {
                 @Override
                 public void onSubscribe(Disposable d) {

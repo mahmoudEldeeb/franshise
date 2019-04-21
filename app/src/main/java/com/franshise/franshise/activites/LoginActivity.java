@@ -75,7 +75,8 @@ EditText email,password;
 
                     new SharedPrefrenceModel(LoginActivity.this).setToken(token);
 
-            loginViewModel.registerToken(token, new SharedPrefrenceModel(LoginActivity.this).getApiToken());
+            loginViewModel.registerToken(token, new SharedPrefrenceModel(LoginActivity.this).getApiToken()
+                    ,new SharedPrefrenceModel(LoginActivity.this).getId());
 
                    // startService(i);
                     //startActivity(new Intent(LoginActivity.this,Main.class));

@@ -1,6 +1,7 @@
 package com.franshise.franshise.models;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class UserModel implements Serializable {
    private String api_token;
@@ -12,6 +13,24 @@ public class UserModel implements Serializable {
     private String phone;
     private String username;
 private String password;
+private String date;
+private int subscribe;
+
+    public int getSubscribe() {
+        return subscribe;
+    }
+
+    public void setSubscribe(int subscribe) {
+        this.subscribe = subscribe;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public String getPassword() {
         return password;

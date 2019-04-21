@@ -23,6 +23,7 @@ public class SharedPrefrenceModel {
         return preferences.getBoolean("logined",false);
     }
 
+
     public void setLogined(boolean logined) {
 
         Log.v("yyyy","ffffff");
@@ -67,7 +68,21 @@ public class SharedPrefrenceModel {
     editor.putString("city",userModel.getCity());
     editor.putString("phone",userModel.getPhone());
     editor.putString("password",userModel.getPassword());
+    editor.putString("date",userModel.getDate());
+    editor.putInt("subscribe",userModel.getSubscribe());
     editor.commit();
+}
+public int getSubscribe(){
+        return preferences.getInt("subscribe",0);
+}
+
+    public void setSubscribe(int i){
+        SharedPreferences.Editor editor=preferences.edit();
+        editor.putInt("subscribe",1);
+        editor.commit();
+    }
+public String getDate(){
+        return preferences.getString("date","2019-04-01");
 }
 public UserModel getUserModel(){
         UserModel userModel=new UserModel();

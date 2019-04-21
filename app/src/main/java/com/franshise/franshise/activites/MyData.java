@@ -308,17 +308,18 @@ name.getText().toString(),email.getText().toString(),phone.getText().toString()
                 intent.putExtra("framid",4);
                 startActivity(intent);break;
             case R.id.nav_training :
-                intent.putExtra("framid",5);
-                startActivity(intent);
-                break;
+                Intent intent1=new Intent(MyData.this,NavigationShow.class);
+                intent1.putExtra("framid",9);
+                startActivity(intent1);break;
+
             case R.id.nav_services :
-                intent.putExtra("framid",6);
-                startActivity(intent);
-                break;
-            case R.id.nav_events :
-                intent.putExtra("framid",7);
-                startActivity(intent);
-                break;
+                Intent intent2=new Intent(MyData.this,NavigationShow.class);
+                intent2.putExtra("framid",10);
+                startActivity(intent2);break;
+            case R.id.nav_events:
+                 intent=new Intent(MyData.this,NavigationShow.class);
+                intent.putExtra("framid",8);
+                startActivity(intent);break;
             case R.id.nav_share:share();break;
             case R.id.nav_logout:logOut();break;
             case R.id.nav_setting:startActivity(new Intent(MyData.this,Setting.class));break;

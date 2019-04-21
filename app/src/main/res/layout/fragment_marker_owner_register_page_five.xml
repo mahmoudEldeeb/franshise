@@ -197,7 +197,7 @@
             <TextView
                 android:id="@+id/chegckBdfox4"
                 android:layout_width="0dp"
-                android:layout_weight="10"
+                android:layout_weight="20"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                android:layout_marginLeft="5dp"
@@ -212,7 +212,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginLeft="5dp"
-                android:layout_weight="50"
+                android:layout_weight="40"
                 android:background="@drawable/owner_register_editext_back"
                 android:ems="10"
                 android:inputType="textPersonName"

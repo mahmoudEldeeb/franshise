@@ -32,8 +32,8 @@ public class LoginRepositry {
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
-    public static Single<ResponseBody> registerToken(String token,String api_token){
-        return RetrofitConnections.getNetworkConnection().registerToken(token,"android" ,api_token)
+    public static Single<ResponseBody> registerToken(String token,String api_token,int user_id){
+        return RetrofitConnections.getNetworkConnection().registerToken(token,"android" ,api_token,user_id)
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 

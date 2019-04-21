@@ -1,6 +1,7 @@
 package com.franshise.franshise.models.repositry;
 
 import com.franshise.franshise.models.ResultNetworkModels.CategorysResult;
+import com.franshise.franshise.models.ResultNetworkModels.FranchiseResultModel;
 import com.franshise.franshise.models.ResultNetworkModels.FranchisesResult;
 import com.franshise.franshise.models.networks.RetrofitConnections;
 
@@ -14,6 +15,13 @@ public class MarkerOfCategoryRepositry {
         return RetrofitConnections.getNetworkConnection().getCategorysBanner(id)
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
+
+
+    public static Single<FranchiseResultModel> getFranchiseByType(int id,int category_id){
+        return RetrofitConnections.getNetworkConnection().getFranchiseByType(id,category_id)
+                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    }
+
     public static Single<FranchisesResult> getLastFranchise(){
         return RetrofitConnections.getNetworkConnection().getLastFranchise()
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());

@@ -31,39 +31,46 @@ public class ReciveNotification extends FirebaseMessagingService {
     String CHANNEL_ID="com.franshise.franshise";
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        // ...
-
-        // TODO(developer): Handle FCM messages here.
-        // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
-       // Log.d(TAG, "From: " + remoteMessage.getFrom());
 
 
-
-        Log.v("ggggg","ffffffffffffffffffffffffffff");
-
-        Log.v( "gggggg" ,remoteMessage.getData()+"");
-       /* Log.v("ggggg",remoteMessage.getNotification().getTitle());
-Log.v("ggggggg",remoteMessage.getNotification().getBody());
-        Log.v( "gggggg" ,remoteMessage.toString()+"");
-*/
-
-//String s=remoteMessage.getNotification().getBody();
-       // Toast.makeText(this,s,Toast.LENGTH_SHORT).show();
-        //sendNotification(remoteMessage.getData()+"");
-
-        Log.v("ggggg","ffffffffffffffffffffffffffff");
-        Log.d(TAG, "gggggg" + remoteMessage.getData().get("image"));
-
-        // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
-            sendNotification(Integer.parseInt(remoteMessage.getData().get("id")),remoteMessage.getData().get("name"),remoteMessage.getData().get("details"));
+            Log.v("eeeeeee","dddddddddddddd");
+            if(new SharedPrefrenceModel(ReciveNotification.this).isNotificationOn()) {
+                Log.v("eeeeeee","dddddddddddddd");
+                if(Integer.parseInt(remoteMessage.getData().get("flag"))==0) {
+                    sendNotification(Integer.parseInt(remoteMessage.getData().get("id")), "we add a new franchise (" + remoteMessage.getData().get("name") + " )", remoteMessage.getData().get("details"));
+                }
+                else {
+                    sendNotification("new message from  " + remoteMessage.getData().get("name") + "", remoteMessage.getData().get("details"));
+
+                }
+            }}
 
 
-        }
+    }
 
+    private void sendNotification(String name, String details) {
+        createNotificationChannel();
+        Intent intent = new Intent(this, Main.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("title",name);
+        intent.putExtra("id",50);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
+                PendingIntent.FLAG_ONE_SHOT);
+        Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this,CHANNEL_ID)
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle(name)
+                .setContentText(details)
+                .setAutoCancel(true)
+                .setSound(defaultSoundUri)
+                .setContentIntent(pendingIntent);
 
-        // Also if you intend on generating your own notifications as a result of a received FCM
-        // message, here is where that should be initiated. See sendNotification method below.
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        notificationManager.notify(1 /* ID of notification */, notificationBuilder.build());
+
     }
 
     @Override
@@ -71,13 +78,7 @@ Log.v("ggggggg",remoteMessage.getNotification().getBody());
         new SharedPrefrenceModel(this).setToken(token);
         Intent i=new Intent(ReciveNotification.this, RegisterToken.class);
         i.putExtra("token",token);
-
         startService(i);
-
-        // If you want to send messages to this application instance or
-        // manage this apps subscriptions on the server side, send the
-        // Instance ID token to your app server.
-       // sendRegistrationToServer(token);
     }
     private void sendNotification(int id,String name, String details) {
         createNotificationChannel();

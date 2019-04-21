@@ -37,6 +37,7 @@ import com.franshise.franshise.adapters.ViewpagerAdapter;
 import com.franshise.franshise.interfaces.ItemClickListener;
 import com.franshise.franshise.models.ResultNetworkModels.CategorysResult;
 import com.franshise.franshise.models.ResultNetworkModels.DataResult;
+import com.franshise.franshise.models.ResultNetworkModels.FranchiseResultModel;
 import com.franshise.franshise.models.SharedPrefrenceModel;
 import com.franshise.franshise.models.dataModels.FranchiseModel;
 import com.franshise.franshise.utils.CustomProgressDialog;
@@ -63,6 +64,7 @@ public class FranchiseOfCategory extends AppCompatActivity
     Spinner spinner_type;
     List<String>franchiseTypeList;
     List<Integer>franchiseTypeIdList;
+    int count=0;
     ImageButton back;
     List<FranchiseModel> data1=new ArrayList<>(),dataChanged;
     @Override
@@ -153,6 +155,7 @@ public class FranchiseOfCategory extends AppCompatActivity
                 dataChanged.addAll(data1);
                 mainCategorysAdapter=new FranchiseListAdapter(c,dataChanged);
                 markers_resycel.setAdapter(mainCategorysAdapter);
+                count=1;
 
             }
         };
@@ -163,24 +166,23 @@ public class FranchiseOfCategory extends AppCompatActivity
        @Override
        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-           if(position!=0){
-               dataChanged.clear();
-               Log.v("asd",data1.get(0).getName()+"");
-               for (int j=0;j<data1.size();j++){
-                   Log.v("aaaa",data1.get(j).getFranchise_type_id()+"     "+franchiseTypeIdList.get(position-1));
-                   if(data1.get(j).getFranchise_type_id()==franchiseTypeIdList.get(position-1)){
-                       dataChanged.add(data1.get(j));
-                   }
-               }
-               mainCategorysAdapter.notifyDataSetChanged();
-           }
-           else {
-                dataChanged.clear();
-               dataChanged.addAll(data1);
-               try{
+           if (position == 0) {
+               if (count != 0) {
+                   dataChanged.clear();
+                   dataChanged.addAll(data1);
                    mainCategorysAdapter.notifyDataSetChanged();
                }
-               catch (NullPointerException e){}
+           } else {
+               markerOfCategoryViewModel.getFranchiseByType(franchiseTypeIdList.get(position - 1),getIntent().getIntExtra("id",0)).
+                       observe(FranchiseOfCategory.this, new Observer<FranchiseResultModel>() {
+                           @Override
+                           public void onChanged(@Nullable FranchiseResultModel franchiseResultModel) {
+                               Log.v("wwwww",franchiseTypeIdList.get(position-1)+"");
+                               dataChanged.clear();
+                               dataChanged.addAll(franchiseResultModel.getData());
+                               mainCategorysAdapter.notifyDataSetChanged();
+                           }
+                       });
            }
        }
 
@@ -257,17 +259,19 @@ public class FranchiseOfCategory extends AppCompatActivity
                 intent.putExtra("framid",4);
                 startActivity(intent);break;
             case R.id.nav_training :
-                intent.putExtra("framid",5);
-                startActivity(intent);
-                break;
+                Intent intent1=new Intent(FranchiseOfCategory.this,NavigationShow.class);
+                intent1.putExtra("framid",9);
+                startActivity(intent1);break;
+
             case R.id.nav_services :
-                intent.putExtra("framid",6);
-                startActivity(intent);
-                break;
-            case R.id.nav_events :
-                intent.putExtra("framid",7);
-                startActivity(intent);
-                break;
+                Intent intent2=new Intent(FranchiseOfCategory.this,NavigationShow.class);
+                intent2.putExtra("framid",10);
+                startActivity(intent2);break;
+            case R.id.nav_events:
+                Intent intent3=new Intent(FranchiseOfCategory.this,NavigationShow.class);
+                intent3.putExtra("framid",8);
+                startActivity(intent3);break;
+
             case R.id.nav_share:share();break;
             case R.id.nav_logout:logOut();break;
             case R.id.nav_setting:startActivity(new Intent(FranchiseOfCategory.this,Setting.class));break;

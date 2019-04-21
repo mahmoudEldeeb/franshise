@@ -3,7 +3,6 @@ package com.franshise.franshise.adapters;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,17 +13,16 @@ import com.franshise.franshise.R;
 import com.franshise.franshise.models.dataModels.EventsModel;
 import com.squareup.picasso.Picasso;
 
-import java.util.Calendar;
 import java.util.List;
 
-public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder> {
+public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHolder> {
 
-List<EventsModel>list;
+    List<EventsModel> list;
 
     Click click;
-Context context;
+    Context context;
 
-    public EventsAdapter(Context c,Click cl, List<EventsModel>lis) {
+    public ServicesAdapter(Context c,Click cl, List<EventsModel>lis) {
         context=c;
         list=lis;
         click=cl;
@@ -34,20 +32,16 @@ Context context;
     }
     // inflates the row layout from xml when needed
     @Override
-    public EventsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ServicesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.shows_item, parent, false);
-        return new EventsAdapter.ViewHolder(view);
+        return new ServicesAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EventsAdapter.ViewHolder viewHolder, int i) {
-            viewHolder.details.setText(list.get(i).getDetails());
-            viewHolder.name.setText(list.get(i).getTitle());
-            viewHolder.date.setText(list.get(i).getDate());
-        Picasso.get()
-                .load(list.get(i).getImage())
-                .into(viewHolder.profile_image);
+    public void onBindViewHolder(@NonNull ServicesAdapter.ViewHolder viewHolder, int i) {
+        viewHolder.details.setText(list.get(i).getDetails());
+        viewHolder.name.setText(list.get(i).getTitle());
 
     }
 
@@ -62,14 +56,12 @@ Context context;
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name,date,details;
-        ImageView profile_image;
+
 
         ViewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.name);
-            profile_image = itemView.findViewById(R.id.profile_image);
             details = itemView.findViewById(R.id.details);
-            date = itemView.findViewById(R.id.date);
             itemView.setOnClickListener(this);
         }
 

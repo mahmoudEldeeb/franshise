@@ -282,7 +282,7 @@ Dear customer
     <string name="delete">delete</string>
     <string name="emailwrong">Email is wrong rewrite itagain please</string>
     <string name="fill_data">fill all data field</string>
-
+    <string name="franchise_name">Franchise name</string>
     <string name="incorrect">user name or password incorect</string>
     <string name="register">register</string>
     <string name="code_wrong">the code is wrong try again</string>

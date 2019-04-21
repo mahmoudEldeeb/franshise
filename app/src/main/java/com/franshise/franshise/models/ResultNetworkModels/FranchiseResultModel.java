@@ -15,14 +15,14 @@ public class FranchiseResultModel {
         return status;
     }
 
-    private FranchiseModel data;
+    private List<FranchiseModel> data;
 
-    public FranchiseModel getData() {
-        return data;
+    public void setData(List<FranchiseModel> data) {
+        this.data = data;
     }
 
-    public void setData(FranchiseModel data) {
-        this.data = data;
+    public List<FranchiseModel> getData() {
+        return data;
     }
 }
 

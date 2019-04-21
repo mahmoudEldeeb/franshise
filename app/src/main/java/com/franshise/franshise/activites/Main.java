@@ -45,6 +45,7 @@ import com.franshise.franshise.utils.CustomProgressDialog;
 import com.franshise.franshise.viewmodels.LoginViewModel;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Calendar;
@@ -71,7 +72,6 @@ public class Main extends AppCompatActivity
         config.locale = locale;
         getBaseContext().getResources().updateConfiguration(config,
                 getBaseContext().getResources().getDisplayMetrics());
-
         setContentView(R.layout.activity_main2);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -234,24 +234,19 @@ boolean searchback=false;
                 selected.setArguments(b);
                 fragTransaction.replace(R.id.fragment, selected );
                 fragTransaction.commit();break;
-            case R.id.nav_training :selected=new WebViewFragment();
-                    b=new Bundle();b.putString("url",getResources().getString(R.string.courses));
-                    selected.setArguments(b);
-                fragTransaction.replace(R.id.fragment, selected );
-                fragTransaction.commit();
-                break;
-            case R.id.nav_services :selected=new WebViewFragment();
-                b=new Bundle();b.putString("url",getResources().getString(R.string.service));
-                selected.setArguments(b);
-                fragTransaction.replace(R.id.fragment, selected );
-                fragTransaction.commit();
-                break;
-                case R.id.nav_events :selected=new WebViewFragment();
-                b=new Bundle();b.putString("url",getResources().getString(R.string.conferances));
-                selected.setArguments(b);
-                    fragTransaction.replace(R.id.fragment, selected );
-                    fragTransaction.commit();
-                    break;
+            case R.id.nav_training :
+                Intent intent1=new Intent(Main.this,NavigationShow.class);
+                intent1.putExtra("framid",9);
+                startActivity(intent1);break;
+
+            case R.id.nav_services :
+                Intent intent2=new Intent(Main.this,NavigationShow.class);
+                intent2.putExtra("framid",10);
+                startActivity(intent2);break;
+            case R.id.nav_events:
+                Intent intent=new Intent(Main.this,NavigationShow.class);
+                intent.putExtra("framid",8);
+                startActivity(intent);break;
             case R.id.nav_share:share();break;
             case R.id.nav_logout:logOut();break;
             case R.id.nav_setting:startActivity(new Intent(Main.this,Setting.class));break;

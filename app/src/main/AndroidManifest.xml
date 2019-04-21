@@ -15,12 +15,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activites.UpdateFranchise"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".activites.ResetPassword"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".activites.ChangePassowrs"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activites.ShowEvents"
+            android:theme="@style/AppTheme.NoActionBar"
+            ></activity>
+        <activity
+            android:name=".activites.UpdateFranchise"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activites.ResetPassword"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activites.ChangePassowrs"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activites.MyData"
             android:label="@string/title_activity_my_data"

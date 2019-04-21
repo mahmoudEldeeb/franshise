@@ -1,5 +1,6 @@
 package com.franshise.franshise.viewmodels;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
@@ -16,6 +17,7 @@ import com.franshise.franshise.models.ResultNetworkModels.FranchiseResultModel;
 import com.franshise.franshise.models.ResultNetworkModels.FranchiseResultsView;
 import com.franshise.franshise.models.ResultNetworkModels.FranchisesResult;
 import com.franshise.franshise.models.SharedPrefrenceModel;
+import com.franshise.franshise.models.UserModel;
 import com.franshise.franshise.models.dataModels.FranchiseData;
 import com.franshise.franshise.models.database.FavModel;
 import com.franshise.franshise.models.repositry.FavRepositry;
@@ -30,6 +32,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.ContentHandler;
+import java.net.UnknownServiceException;
 import java.util.ArrayList;
 import java.util.List;
 import io.reactivex.SingleObserver;
@@ -99,11 +102,13 @@ List<String>franchiseList;
                     country+=franchiseData.getFranchise().getFranchise_market().get(i).getEn_name()+"\n";
                 }
                 franchiseList.add(country+"");
+
                 franchiseDataMODEL.setAbout(franchiseData.getFranchise().getDetails());
                 franchiseDataMODEL.setData(franchiseList);
                 franchiseDataMODEL.setFranchiseType(franchiseListTitle);
                 franchiseDataMODEL.setImages(franchiseData.getFranchise().getImages());
                 franchiseDataMODEL.setMainImage(franchiseData.getFranchise().getImage());
+                franchiseDataMODEL.setUser_id(franchiseData.getFranchise().getUser_id());
                 franchisesResults.setValue(franchiseDataMODEL);
 
             }
@@ -116,6 +121,40 @@ List<String>franchiseList;
         });
 
         return franchisesResults;
+    }
+    @SuppressLint("CheckResult")
+    public LiveData<UserModel> getOwnerData(int id) {
+       MutableLiveData<UserModel> userData=new MutableLiveData<>();
+        FranchiseRepositry.get_userdata_by_franchise(id).subscribeWith(new SingleObserver<ResponseBody>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+            }
+            @Override
+            public void onSuccess(ResponseBody user) {
+                UserModel userModel=new UserModel();
+                try {
+                    JSONObject jsonObject=new JSONObject(user.string());
+                    JSONObject data=jsonObject.getJSONObject("data");
+                    userModel.setPhone(data.getString("company_phone"));
+                    userModel.setName(data.getString("name"));
+                    userModel.setEmail(data.getString("email"));
+                    Log.v("ooooooo",data.getString("name"));
+                    userData.setValue(userModel);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                CustomProgressDialog.clodseProgress();
+                Log.v("rrrr",e.toString());
+            }
+        });
+
+        return userData;
     }
 
 

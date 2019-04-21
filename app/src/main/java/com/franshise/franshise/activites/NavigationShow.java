@@ -24,7 +24,10 @@ import android.widget.FrameLayout;
 
 import com.franshise.franshise.R;
 import com.franshise.franshise.fragments.ComplaintsFragment;
+import com.franshise.franshise.fragments.EventsFragment;
+import com.franshise.franshise.fragments.ServicesFragment;
 import com.franshise.franshise.fragments.SubscriptionsFragment;
+import com.franshise.franshise.fragments.TrainingFragment;
 import com.franshise.franshise.fragments.WebViewFragment;
 import com.franshise.franshise.models.SharedPrefrenceModel;
 import com.franshise.franshise.utils.CustomProgressDialog;
@@ -98,6 +101,19 @@ FrameLayout fram;
                 fragTransaction.replace(R.id.fragment, selected );
                 fragTransaction.commit();
                 break;
+            case 8:selected=new EventsFragment();
+                fragTransaction.replace(R.id.fragment, selected );
+                fragTransaction.commit();
+                break;
+
+            case 9:selected=new TrainingFragment();
+                fragTransaction.replace(R.id.fragment, selected );
+                fragTransaction.commit();
+                break;
+            case 10:selected=new ServicesFragment();
+                fragTransaction.replace(R.id.fragment, selected );
+                fragTransaction.commit();
+                break;
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -131,12 +147,6 @@ FrameLayout fram;
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.navigation_show, menu);
-        return true;
-    }
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
@@ -180,21 +190,15 @@ FrameLayout fram;
                 selected.setArguments(b);
                 fragTransaction.replace(R.id.fragment, selected );
                 fragTransaction.commit();break;
-            case R.id.nav_training :selected=new WebViewFragment();
-                b=new Bundle();b.putString("url",getResources().getString(R.string.courses));
-                selected.setArguments(b);
+            case R.id.nav_training :selected=new TrainingFragment();
                 fragTransaction.replace(R.id.fragment, selected );
                 fragTransaction.commit();
                 break;
-            case R.id.nav_services :selected=new WebViewFragment();
-                b=new Bundle();b.putString("url",getResources().getString(R.string.service));
-                selected.setArguments(b);
+            case R.id.nav_services :selected=new ServicesFragment();
                 fragTransaction.replace(R.id.fragment, selected );
                 fragTransaction.commit();
                 break;
-            case R.id.nav_events :selected=new WebViewFragment();
-                b=new Bundle();b.putString("url",getResources().getString(R.string.conferances));
-                selected.setArguments(b);
+            case R.id.nav_events :selected=new EventsFragment();
                 fragTransaction.replace(R.id.fragment, selected );
                 fragTransaction.commit();
                 break;

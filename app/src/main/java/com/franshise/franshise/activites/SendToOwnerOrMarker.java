@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.franshise.franshise.R;
+import com.franshise.franshise.models.SharedPrefrenceModel;
 import com.franshise.franshise.models.dataModels.StatusModel;
 import com.franshise.franshise.utils.CustomProgressDialog;
 import com.franshise.franshise.viewmodels.SendMessageViewModel;
@@ -63,10 +64,12 @@ TextView marker_name,tomarker;
 
 
         sendMessageViewModel= ViewModelProviders.of(this).get(SendMessageViewModel.class);
-
         messageObserver=new Observer<StatusModel>() {
             @Override
             public void onChanged(@Nullable StatusModel statusModel) {
+                if(ownerOrMarker==0){
+                    new SharedPrefrenceModel(SendToOwnerOrMarker.this).setSubscribe(1);
+                }
                 CustomProgressDialog.clodseProgress();
                 Toast.makeText(getBaseContext(),statusModel.getMessage(),Toast.LENGTH_SHORT).show();
                 finish();

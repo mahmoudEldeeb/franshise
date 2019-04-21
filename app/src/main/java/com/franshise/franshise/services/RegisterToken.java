@@ -31,7 +31,7 @@ public class RegisterToken extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 Log.v("oooo",intent.getStringExtra("token"));
-        LoginRepositry.registerToken(intent.getStringExtra("token"),new SharedPrefrenceModel(this).getApiToken())
+        LoginRepositry.registerToken(intent.getStringExtra("token"),new SharedPrefrenceModel(this).getApiToken(),new SharedPrefrenceModel(RegisterToken.this).getId())
                 .subscribeWith(new SingleObserver<ResponseBody>() {
                     @Override
                     public void onSubscribe(Disposable d) {

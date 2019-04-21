@@ -22,7 +22,7 @@
     <string name="phone">الجوال</string>
     <string name="city">المدينة</string>
     <string name="read_rules">قرآت الشروط والاحكام </string>
-
+    <string name="franchise_name">اسم العلامة</string>
     <string name="sendpassword">عزيزنا العميل لقد قمنا بارسال كلمة السر الجديدة الى بريدك الالكترونى</string>
     <array name="countries"><item>السعودية</item>
         <item>السعودية</item>

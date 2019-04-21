@@ -19,6 +19,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -93,6 +97,12 @@ public class RegisterViewModel extends ViewModel {
                         userModel.setCountry(userObject.getString("country"));
                         userModel.setCity(userObject.getString("city"));
                         userModel.setPhone(userObject.getString("phone"));
+                        userModel.setSubscribe(0);
+
+                       DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                       Date date = new Date();
+                       Date d = dateFormat.parse(dateFormat.format(date));
+                        userModel.setDate("2019-04-01");
                        SharedPrefrenceModel sharedPrefrenceModel=  new SharedPrefrenceModel(c);
                         sharedPrefrenceModel.storeUser(userModel);
                         sharedPrefrenceModel.confirmRegisteriation(false);
@@ -124,6 +134,8 @@ public class RegisterViewModel extends ViewModel {
                 } catch (JSONException e) {
                     Log.v("ddddddd",e.toString());
                     Toast.makeText(c, "there is error try later",Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
+                } catch (ParseException e) {
                     e.printStackTrace();
                 }
             }

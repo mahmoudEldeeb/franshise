@@ -6,6 +6,7 @@ import android.arch.lifecycle.ViewModel;
 
 import com.franshise.franshise.models.ResultNetworkModels.CategorysResult;
 import com.franshise.franshise.models.ResultNetworkModels.DataResult;
+import com.franshise.franshise.models.ResultNetworkModels.FranchiseResultModel;
 import com.franshise.franshise.models.repositry.CreateFranchiseRepositry;
 import com.franshise.franshise.models.repositry.HomeRepositry;
 import com.franshise.franshise.models.repositry.MarkerOfCategoryRepositry;
@@ -35,6 +36,27 @@ public class MarkerOfCategoryViewModel extends ViewModel {
         });
         return categorysResults;
     }
+
+    public LiveData<FranchiseResultModel> getFranchiseByType(int id,int category_id) {
+        MutableLiveData franchise=new MutableLiveData<>();
+        MarkerOfCategoryRepositry.getFranchiseByType(id,category_id).subscribeWith(new SingleObserver<FranchiseResultModel>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+            @Override
+            public void onSuccess(FranchiseResultModel categorysResult) {
+                franchise.setValue(categorysResult);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+        });
+        return franchise;
+    }
+
     public MutableLiveData<DataResult> getfranchisetype(){
         MutableLiveData<DataResult>list=new MutableLiveData<>();
         CreateFranchiseRepositry.getfranchisetype().subscribeWith(new SingleObserver<DataResult>() {

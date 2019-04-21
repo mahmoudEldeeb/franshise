@@ -25,6 +25,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,12 +37,18 @@ import com.franshise.franshise.fragments.SubscriptionsFragment;
 import com.franshise.franshise.fragments.WebViewFragment;
 import com.franshise.franshise.models.ResultNetworkModels.FranchiseDataMODEL;
 import com.franshise.franshise.models.SharedPrefrenceModel;
+import com.franshise.franshise.models.UserModel;
+import com.franshise.franshise.models.dataModels.FranchiseModel;
 import com.franshise.franshise.models.database.FavModel;
 import com.franshise.franshise.utils.CustomProgressDialog;
 import com.franshise.franshise.viewmodels.LoginViewModel;
 import com.franshise.franshise.viewmodels.MarkerViewViewModel;
 import com.squareup.picasso.Picasso;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -65,6 +72,10 @@ public class FranchiseView extends AppCompatActivity
     String mainImage;
     String name;
     int id;String title,image;
+    LinearLayout contacts;
+    Date datenow;Date endDate;
+    SimpleDateFormat sdf ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,7 +104,9 @@ public class FranchiseView extends AppCompatActivity
         profile_image2=findViewById(R.id.profile_image2);
         slider=findViewById(R.id.slider);
         fav=findViewById(R.id.fav);
+        contacts=findViewById(R.id.contacts);
         marker_details_resycle=findViewById(R.id.marker_details_resycle);
+        marker_details_resycle.setNestedScrollingEnabled(false);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         marker_details_resycle.setLayoutManager(mLayoutManager);
 //CustomProgressDialog.showProgress(this);
@@ -125,6 +138,7 @@ public class FranchiseView extends AppCompatActivity
             public void onChanged(@Nullable FranchiseDataMODEL franchiseDataMODEL) {
                 {
                     Log.v("qqqq",franchiseDataMODEL.getImages().size()+"");
+
                     viewpagerAdapter =new ViewpagerAdapter(getBaseContext(),franchiseDataMODEL.getImages());
                     viewpagerAdapter.notifyDataSetChanged();
                     slider.setAdapter(viewpagerAdapter);
@@ -137,6 +151,9 @@ public class FranchiseView extends AppCompatActivity
                     mainImage=franchiseDataMODEL.getMainImage();
                     // name=franchiseDataMODEL.getName();
                     //Log.v("ssss",name);
+                   // int i=franchiseDataMODEL.getData().size()-1;
+                    //franchiseDataMODEL.getData().remove(i);
+                    getData(franchiseDataMODEL.getUser_id());
                     markerDetailsAdapter = new MarkerDetailsAdapter(FranchiseView.this, franchiseDataMODEL.getData(),franchiseDataMODEL.getFranchiseType());
                     marker_details_resycle.setAdapter(markerDetailsAdapter);
 
@@ -151,6 +168,7 @@ public class FranchiseView extends AppCompatActivity
             public void onClick(View v) {
 
                 if(new SharedPrefrenceModel(FranchiseView.this).isLogined()) {
+
                 Intent intent=new Intent(FranchiseView.this,SendToOwnerOrMarker.class);
                 intent.putExtra("ownerOrMarker",1);
                 intent.putExtra("id",id);
@@ -162,23 +180,57 @@ public class FranchiseView extends AppCompatActivity
                 }
             }
         });
+        sdf = new SimpleDateFormat("yyyy-MM-dd");
         sen_to_marker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+               // Date end_Date=
+                try {
+                    endDate = sdf.parse(new SharedPrefrenceModel(FranchiseView.this).getDate());
+
+                    Date date = new Date();
+                   datenow= sdf.parse(sdf.format(date));
 
                 if(new SharedPrefrenceModel(FranchiseView.this).isLogined()) {
-                Intent intent=new Intent(FranchiseView.this,SendToOwnerOrMarker.class);
-                intent.putExtra("ownerOrMarker",0);
-                intent.putExtra("id",id);
-                intent.putExtra("title",name);
-                intent.putExtra("image",mainImage);
-                startActivity(intent);
-            }
+                    if(new SharedPrefrenceModel(FranchiseView.this).getSubscribe()>0)
+                        {
+                            if(endDate.after(datenow)){
+                                Intent intent = new Intent(FranchiseView.this, SendToOwnerOrMarker.class);
+                                intent.putExtra("ownerOrMarker", 0);
+                                intent.putExtra("id", id);
+                                intent.putExtra("title", name);
+                                intent.putExtra("image", mainImage);
+                                startActivity(intent);
+                            }
+                            else {
+
+                                Toast.makeText(getBaseContext(),"you must subscribe first",Toast.LENGTH_SHORT).show();
+                                Intent intent= new Intent(FranchiseView.this,NavigationShow.class);
+                                intent.putExtra("framid",8);
+                                startActivity(intent);
+                            }
+                        }
+                        else{
+                        Intent intent = new Intent(FranchiseView.this, SendToOwnerOrMarker.class);
+                        intent.putExtra("ownerOrMarker", 0);
+                        intent.putExtra("id", id);
+                        intent.putExtra("title", name);
+                        intent.putExtra("image", mainImage);
+                        startActivity(intent);
+                        }
+                    }
+
                 else {
                 Toast.makeText(getBaseContext(),"you must login first",Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(FranchiseView.this,LoginActivity.class));
             }
+
             }
+                catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+
         });
         fav.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -219,6 +271,31 @@ public class FranchiseView extends AppCompatActivity
         }
     }
 
+    public void getData(int id){
+
+        try {
+            endDate = sdf.parse(new SharedPrefrenceModel(FranchiseView.this).getDate());
+        Date date = new Date();
+        datenow= sdf.parse(sdf.format(date));
+
+        if(new SharedPrefrenceModel(FranchiseView.this).isLogined()) {
+    //        if(endDate.after(datenow)){
+
+                markerViewViewModel.getOwnerData(id).observe(this, new Observer<UserModel>() {
+                    @Override
+                    public void onChanged(@Nullable UserModel userModel) {
+                        Log.v("ooooo",userModel.getEmail());
+
+                    }
+                });
+           // }
+
+        }
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -261,17 +338,18 @@ public class FranchiseView extends AppCompatActivity
                 intent.putExtra("framid",4);
                 startActivity(intent);break;
             case R.id.nav_training :
-                intent.putExtra("framid",5);
-                startActivity(intent);
-                break;
+                Intent intent1=new Intent(FranchiseView.this,NavigationShow.class);
+                intent1.putExtra("framid",9);
+                startActivity(intent1);break;
+
             case R.id.nav_services :
-                intent.putExtra("framid",6);
-                startActivity(intent);
-                break;
-            case R.id.nav_events :
-                intent.putExtra("framid",7);
-                startActivity(intent);
-                break;
+                Intent intent2=new Intent(FranchiseView.this,NavigationShow.class);
+                intent2.putExtra("framid",10);
+                startActivity(intent2);break;
+            case R.id.nav_events:
+                Intent intent3=new Intent(FranchiseView.this,NavigationShow.class);
+                intent3.putExtra("framid",8);
+                startActivity(intent3);break;
             case R.id.nav_share:share();break;
             case R.id.nav_logout:logOut();break;
             case R.id.nav_setting:startActivity(new Intent(FranchiseView.this,Setting.class));break;

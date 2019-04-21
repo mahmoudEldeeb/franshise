@@ -28,6 +28,7 @@ Button english,arabic;
             public void onClick(View v) {
                 new SharedPrefrenceModel(context).setLanguage("en");
                 new SharedPrefrenceModel(LanguageActivity.this).setFirstTime(true);
+                new SharedPrefrenceModel(context).setNotification(true);
                 startActivity(new Intent(LanguageActivity.this,Main.class));
                 finish();
             }
@@ -37,6 +38,7 @@ Button english,arabic;
             public void onClick(View v) {
                 new SharedPrefrenceModel(context).setLanguage("ar");
                 new SharedPrefrenceModel(LanguageActivity.this).setFirstTime(true);
+                new SharedPrefrenceModel(context).setNotification(true);
                 startActivity(new Intent(LanguageActivity.this,Main.class));
                 finish();
             }

@@ -26,4 +26,11 @@ public class FranchiseRepositry {
         return RetrofitConnections.getNetworkConnection().specialFranchise()
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
+    public static Single<ResponseBody> get_userdata_by_franchise(int id){
+        return RetrofitConnections.getNetworkConnection().get_userdata_by_franchise(id)
+                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    }
+
+
+
 }

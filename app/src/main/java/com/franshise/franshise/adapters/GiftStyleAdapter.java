@@ -30,8 +30,9 @@ bitmapList=imagelist;
         deleteListener=delete;
     }
 
-    public GiftStyleAdapter(Context c, List<Bitmap> imagelist) {
+    public GiftStyleAdapter(Context c, DeleteListener delete,List<Bitmap> imagelist) {
         bitmapList=imagelist;
+        deleteListener=delete;
        // this.imagesList=imagesList;
         context=c;
     }
@@ -91,15 +92,37 @@ ImageButton delete;
         @Override
         public void onClick(View view) {
             int position=getAdapterPosition();
-            DeleteListener d= (DeleteListener) context;
+
             if(position<imagesList.size()) {
+                DeleteListener d= (DeleteListener) context;
                 imagesList.remove(position);
                 d.delete(1,position);
+
             }
             else {
-                bitmapList.remove(position - imagesList.size());
-            deleteListener.delete(0,position-imagesList.size());
+                if(imagesList.size()>0) {
+                    bitmapList.remove(position - imagesList.size());
+                    deleteListener.delete(0, position - imagesList.size());
+                    notifyDataSetChanged();
+                }
+                else {
+                    //DeleteListener d= (DeleteListener) context;
+                    deleteListener.delete(0, position);
+                    bitmapList.remove(position);
+
+                    notifyDataSetChanged();
+                }
             }
+            /*
+
+
+
+
+
+             */
+
+
+
             notifyDataSetChanged();
         }
     }

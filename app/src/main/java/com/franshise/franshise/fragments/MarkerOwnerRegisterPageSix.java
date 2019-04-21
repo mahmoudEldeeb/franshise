@@ -4,13 +4,16 @@ package com.franshise.franshise.fragments;
 import android.Manifest;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.ClipData;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -54,7 +57,7 @@ import static android.app.Activity.RESULT_OK;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MarkerOwnerRegisterPageSix extends Fragment {
+public class MarkerOwnerRegisterPageSix extends Fragment implements GiftStyleAdapter.DeleteListener {
 
 
     LinearLayout spaceParent,spaceParent2;
@@ -214,7 +217,7 @@ createFranchiseViewModel.getCountry(0).observe(this, new Observer<DataResult>() 
         RecyclerView.LayoutManager mLayoutManager1 = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
         image_res1.setLayoutManager(mLayoutManager1);
         imagelist=new ArrayList<>();
-         giftStyleAdapter=new GiftStyleAdapter(getActivity(),imagelist);
+         giftStyleAdapter=new GiftStyleAdapter(getActivity(),MarkerOwnerRegisterPageSix.this::delete,imagelist);
         image_res1.setAdapter(giftStyleAdapter);
         return  view;
     }
@@ -234,7 +237,6 @@ createFranchiseViewModel.getCountry(0).observe(this, new Observer<DataResult>() 
     }
 
     private void addElement1() {
-
         View v1=layoutInflater.inflate(R.layout.space_model, spaceParent, false);
         re=v1.findViewById(R.id.re);
         TextView meter=v1.findViewById(R.id.meter);
@@ -269,7 +271,8 @@ createFranchiseViewModel.getCountry(0).observe(this, new Observer<DataResult>() 
 
     }
     int PICK_IMAGE=1;
-    private void addImages1(){   Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
+    private void addImages1(){
+        /*Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
         getIntent.setType("image/*");
 
         Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -279,26 +282,73 @@ createFranchiseViewModel.getCountry(0).observe(this, new Observer<DataResult>() 
         Intent chooserIntent = Intent.createChooser(getIntent, "Select Image");
         chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {pickIntent});
 
-        startActivityForResult(chooserIntent, PICK_IMAGE);}
+        startActivityForResult(chooserIntent, PICK_IMAGE);
+*/
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE);
+        }
+        else {
+
+        Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        getIntent.setType("image/*");
+
+        Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        pickIntent.setType("image/*");
+        Intent chooserIntent = Intent.createChooser(getIntent, "Select Image");
+        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {pickIntent});
+
+        startActivityForResult(chooserIntent, PICK_IMAGE);
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PICK_IMAGE) {
             if (resultCode == RESULT_OK) {
 
                 try {
-                    final Uri imageUri = data.getData();
-
-                    final InputStream imageStream = getActivity().getContentResolver().openInputStream(imageUri);
-                    final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                         if (imageType == 0) {
+
+                            final Uri imageUri = data.getData();
+
+                            final InputStream imageStream = getActivity().getContentResolver().openInputStream(imageUri);
+                            final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                             images.setImageBitmap(selectedImage);
                             image_franchise.setVisibility(View.VISIBLE);
                             imageFranchiseUri=imageUri;
                         } else {
-                            imagelist.add(selectedImage);
-                            imagesOfProdust.add(imageUri);
-                            giftStyleAdapter.notifyDataSetChanged();
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+                                ClipData clipData = data.getClipData();
+
+                                for(int i=0;i<clipData.getItemCount();i++){
+                                    ClipData.Item item = clipData.getItemAt(i);
+                                    Uri uri = item.getUri();
+                                    Log.v("qwwwwwwww",i+"   11");
+                                    final InputStream imageStream = getActivity().getContentResolver().openInputStream(uri);
+                                    final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                                    imagelist.add(selectedImage);
+                                    imagesOfProdust.add(uri);
+                                    giftStyleAdapter.notifyDataSetChanged();
+                                }
+                            }
+                            else {
+                                Log.v("rrrrrr","reeeeeeeeeeeee");
+                                final Uri imageUri = data.getData();
+
+                                final InputStream imageStream = getActivity().getContentResolver().openInputStream(imageUri);
+                                final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                                imagelist.add(selectedImage);
+                                imagesOfProdust.add(imageUri);
+                                giftStyleAdapter.notifyDataSetChanged();
+                            }
                         }
 
 
@@ -371,6 +421,9 @@ createFranchiseViewModel.getCountry(0).observe(this, new Observer<DataResult>() 
     }
 
 
+    @Override
+    public void delete(int type, int position) {
 
+    }
 }
 

@@ -8,10 +8,23 @@ import java.util.List;
 public class
 FranchiseModel implements Serializable
 {
-    private  int id,franchise_type_id,franchise_type_value;
+    private  int id;
+    private int franchise_type_id;
+    private int franchise_type_value;
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+
+    private int user_id;
     private String details;
     private String name;
     private int category_id;
+
 
     public int getCategory_id() {
         return category_id;
