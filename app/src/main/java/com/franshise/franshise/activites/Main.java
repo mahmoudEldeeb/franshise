@@ -55,7 +55,7 @@ import java.util.TimeZone;
 
 public class Main extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ItemClickListener , NotificationsAdapter.FranchiseClicked {
-
+    MenuItem nav_camara;
     private BottomNavigationView bottomNavigation;
     LoginViewModel loginViewModel;
     Observer<Integer>outObserver;
@@ -76,11 +76,11 @@ public class Main extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-Log.v("ppppp",new SharedPrefrenceModel(this).getId()+"");
         getSupportActionBar().setDisplayShowHomeEnabled(true);
        // getSupportActionBar().setLogo(R.drawable.logo2);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
+        toolbar.setContentInsetsAbsolute(0, 0);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -94,6 +94,12 @@ Log.v("ppppp",new SharedPrefrenceModel(this).getId()+"");
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        Menu menu = navigationView.getMenu();
+
+         nav_camara = menu.findItem(R.id.nav_logout);
+        if(!new SharedPrefrenceModel(this).isLogined())
+        nav_camara.setTitle(R.string.login);
+
 
         FragmentManager fragMan = getSupportFragmentManager();
         FragmentTransaction fragTransaction = fragMan.beginTransaction();
@@ -104,8 +110,13 @@ Log.v("ppppp",new SharedPrefrenceModel(this).getId()+"");
             @Override
             public void onChanged(@Nullable Integer integer) {
              Log.v("eee",integer+"");
+             SharedPrefrenceModel shared=new SharedPrefrenceModel(Main.this);
              if(integer==1){
-             new SharedPrefrenceModel(Main.this).setLogined(false);
+                 if(shared.isLogined())
+                     nav_camara.setTitle(R.string.logout);
+
+                 shared.setLogined(false);
+                 shared.setCompleteRegister(false);
              startActivity(new Intent(Main.this,LoginActivity.class));
             // finish();
              }
@@ -153,6 +164,15 @@ Log.v("ppppp",new SharedPrefrenceModel(this).getId()+"");
         }
     };
 boolean searchback=false;
+    @Override
+    protected void onResume() {
+        if(new SharedPrefrenceModel(Main.this).isLogined())
+            nav_camara.setTitle(R.string.logout);
+        else
+            nav_camara.setTitle(R.string.login);
+        super.onResume();
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -222,6 +242,12 @@ boolean searchback=false;
             selected.setArguments(b);
             fragTransaction.replace(R.id.fragment, selected );
             fragTransaction.commit();break;
+            case R.id.nav_contact:
+                selected=new WebViewFragment();
+                Bundle b2=new Bundle();b2.putString("url",getResources().getString(R.string.contact_us));
+                selected.setArguments(b2);
+                fragTransaction.replace(R.id.fragment, selected );
+                fragTransaction.commit();break;
 
             case R.id.nav_franshise:selected=new WebViewFragment();
                  b=new Bundle();b.putString("url",getResources().getString(R.string.Commercial_Concession));
@@ -247,6 +273,10 @@ boolean searchback=false;
                 Intent intent=new Intent(Main.this,NavigationShow.class);
                 intent.putExtra("framid",8);
                 startActivity(intent);break;
+            case R.id.nav_jobs:
+            Intent intent4=new Intent(Main.this,NavigationShow.class);
+            intent4.putExtra("framid",12);
+            startActivity(intent4);break;
             case R.id.nav_share:share();break;
             case R.id.nav_logout:logOut();break;
             case R.id.nav_setting:startActivity(new Intent(Main.this,Setting.class));break;
@@ -288,7 +318,7 @@ public void share(){
                new SharedPrefrenceModel(this).getApiToken();
         CustomProgressDialog.showProgress(this);
        loginViewModel.LogOut(token,api_token).observe(this,outObserver);
-
+        new SharedPrefrenceModel(this).setCompleteRegister(false);
 
     }
 

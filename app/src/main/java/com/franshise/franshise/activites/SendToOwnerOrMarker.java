@@ -67,7 +67,7 @@ TextView marker_name,tomarker;
         messageObserver=new Observer<StatusModel>() {
             @Override
             public void onChanged(@Nullable StatusModel statusModel) {
-                if(ownerOrMarker==0){
+                if(ownerOrMarker==0&&statusModel.getStatus()==1){
                     new SharedPrefrenceModel(SendToOwnerOrMarker.this).setSubscribe(1);
                 }
                 CustomProgressDialog.clodseProgress();
@@ -81,7 +81,7 @@ TextView marker_name,tomarker;
         Log.v("eeee",id+"");
         if(ownerOrMarker==0){
             sendMessageViewModel.send_for_owner(from.getText().toString(), email.getText().toString(), country.getText().toString(),
-                    message.getText().toString(),id).observe(this, messageObserver);
+                    message.getText().toString(),id,new SharedPrefrenceModel(this).getId()).observe(this, messageObserver);
             CustomProgressDialog.showProgress(this);
         }
        else {

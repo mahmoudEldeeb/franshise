@@ -8,9 +8,11 @@ import android.util.Log;
 
 import com.franshise.franshise.models.ResultNetworkModels.CategorysResult;
 import com.franshise.franshise.models.ResultNetworkModels.FranchisesResult;
+import com.franshise.franshise.models.ResultNetworkModels.MessageResults;
 import com.franshise.franshise.models.dataModels.StatusModel;
 import com.franshise.franshise.models.repositry.FranchiseRepositry;
 import com.franshise.franshise.models.repositry.MarkerOfCategoryRepositry;
+import com.franshise.franshise.models.repositry.MessagesRepositry;
 import com.franshise.franshise.utils.CustomProgressDialog;
 
 import io.reactivex.SingleObserver;
@@ -87,6 +89,27 @@ public class NotificationViewModel extends ViewModel {
             }
         });
         return results;
+    }
+    public LiveData<MessageResults> getMessages(int user_id) {
+       MutableLiveData<MessageResults> messageResultsMutableLiveData=new MutableLiveData<>();
+        MessagesRepositry.getMessages(user_id).subscribeWith(new SingleObserver<MessageResults>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+            @Override
+            public void onSuccess(MessageResults categorysResult) {
+                messageResultsMutableLiveData.setValue(categorysResult);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                CustomProgressDialog.clodseProgress();
+                Log.v("qqqq",e.getMessage());
+                return;
+            }
+        });
+        return messageResultsMutableLiveData;
     }
 
 }

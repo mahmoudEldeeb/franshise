@@ -21,6 +21,9 @@
             android:id="@+id/nav_services"
             android:title="@string/services" />
         <item
+            android:id="@+id/nav_jobs"
+            android:title="@string/jobs" />
+        <item
             android:id="@+id/nav_terms"
             android:title="@string/terms" />
         <item

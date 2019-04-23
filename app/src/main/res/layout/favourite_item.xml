@@ -27,8 +27,6 @@
         android:layout_marginLeft="10dp"
         android:gravity="center_vertical"
         android:text="kentaky"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        android:textSize="20dp"/>
 
 </LinearLayout>

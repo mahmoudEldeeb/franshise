@@ -5,7 +5,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitConnections {
-    final static  String RootUrl="http://192.168.1.107/franchise/api/";
+    final static  String RootUrl="http://204.93.167.45/~helix/franchise/api/";
     private static Retrofit getInstance(){
         return new Retrofit.Builder()
                 .baseUrl(RootUrl).addCallAdapterFactory(RxJava2CallAdapterFactory.create())

@@ -96,7 +96,6 @@ LoginRepositry.removetoken(token,api_token).subscribeWith(new SingleObserver<Sta
     @Override
     public void onSubscribe(Disposable d) {
 
-
     }
 
     @Override

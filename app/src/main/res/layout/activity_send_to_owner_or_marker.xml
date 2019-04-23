@@ -31,7 +31,6 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="15dp"
-        android:textStyle="bold"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -70,7 +69,7 @@
             android:gravity="start"
             android:text="from:"
             android:textColor="@color/black"
-            android:textSize="18dp"
+            android:textSize="16dp"
             />
 
         <EditText
@@ -112,7 +111,7 @@
             android:gravity="start"
             android:text="country:"
             android:textColor="@color/black"
-            android:textSize="18dp"/>
+            android:textSize="16dp"/>
 
         <EditText
             android:id="@+id/country"
@@ -152,7 +151,7 @@
             android:gravity="start"
             android:text="email:"
             android:textColor="@color/black"
-            android:textSize="18dp" />
+            android:textSize="16dp" />
 
         <EditText
             android:id="@+id/email"
@@ -195,7 +194,7 @@
         android:layout_marginRight="20dp"
         android:gravity="start"
         android:textColor="@color/black"
-        android:textSize="10dp"
+        android:textSize="15dp"
         android:text="@string/ToMangmentFranchise"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
@@ -218,7 +217,6 @@
         android:text="@string/Send"
         android:textColor="@color/white"
         android:textSize="20dp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

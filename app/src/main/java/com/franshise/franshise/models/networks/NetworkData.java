@@ -7,6 +7,7 @@ import com.franshise.franshise.models.ResultNetworkModels.EventsModelResults;
 import com.franshise.franshise.models.ResultNetworkModels.FranchiseResultModel;
 import com.franshise.franshise.models.ResultNetworkModels.FranchiseResultsView;
 import com.franshise.franshise.models.ResultNetworkModels.FranchisesResult;
+import com.franshise.franshise.models.ResultNetworkModels.MessageResults;
 import com.franshise.franshise.models.ResultNetworkModels.PeriodResult;
 import com.franshise.franshise.models.ResultNetworkModels.SubscribtioResult;
 import com.franshise.franshise.models.ResultNetworkModels.UserProfileResult;
@@ -213,7 +214,7 @@ public interface NetworkData {
     @FormUrlEncoded
     Single<StatusModel> send_for_owner(@Field("from") String from,
                                        @Field("email") String email, @Field("country") String country,
-                                       @Field("message") String message, @Field("id") int id);
+                                       @Field("message") String message, @Field("id") int id,@Field("sender") int sender);
 
 
     @GET("money")
@@ -229,6 +230,10 @@ public interface NetworkData {
     @POST("get-userdata-by-franchise")
     @FormUrlEncoded
     Single<ResponseBody> get_userdata_by_franchise(@Field("user_id") int user_id);
+
+    @POST("getMessages")
+    @FormUrlEncoded
+    Single<MessageResults> getMessages(@Field("user_id") int user_id);
 
 
     @GET("subscription-types")
@@ -355,11 +360,13 @@ public interface NetworkData {
     @GET("services/{lang}")
     Single<EventsModelResults> services	(@Path("lang") String lang);
 
+    @GET("jobs/{lang}")
+    Single<EventsModelResults> jobs	(@Path("lang") String lang);
+
     @GET("courses/{lang}")
     Single<EventsModelResults> courses(@Path("lang") String lang);
 
     @GET("conferances/{lang}")
     Single<EventsModelResults> conferances(@Path("lang") String lang);
-
 
 }

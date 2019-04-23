@@ -13,7 +13,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:paddingRight="10dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:paddingLeft="10dp"
         />
     <TextView
@@ -23,7 +23,7 @@
         android:text="title"
         android:textSize="15dp"
         android:layout_marginBottom="10dp"
-
+android:textColor="@color/white"
         android:id="@+id/details"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"

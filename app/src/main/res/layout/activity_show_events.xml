@@ -7,45 +7,59 @@
     tools:context=".activites.ShowEvents"
     android:orientation="vertical"
    >
-<ImageView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/image"
-    android:src="@drawable/company"
-    android:scaleType="fitXY"/>
-    <TextView
-        android:id="@+id/title"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="title"
-        android:textSize="15dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
-        />
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="end"
-        android:text="201/201/52"
-        android:textSize="15dp"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
-        />
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-    <TextView
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            android:contentInsetLeft="0dp"
+            android:contentInsetStart="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            android:contentInsetRight="0dp"
+            android:contentInsetEnd="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetEnd="0dp">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo2"
+                android:layout_gravity="left"
+                android:gravity="left"/>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="title"
-        android:textSize="15dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/details"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
-        />
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/events"
+                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:background="@color/blue_subscribtion_button"/>
+            <WebView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/web"
+                android:padding="10dp"/>
+
+</LinearLayout>
+    </ScrollView>
 </LinearLayout>

@@ -66,6 +66,7 @@ public class FranchiseOfCategory extends AppCompatActivity
     List<Integer>franchiseTypeIdList;
     int count=0;
     ImageButton back;
+    MenuItem nav_camara;
     List<FranchiseModel> data1=new ArrayList<>(),dataChanged;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +87,13 @@ public class FranchiseOfCategory extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        Menu menu = navigationView.getMenu();
+
+         nav_camara = menu.findItem(R.id.nav_logout);
+        if(!new SharedPrefrenceModel(this).isLogined())
+            nav_camara.setTitle(R.string.login);
+
         navigationView.setNavigationItemSelectedListener(this);
         markers_resycel=findViewById(R.id.markers_resycel);
         markers_resycel.setNestedScrollingEnabled(false);
@@ -250,7 +258,10 @@ public class FranchiseOfCategory extends AppCompatActivity
                 intent.putExtra("framid",2);
                 startActivity(intent);
                 break;
-
+            case R.id.nav_contact:
+                intent.putExtra("framid",11);
+                startActivity(intent);
+                break;
             case R.id.nav_franshise:
                 intent.putExtra("framid",3);
                 startActivity(intent);
@@ -271,7 +282,10 @@ public class FranchiseOfCategory extends AppCompatActivity
                 Intent intent3=new Intent(FranchiseOfCategory.this,NavigationShow.class);
                 intent3.putExtra("framid",8);
                 startActivity(intent3);break;
-
+            case R.id.nav_jobs:
+                Intent intent4=new Intent(FranchiseOfCategory.this,NavigationShow.class);
+                intent4.putExtra("framid",12);
+                startActivity(intent4);break;
             case R.id.nav_share:share();break;
             case R.id.nav_logout:logOut();break;
             case R.id.nav_setting:startActivity(new Intent(FranchiseOfCategory.this,Setting.class));break;
@@ -282,9 +296,13 @@ public class FranchiseOfCategory extends AppCompatActivity
         outObserver=new Observer<Integer>() {
             @Override
             public void onChanged(@Nullable Integer integer) {
-                Log.v("eee",integer+"");
+                SharedPrefrenceModel shared=new SharedPrefrenceModel(FranchiseOfCategory.this);
                 if(integer==1){
-                    new SharedPrefrenceModel(FranchiseOfCategory.this).setLogined(false);
+                    if(shared.isLogined())
+                        nav_camara.setTitle(R.string.logout);
+
+                    shared.setLogined(false);
+                    shared.setCompleteRegister(false);
                     startActivity(new Intent(FranchiseOfCategory.this,LoginActivity.class));
                     finish();
                 }
@@ -295,6 +313,14 @@ public class FranchiseOfCategory extends AppCompatActivity
         return true;
     }
 
+    @Override
+    protected void onResume() {
+        if(new SharedPrefrenceModel(FranchiseOfCategory.this).isLogined())
+            nav_camara.setTitle(R.string.logout);
+        else
+            nav_camara.setTitle(R.string.login);
+        super.onResume();
+    }
 
     public void share(){
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
@@ -313,5 +339,7 @@ public class FranchiseOfCategory extends AppCompatActivity
                 new SharedPrefrenceModel(this).getApiToken();
         CustomProgressDialog.showProgress(this);
         loginViewModel.LogOut(token,api_token).observe(this,outObserver);
+        new SharedPrefrenceModel(this).setCompleteRegister(false);
+
     }
 }

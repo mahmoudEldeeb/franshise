@@ -2,6 +2,7 @@ package com.franshise.franshise.models.repositry;
 
 import android.database.Observable;
 
+import com.franshise.franshise.models.ResultNetworkModels.MessageResults;
 import com.franshise.franshise.models.dataModels.StatusModel;
 import com.franshise.franshise.models.networks.RetrofitConnections;
 
@@ -21,9 +22,16 @@ public class MessagesRepositry {
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
-    public static Single<StatusModel> send_for_owner(String from,String email,String country,String message,int id){
-        return RetrofitConnections.getNetworkConnection().send_for_owner(from,email, country, message,id)
+    public static Single<StatusModel> send_for_owner(String from,String email,String country,String message,int id,int sender){
+        return RetrofitConnections.getNetworkConnection().send_for_owner(from,email, country, message,id,sender)
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
+
+    public static Single<MessageResults> getMessages(int user_id){
+        return RetrofitConnections.getNetworkConnection().getMessages(user_id)
+                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    }
+
+
 
 }

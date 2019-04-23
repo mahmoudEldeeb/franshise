@@ -287,26 +287,28 @@ Dear customer
     <string name="register">register</string>
     <string name="code_wrong">the code is wrong try again</string>
 
-    <string name="base_url">http://192.168.1.107/franchise/api/</string>
-    <string name="base_image_url">http://192.168.1.107/franchise/public/uploads/thumbs/</string>
+    <string name="base_url">http://204.93.167.45/~helix/franchise/api/</string>
+    <string name="base_image_url">http://204.93.167.45/~helix/franchise/public/uploads/thumbs/</string>
     <string name="title_activity_franchises_of_category">FranchisesOfCategory</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="Commercial_Concession">http://192.168.1.107/franchise/api/page/en/Commercial_Concession</string>
+    <string name="Commercial_Concession">http://204.93.167.45/~helix/franchise/api/page/en/Commercial_Concession</string>
 
-    <string name="questionss">http://192.168.1.107/franchise/api/page/en/questions</string>
+    <string name="questionss">http://204.93.167.45/~helix/franchise/api/page/en/questions</string>
+    <string name="contact_us">http://204.93.167.45/~helix/franchise/api/page/en/contact-us</string>
 
-    <string name="termss">http://192.168.1.107/franchise/api/page/en/terms</string>
+    <string name="termss">http://204.93.167.45/~helix/franchise/api/page/en/terms</string>
 
-    <string name="service">http://192.168.1.107/franchise/api/services/en</string>
-    <string name="courses">http://192.168.1.107/franchise/api/courses/en</string>
-    <string name="conferances">http://192.168.1.107/franchise/api/conferances/en</string>
+    <string name="service">http://204.93.167.45/~helix/franchise/api/services/en</string>
+    <string name="courses">http://204.93.167.45/~helix/franchise/api/courses/en</string>
+    <string name="conferances">http://204.93.167.45/~helix/franchise/api/conferances/en</string>
     <string name="title_activity_franchise_view">FranchiseView</string>
     <string name="title_activity_navigation_show">NavigationShow</string>
     <string name="title_activity_franchise_of_category">FranchiseOfCategory</string>
     <string name="title_activity_setting">Setting</string>
     <string name="title_activity_my_data">MyData</string>
     <string name="meter">m²</string>
+    <string name="jobs">Jobs</string>
 </resources>

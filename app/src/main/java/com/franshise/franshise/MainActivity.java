@@ -17,6 +17,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.franshise.franshise.adapters.ScolerTypeAdapter;
 import com.franshise.franshise.models.networks.RetrofitConnections;
@@ -41,7 +42,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 String CHANNEL_ID="com.franshise.franshise";
 RecyclerView res;
-Button button2;
+TextView text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,9 +50,10 @@ Button button2;
         MultiDex.install(this);
         //createNotificationChannel();
 
-        res=findViewById(R.id.res);
-        button2=findViewById(R.id.button2);
-
+        text=findViewById(R.id.text);
+        ///button2=findViewById(R.id.button2);
+        text.setText("sssssssssssssss\nffffffffffff");
+////
        /* RecyclerView.LayoutManager mLayoutManager1 = new LinearLayoutManager(this);
         res.setLayoutManager(mLayoutManager1);
         ScolerTypeAdapter scolerTypeAdapter=new ScolerTypeAdapter(this);

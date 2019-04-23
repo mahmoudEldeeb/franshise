@@ -34,9 +34,8 @@ public class ReciveNotification extends FirebaseMessagingService {
 
 
         if (remoteMessage.getData().size() > 0) {
-            Log.v("eeeeeee","dddddddddddddd");
+
             if(new SharedPrefrenceModel(ReciveNotification.this).isNotificationOn()) {
-                Log.v("eeeeeee","dddddddddddddd");
                 if(Integer.parseInt(remoteMessage.getData().get("flag"))==0) {
                     sendNotification(Integer.parseInt(remoteMessage.getData().get("id")), "we add a new franchise (" + remoteMessage.getData().get("name") + " )", remoteMessage.getData().get("details"));
                 }

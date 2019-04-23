@@ -24,4 +24,8 @@ public class EventRepositry {
         return RetrofitConnections.getNetworkConnection().conferances(lang)
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
+    public static Single<EventsModelResults> jobs(String lang){
+        return RetrofitConnections.getNetworkConnection().jobs(lang)
+                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    }
 }

@@ -297,18 +297,19 @@
 
     <string name="incorrect">اسم المستخدم او كلمة السرغير صحيح</string>
     <string name="register">تسجيل</string>
-    <string name="base_url">http://192.168.1.21/franchise/api/</string>
+    <string name="base_url">http://204.93.167.45/~helix/franchise/api/</string>
 
     <string name="code_wrong">الكود غير صحيح حاولمرة اخرى</string>
-    <string name="base_image_url">http://192.168.1.107/franchise/public/uploads/thumbs/</string>
+    <string name="base_image_url">http://204.93.167.45/~helix/franchise/public/uploads/thumbs/</string>
 
-    <string name="Commercial_Concession">http://192.168.1.107/franchise/api/page/ar/Commercial_Concession</string>
+    <string name="Commercial_Concession">http://204.93.167.45/~helix/franchise/api/page/ar/Commercial_Concession</string>
 
-    <string name="questionss">http://192.168.1.107/franchise/api/page/ar/questions</string>
+    <string name="questionss">http://204.93.167.45/~helix/franchise/api/page/ar/questions</string>
 
-    <string name="termss">http://192.168.1.107/franchise/api/page/ar/terms</string>
-
-    <string name="service">http://192.168.1.107/franchise/api/services/ar</string>
-    <string name="courses">http://192.168.1.107/franchise/api/courses/ar</string>
-    <string name="conferances">http://192.168.1.107/franchise/api/conferances/ar</string>
+    <string name="termss">http://204.93.167.45/~helix/franchise/api/page/ar/terms</string>
+    <string name="contact_us">http://204.93.167.45/~helix/franchise/api/page/ar/contact-us</string>
+    <string name="jobs">وظائف</string>
+    <string name="service">http://204.93.167.45/~helix/franchise/api/services/ar</string>
+    <string name="courses">http://204.93.167.45/~helix/franchise/api/courses/ar</string>
+    <string name="conferances">http://204.93.167.45/~helix/franchise/api/conferances/ar</string>
 </resources>

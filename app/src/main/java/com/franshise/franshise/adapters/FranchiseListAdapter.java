@@ -32,9 +32,16 @@ public void setData( List<FranchiseModel> data){
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
+        View view;
+        try{
+                view= LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.main_category_item, parent, false);
-        return new ViewHolder(view);
+            return new ViewHolder(view);
+        }
+                catch (OutOfMemoryError e){
+            return null;
+                }
+
     }
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {

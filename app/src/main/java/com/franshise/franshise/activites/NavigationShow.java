@@ -25,6 +25,7 @@ import android.widget.FrameLayout;
 import com.franshise.franshise.R;
 import com.franshise.franshise.fragments.ComplaintsFragment;
 import com.franshise.franshise.fragments.EventsFragment;
+import com.franshise.franshise.fragments.Jobs;
 import com.franshise.franshise.fragments.ServicesFragment;
 import com.franshise.franshise.fragments.SubscriptionsFragment;
 import com.franshise.franshise.fragments.TrainingFragment;
@@ -38,6 +39,7 @@ public class NavigationShow extends AppCompatActivity
 FrameLayout fram;
     LoginViewModel loginViewModel;
     Observer<Integer>outObserver;
+    MenuItem nav_camara;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +57,7 @@ FrameLayout fram;
 
         FragmentManager fragMan = getSupportFragmentManager();
         FragmentTransaction fragTransaction = fragMan.beginTransaction();
+        Bundle b=new Bundle();
         switch (i){
             case 0:
                 selected=new SubscriptionsFragment();
@@ -67,7 +70,13 @@ FrameLayout fram;
                 break;
 
             case 2:selected=new WebViewFragment();
-                Bundle b=new Bundle();b.putString("url",getResources().getString(R.string.questionss));
+                b.putString("url",getResources().getString(R.string.questionss));
+                selected.setArguments(b);
+                fragTransaction.replace(R.id.fragment, selected );
+                fragTransaction.commit();break;
+
+            case 11:selected=new WebViewFragment();
+                b.putString("url",getResources().getString(R.string.contact_us));
                 selected.setArguments(b);
                 fragTransaction.replace(R.id.fragment, selected );
                 fragTransaction.commit();break;
@@ -105,7 +114,10 @@ FrameLayout fram;
                 fragTransaction.replace(R.id.fragment, selected );
                 fragTransaction.commit();
                 break;
-
+            case 12:selected=new Jobs();
+                fragTransaction.replace(R.id.fragment, selected );
+                fragTransaction.commit();
+                break;
             case 9:selected=new TrainingFragment();
                 fragTransaction.replace(R.id.fragment, selected );
                 fragTransaction.commit();
@@ -120,21 +132,40 @@ FrameLayout fram;
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        Menu menu = navigationView.getMenu();
+
+         nav_camara = menu.findItem(R.id.nav_logout);
+        if(!new SharedPrefrenceModel(this).isLogined())
+            nav_camara.setTitle(R.string.login);
+
         navigationView.setNavigationItemSelectedListener(this);
         loginViewModel= ViewModelProviders.of(this).get(LoginViewModel.class);
         outObserver=new Observer<Integer>() {
             @Override
             public void onChanged(@Nullable Integer integer) {
                 Log.v("eee",integer+"");
+                SharedPrefrenceModel shared=new SharedPrefrenceModel(NavigationShow.this);
                 if(integer==1){
-                    new SharedPrefrenceModel(NavigationShow.this).setLogined(false);
+                    if(shared.isLogined())
+                        nav_camara.setTitle(R.string.logout);
+                    shared.setLogined(false);
+                    shared.setCompleteRegister(false);
                     startActivity(new Intent(NavigationShow.this,LoginActivity.class));
                     finish();
                 }
             }
         };
+    }
+
+    @Override
+    protected void onResume() {
+        if(new SharedPrefrenceModel(NavigationShow.this).isLogined())
+            nav_camara.setTitle(R.string.logout);
+        else
+            nav_camara.setTitle(R.string.login);
+        super.onResume();
     }
 
     @Override
@@ -179,6 +210,12 @@ FrameLayout fram;
                 fragTransaction.replace(R.id.fragment, selected );
                 fragTransaction.commit();break;
 
+            case R.id.nav_contact:selected=new WebViewFragment();
+                Bundle b2=new Bundle();b2.putString("url",getResources().getString(R.string.contact_us));
+                selected.setArguments(b2);
+                fragTransaction.replace(R.id.fragment, selected );
+                fragTransaction.commit();break;
+
             case R.id.nav_franshise:selected=new WebViewFragment();
                 b=new Bundle();b.putString("url",getResources().getString(R.string.Commercial_Concession));
                 selected.setArguments(b);
@@ -199,6 +236,10 @@ FrameLayout fram;
                 fragTransaction.commit();
                 break;
             case R.id.nav_events :selected=new EventsFragment();
+                fragTransaction.replace(R.id.fragment, selected );
+                fragTransaction.commit();
+                break;
+            case R.id.nav_jobs :selected=new Jobs();
                 fragTransaction.replace(R.id.fragment, selected );
                 fragTransaction.commit();
                 break;
@@ -225,6 +266,8 @@ FrameLayout fram;
                 new SharedPrefrenceModel(this).getApiToken();
         CustomProgressDialog.showProgress(this);
         loginViewModel.LogOut(token,api_token).observe(this,outObserver);
+        new SharedPrefrenceModel(this).setCompleteRegister(false);
+
 
     }
 }

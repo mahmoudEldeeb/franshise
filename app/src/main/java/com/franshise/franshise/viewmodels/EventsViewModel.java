@@ -9,6 +9,7 @@ import com.franshise.franshise.models.ResultNetworkModels.DataResult;
 import com.franshise.franshise.models.ResultNetworkModels.EventsModelResults;
 import com.franshise.franshise.models.repositry.EventRepositry;
 import com.franshise.franshise.models.repositry.LoginRepositry;
+import com.franshise.franshise.utils.CustomProgressDialog;
 
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
@@ -32,6 +33,7 @@ public class EventsViewModel extends ViewModel {
 
                     @Override
                     public void onError(Throwable e) {
+                        CustomProgressDialog.clodseProgress();
 
                     }
                 });
@@ -55,6 +57,7 @@ public class EventsViewModel extends ViewModel {
 
                     @Override
                     public void onError(Throwable e) {
+                        CustomProgressDialog.clodseProgress();
 
                     }
                 });
@@ -78,9 +81,37 @@ public class EventsViewModel extends ViewModel {
 
                     @Override
                     public void onError(Throwable e) {
+                        CustomProgressDialog.clodseProgress();
+
+                        Log.v("aaaa",e.getMessage());
 
                     }
                 });
         return events;
     }
+    public MutableLiveData<EventsModelResults> jobs(String lang){
+        MutableLiveData<EventsModelResults>events=new MutableLiveData<>();
+        EventRepositry.jobs(lang)
+                .subscribeWith(new SingleObserver<EventsModelResults>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(EventsModelResults dataResult) {
+
+                        events.setValue(dataResult);
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        CustomProgressDialog.clodseProgress();
+
+                    }
+                });
+        return events;
+    }
+
 }

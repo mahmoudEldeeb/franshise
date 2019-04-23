@@ -18,7 +18,8 @@ package com.franshise.franshise.fragments;
  import com.franshise.franshise.models.ResultNetworkModels.EventsModelResults;
         import com.franshise.franshise.models.SharedPrefrenceModel;
         import com.franshise.franshise.models.dataModels.EventsModel;
-        import com.franshise.franshise.viewmodels.EventsViewModel;
+ import com.franshise.franshise.utils.CustomProgressDialog;
+ import com.franshise.franshise.viewmodels.EventsViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,9 +47,12 @@ public class ServicesFragment extends Fragment  implements EventsAdapter.Click {
 
         eventsViewModel = ViewModelProviders.of(this).get(EventsViewModel.class);
         Bundle bundle = getArguments();
+
+        CustomProgressDialog.showProgress(getActivity());
         eventsViewModel.services(new SharedPrefrenceModel(getActivity()).getLanguage()).observe(this, new Observer<EventsModelResults>() {
             @Override
             public void onChanged(@Nullable EventsModelResults eventsModelResults) {
+                CustomProgressDialog.clodseProgress();
                 eventsAdapter = new ServicesAdapter(getActivity(), ServicesFragment.this::onclick, eventsModelResults.getData());
                 events_recycle.setAdapter(eventsAdapter);
             }
@@ -62,6 +66,7 @@ public class ServicesFragment extends Fragment  implements EventsAdapter.Click {
 
         Intent intent = new Intent(getActivity(), ShowEvents.class);
         intent.putExtra("eventModel", eventsViewModel);
+        intent.putExtra("type",1);
         startActivity(intent);
     }
 }

@@ -15,6 +15,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -59,6 +60,7 @@ RadioButton instit,com;
     EditText name,user_name,email,password,city,phone,phone_key;
     Button register;
     LinearLayout completed;
+    MenuItem nav_camara;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,16 +102,26 @@ type=findViewById(R.id.type);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
-        toggle.syncState();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        toggle.syncState();NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        Menu menu = navigationView.getMenu();
+
+         nav_camara = menu.findItem(R.id.nav_logout);
+        if(!new SharedPrefrenceModel(this).isLogined())
+            nav_camara.setTitle(R.string.login);
+
         navigationView.setNavigationItemSelectedListener(this);
         loginViewModel= ViewModelProviders.of(this).get(LoginViewModel.class);
         outObserver=new Observer<Integer>() {
             @Override
             public void onChanged(@Nullable Integer integer) {
                 Log.v("eee",integer+"");
+                SharedPrefrenceModel shared=new SharedPrefrenceModel(MyData.this);
                 if(integer==1){
-                    new SharedPrefrenceModel(MyData.this).setLogined(false);
+                    if(shared.isLogined())
+                        nav_camara.setTitle(R.string.logout);
+                    shared.setLogined(false);
+                    shared.setCompleteRegister(false);
                     startActivity(new Intent(MyData.this,LoginActivity.class));
                     finish();
                 }
@@ -172,6 +184,14 @@ register.setOnClickListener(new View.OnClickListener() {
 
     }
 
+    @Override
+    protected void onResume() {
+        if(new SharedPrefrenceModel(MyData.this).isLogined())
+            nav_camara.setTitle(R.string.logout);
+        else
+            nav_camara.setTitle(R.string.login);
+        super.onResume();
+    }
     private void updateMainData() {
         int i=country.getSelectedItemPosition();
         String country1=list.get(i);
@@ -241,7 +261,6 @@ name.getText().toString(),email.getText().toString(),phone.getText().toString()
                            if(userProfileResult.getCompany_type().equals("Institution"))
                                type.check(R.id.instit);
                            else  type.check(R.id.com);
-
                            company_name.setText(userProfileResult.getCompany_name());
 
                            phoneCompany.setText(userProfileResult.getCompany_phone());
@@ -299,7 +318,10 @@ name.getText().toString(),email.getText().toString(),phone.getText().toString()
                 intent.putExtra("framid",2);
                 startActivity(intent);
                 break;
-
+            case R.id.nav_contact:
+                intent.putExtra("framid",11);
+                startActivity(intent);
+                break;
             case R.id.nav_franshise:
                 intent.putExtra("framid",3);
                 startActivity(intent);
@@ -320,6 +342,11 @@ name.getText().toString(),email.getText().toString(),phone.getText().toString()
                  intent=new Intent(MyData.this,NavigationShow.class);
                 intent.putExtra("framid",8);
                 startActivity(intent);break;
+            case R.id.nav_jobs:
+                Intent intent4=new Intent(MyData.this,NavigationShow.class);
+                intent4.putExtra("framid",12);
+                startActivity(intent4);break;
+
             case R.id.nav_share:share();break;
             case R.id.nav_logout:logOut();break;
             case R.id.nav_setting:startActivity(new Intent(MyData.this,Setting.class));break;
@@ -346,4 +373,6 @@ name.getText().toString(),email.getText().toString(),phone.getText().toString()
                 new SharedPrefrenceModel(this).getApiToken();
         CustomProgressDialog.showProgress(this);
         loginViewModel.LogOut(token,api_token).observe(this,outObserver);
+        new SharedPrefrenceModel(this).setCompleteRegister(false);
+
     }}

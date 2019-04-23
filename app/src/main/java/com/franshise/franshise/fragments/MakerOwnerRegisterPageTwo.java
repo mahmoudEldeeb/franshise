@@ -171,7 +171,7 @@ try {
     public boolean checkvalues(){
         if(company_name.getText().toString().isEmpty()||phone.getText().toString().isEmpty()||
         fax.getText().toString().isEmpty()||manager.getText().toString().isEmpty()||conversion.getText().toString().isEmpty()
-        ||compay_type==null||category==-1)
+        ||compay_type==null)
         {
             Toast.makeText(getActivity(),R.string.fill_data,Toast.LENGTH_LONG).show();
             return false;

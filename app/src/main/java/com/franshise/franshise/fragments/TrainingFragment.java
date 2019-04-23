@@ -19,6 +19,7 @@ import com.franshise.franshise.adapters.EventsAdapter;
 import com.franshise.franshise.models.ResultNetworkModels.EventsModelResults;
 import com.franshise.franshise.models.SharedPrefrenceModel;
 import com.franshise.franshise.models.dataModels.EventsModel;
+import com.franshise.franshise.utils.CustomProgressDialog;
 import com.franshise.franshise.viewmodels.EventsViewModel;
 
 /**
@@ -48,9 +49,12 @@ public class TrainingFragment extends Fragment  implements EventsAdapter.Click {
 
         eventsViewModel = ViewModelProviders.of(this).get(EventsViewModel.class);
         Bundle bundle = getArguments();
+
+        CustomProgressDialog.showProgress(getActivity());
         eventsViewModel.courses(new SharedPrefrenceModel(getActivity()).getLanguage()).observe(this, new Observer<EventsModelResults>() {
             @Override
             public void onChanged(@Nullable EventsModelResults eventsModelResults) {
+                CustomProgressDialog.clodseProgress();
                 eventsAdapter = new EventsAdapter(getActivity(), TrainingFragment.this::onclick, eventsModelResults.getData());
                 events_recycle.setAdapter(eventsAdapter);
             }
@@ -64,6 +68,8 @@ public class TrainingFragment extends Fragment  implements EventsAdapter.Click {
 
         Intent intent = new Intent(getActivity(), ShowEvents.class);
         intent.putExtra("eventModel", eventsViewModel);
+        intent.putExtra("type",2);
+
         startActivity(intent);
     }
 }

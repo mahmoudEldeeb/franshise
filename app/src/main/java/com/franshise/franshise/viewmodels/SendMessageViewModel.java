@@ -60,9 +60,9 @@ public class SendMessageViewModel extends ViewModel{
         return result;
     }
 
-    public MutableLiveData<StatusModel>send_for_owner(String from,String email,String country,String message,int id){
+    public MutableLiveData<StatusModel>send_for_owner(String from,String email,String country,String message,int id,int sender){
         result=new MutableLiveData<>();
-        MessagesRepositry.send_for_owner(from,email, country, message,id).subscribeWith(new SingleObserver<StatusModel>() {
+        MessagesRepositry.send_for_owner(from,email, country, message,id,sender).subscribeWith(new SingleObserver<StatusModel>() {
             @Override
             public void onSubscribe(Disposable d) {
 
