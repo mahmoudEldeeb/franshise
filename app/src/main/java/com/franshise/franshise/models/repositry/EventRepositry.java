@@ -13,8 +13,8 @@ public class EventRepositry {
 
 
 
-    public static Single<EventsModelResults> courses(String lang){
-        return RetrofitConnections.getNetworkConnection().courses(lang)
+    public static Single<EventsModelResults> courses(String lang,int country_id){
+        return RetrofitConnections.getNetworkConnection().courses(lang,country_id)
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
     public static Single<EventsModelResults> services(String lang){

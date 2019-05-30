@@ -9,12 +9,14 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.franshise.franshise.R;
 import com.franshise.franshise.activites.ShowEvents;
+import com.franshise.franshise.adapters.CourseAdapter;
 import com.franshise.franshise.adapters.EventsAdapter;
 import com.franshise.franshise.models.ResultNetworkModels.EventsModelResults;
 import com.franshise.franshise.models.SharedPrefrenceModel;
@@ -22,12 +24,14 @@ import com.franshise.franshise.models.dataModels.EventsModel;
 import com.franshise.franshise.utils.CustomProgressDialog;
 import com.franshise.franshise.viewmodels.EventsViewModel;
 
+import java.util.HashSet;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class TrainingFragment extends Fragment  implements EventsAdapter.Click {
     RecyclerView events_recycle;
-    EventsAdapter eventsAdapter;
+    CourseAdapter eventsAdapter;
 
     public TrainingFragment() {
         // Required empty public constructor
@@ -51,11 +55,17 @@ public class TrainingFragment extends Fragment  implements EventsAdapter.Click {
         Bundle bundle = getArguments();
 
         CustomProgressDialog.showProgress(getActivity());
-        eventsViewModel.courses(new SharedPrefrenceModel(getActivity()).getLanguage()).observe(this, new Observer<EventsModelResults>() {
+        eventsViewModel.courses(new SharedPrefrenceModel(getActivity()).getLanguage(),0).observe(this, new Observer<EventsModelResults>() {
             @Override
             public void onChanged(@Nullable EventsModelResults eventsModelResults) {
                 CustomProgressDialog.clodseProgress();
-                eventsAdapter = new EventsAdapter(getActivity(), TrainingFragment.this::onclick, eventsModelResults.getData());
+                HashSet<Integer>hashSetDate=new HashSet<>();
+                for (int i=0;i<eventsModelResults.getData().size();i++){
+                    String month=eventsModelResults.getData().get(i).getDate().substring(5,7);
+                    Log.v("mmmm",month);
+                    hashSetDate.add(Integer.parseInt(month));
+                }
+                eventsAdapter = new CourseAdapter(getActivity(), TrainingFragment.this::onclick, eventsModelResults.getData(),hashSetDate.size());
                 events_recycle.setAdapter(eventsAdapter);
             }
         });

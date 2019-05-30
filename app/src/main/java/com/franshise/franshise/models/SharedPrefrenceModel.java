@@ -10,6 +10,7 @@ public class SharedPrefrenceModel {
     Context context;
     static SharedPreferences preferences;
     private String language;
+
     public SharedPrefrenceModel(Context c)
     {
         context=c;
@@ -168,4 +169,13 @@ public String getApiToken(){
         editor.putString("phone",userModel.getPhone());
         editor.commit();
     }
+    public void setUserType(boolean type){
+        preferences.edit().putBoolean("user_type",type).commit();
+
+    }
+    public boolean isOwner(){
+        return preferences.getBoolean("user_type",false);
+}
+
+
 }

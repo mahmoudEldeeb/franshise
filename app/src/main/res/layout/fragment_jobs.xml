@@ -6,20 +6,6 @@ android:layout_height="match_parent"
     tools:context=".fragments.Jobs"
 android:orientation="vertical" android:background="@color/send_blue"
     >
-
-<TextView
-    android:id="@+id/textView15h"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/jobs"
-    android:paddingLeft="20dp"
-    android:paddingStart="20dp"
-    android:textColor="@color/white"
-    android:textSize="20dp"
-    android:paddingTop="20dp"
-    android:paddingBottom="20dp"
-    android:background="@color/blue_subscribtion_button"/>
-
 <android.support.v7.widget.RecyclerView
     android:layout_width="match_parent"
     android:layout_height="match_parent"

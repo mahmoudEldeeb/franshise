@@ -7,6 +7,7 @@ import com.franshise.franshise.models.ResultNetworkModels.EventsModelResults;
 import com.franshise.franshise.models.ResultNetworkModels.FranchiseResultModel;
 import com.franshise.franshise.models.ResultNetworkModels.FranchiseResultsView;
 import com.franshise.franshise.models.ResultNetworkModels.FranchisesResult;
+import com.franshise.franshise.models.ResultNetworkModels.FundCompanyModelResult;
 import com.franshise.franshise.models.ResultNetworkModels.MessageResults;
 import com.franshise.franshise.models.ResultNetworkModels.PeriodResult;
 import com.franshise.franshise.models.ResultNetworkModels.SubscribtioResult;
@@ -35,6 +36,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Field;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface NetworkData {
 
@@ -59,8 +61,12 @@ public interface NetworkData {
     Single<ResponseBody> register(@Field("name") String name, @Field("username") String username,
                                   @Field("email") String email, @Field("password") String password,
                                   @Field("phone") String phone, @Field("country") String country,
-                                  @Field("city") String city);
-
+                                  @Field("city") String city,
+                                  @Field("user_type") int user_type,
+                                  @Field("company_name") String company_name,
+                                  @Field("admin_name") String admin_name,
+                                  @Field("admin_conversion") String admin_conversion
+                                  );
     @POST("verfiy")
     @FormUrlEncoded
     Single<ResponseBody> verfiy(@Field("email") String email, @Field("code") String code);
@@ -110,6 +116,13 @@ public interface NetworkData {
 
     @GET("countries")
     Single<DataResult> getCountries();
+
+
+    @GET("city_with_country")
+    Single<DataResult> city_with_country(@Query("country_id") int country_id);
+
+    @GET("qualification")
+    Single<DataResult> getQualification();
 
     @GET("markets")
     Single<DataResult> getmarkets();
@@ -363,10 +376,31 @@ public interface NetworkData {
     @GET("jobs/{lang}")
     Single<EventsModelResults> jobs	(@Path("lang") String lang);
 
-    @GET("courses/{lang}")
-    Single<EventsModelResults> courses(@Path("lang") String lang);
+    @GET("courses/{lang}/{country_id}")
+    Single<EventsModelResults> courses(@Path("lang") String lang,@Path("country_id")int country_id);
 
     @GET("conferances/{lang}")
     Single<EventsModelResults> conferances(@Path("lang") String lang);
+    @GET("companies")
+    Single<FundCompanyModelResult> getCompanies();
+
+    @POST("create_job")
+    @FormUrlEncoded
+    Single<StatusModel> createJob(
+                                        @Field("name") String name,
+                                        @Field("number_require") int number_require,
+                                        @Field("qualification_id") int qualification_id,
+                                        @Field("details") String details,
+                                        @Field("country_id") int country_id,
+                                        @Field("city_id[]") List<Integer> city_id,
+                                        @Field("start") int start,
+                                        @Field("end") int end,
+                                        @Field("gender") int gender,
+                                        @Field("currency") String currency,
+                                        @Field("number") int number
+
+
+
+    );
 
 }

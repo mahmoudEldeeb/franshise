@@ -84,7 +84,9 @@ public class Main extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
+
+      drawer.addDrawerListener(toggle);
+
         toggle.syncState();
 
         bottomNavigation = findViewById(R.id.bottom_navigation);
@@ -135,6 +137,7 @@ public class Main extends AppCompatActivity
             Fragment selectedFragment=new HomeFragment();
             FragmentManager fragMan = getSupportFragmentManager();
             FragmentTransaction fragTransaction = fragMan.beginTransaction();
+
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     selectedFragment=new HomeFragment();

@@ -10,6 +10,9 @@ import android.widget.ImageView;
 
 import com.franshise.franshise.R;
 import com.franshise.franshise.models.SharedPrefrenceModel;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 public class SplashActivity extends AppCompatActivity {
     ImageView splash;
@@ -19,6 +22,15 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         splash= findViewById(R.id.splash);
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(
+                SplashActivity.this,  new OnSuccessListener<InstanceIdResult>() {
+                    @Override
+                    public void onSuccess(InstanceIdResult instanceIdResult) {
+                      String  refreshedToken = instanceIdResult.getToken();
+
+                        Log.v("tttt",refreshedToken);
+                    }
+                });
         fade0 = AnimationUtils.loadAnimation(this, R.anim.fade_in_enter);
         splash.startAnimation(fade0);
 

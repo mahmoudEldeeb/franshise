@@ -1,23 +1,32 @@
 package com.franshise.franshise.utils;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 
 import dmax.dialog.SpotsDialog;
 
 public class CustomProgressDialog {
-public static AlertDialog proDialog;
+public static ProgressDialog dialog;
 
     public static void showProgress(Context context){
-     proDialog = new SpotsDialog.Builder()
+    /* proDialog = new SpotsDialog.Builder()
             .setContext(context)
                 .setMessage("Loading......")
                 .setCancelable(false)
                  .build();
-   try{  proDialog.show();}
-   catch (Exception e){}
-}
+   try{
+       proDialog.show();
+   }
+   catch (Exception e){}*/
+          dialog = new ProgressDialog(context, AlertDialog.THEME_DEVICE_DEFAULT_DARK);
+        dialog.setMessage("loading.....");
+        dialog.setIndeterminate(true);
+        dialog.setCancelable(false);
+        dialog.show();
+
+    }
 public static void clodseProgress(){
-        proDialog.dismiss();
+        dialog.dismiss();
 }
 }

@@ -119,6 +119,7 @@ public class AddFranchise extends AppCompatActivity implements FragmentTransform
         creatFranchiseModel.setPeriodId(period);
         creatFranchiseModel.setInvestModels(investModels);
         creatFranchiseModel.setFranchiseImage(image);
+        Log.v("ppppp",image+"");
         creatFranchiseModel.setImageOfProduct(imageOfProduct);
         creatFranchiseModel.setMarketCounties(countries);
         CustomProgressDialog.showProgress(this);

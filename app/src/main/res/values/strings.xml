@@ -22,6 +22,12 @@
         <item>soudea</item>
         <item>soudea</item>
     </array>
+    <string name="company_name">Company Name</string>
+    <string name="franchise_manager_name">Name Of Franchise Manager</string>
+    <string name="number_of_transformation">Number Of Transformation </string>
+
+    <string name="franchise_marker">Franchise Owner</string>
+    <string name="investor">Investor</string>
     <string name="data">My data</string>
     <string name="all">All</string>
     <string name="confirm_line1">To complete your register</string>
@@ -287,8 +293,29 @@ Dear customer
     <string name="register">register</string>
     <string name="code_wrong">the code is wrong try again</string>
 
+
+    <string name="Educational_qualification">
+Educational qualification</string>
+    <string name="job_name">Job Name</string>
+    <string name="job_number">Job Number</string>
+    <string name="job_describtion">Job Describtion</string>
+    <string name="job_place">Job Place</string>
+    <string name="job_sallary">Sallary</string>
+    <string name="currency">Currency</string>
+    <string name="vacancy">Vacancy Number</string>
+
+    <string name="gender">Candidate gender for this job
+</string>
+
+    <string name="from">from</string>
+    <string name="to">to</string>
+    <string name="no_preference">No preference</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="add_job">Add Job</string>
+    <string name="funding_companies">funding companies</string>
     <string name="base_url">http://204.93.167.45/~helix/franchise/api/</string>
-    <string name="base_image_url">http://204.93.167.45/~helix/franchise/public/uploads/thumbs/</string>
+    <string name="base_image_url">http://192.168.1.104/franchise/public/uploads/thumbs/</string>
     <string name="title_activity_franchises_of_category">FranchisesOfCategory</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -311,4 +338,22 @@ Dear customer
     <string name="title_activity_my_data">MyData</string>
     <string name="meter">m²</string>
     <string name="jobs">Jobs</string>
+    <string name="title_activity_funding_companies">FundingCompanies</string>
+    <string name="title_activity_add_jobs">AddJobs</string>
+    <string name="title_activity_cources">CourcesActivity</string>
+
+    <string-array name="months">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>Julay</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
 </resources>

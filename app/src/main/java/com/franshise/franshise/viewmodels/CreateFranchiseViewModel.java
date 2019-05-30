@@ -47,6 +47,7 @@ Context context;
         MutableLiveData<Integer>resuls=new MutableLiveData<>();
         HashMap<String,List<MultipartBody.Part>>map=new HashMap<>();
         List<MultipartBody.Part>imagespart=new ArrayList<>();
+        Log.v("ppppp2",model.getFranchiseImage()+"");
         MultipartBody.Part imagepart=prepareFilePart("image",model.getFranchiseImage());
         for (int i=0;i<model.getImageOfProduct().size();i++){
             //imagespart.set
@@ -157,13 +158,9 @@ return list;
     }
     @NonNull
     private MultipartBody.Part prepareFilePart(String partName, Uri fileUri) {
-        // https://github.com/iPaulPro/aFileChooser/blob/master/aFileChooser/src/com/ipaulpro/afilechooser/utils/FileUtils.java
-        // use the FileUtils to get the actual file by uri
-       // File file = FileUtils.getFile(this, fileUri);
-        // create RequestBody instance from file
+//        Log.v("wwww",getRealPathFromURI(fileUri)+"   ");
         File file= new File(getRealPathFromURI(fileUri));
         Log.v("wwww",getRealPathFromURI(fileUri)+"   ");
-
         RequestBody requestFile =
                 RequestBody.create(
                         MediaType.parse(Objects.requireNonNull(context.getContentResolver().getType(fileUri))),
@@ -186,7 +183,7 @@ Log.v("eeeeeeee",filename);
 }
 
     public String getRealPathFromURI (Uri contentUri) {
-        String path = null;
+        String path = String.valueOf(contentUri);
         String[] proj = { MediaStore.MediaColumns.DATA };
         Cursor cursor = context.getContentResolver().query(contentUri, proj, null, null, null);
         if (cursor.moveToFirst()) {
@@ -194,6 +191,7 @@ Log.v("eeeeeeee",filename);
             path = cursor.getString(column_index);
         }
         cursor.close();
+//        Log.v("ppppppppp4",path);
         return path;
     }
 

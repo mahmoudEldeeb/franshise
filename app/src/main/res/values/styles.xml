@@ -12,6 +12,10 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="menu_item_style">
+        <item name="fontFamily">@font/droid</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

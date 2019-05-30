@@ -8,6 +8,7 @@ import android.content.res.Configuration;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -61,6 +62,7 @@ EditText email,password;
             @Override
             public void onSuccess(InstanceIdResult instanceIdResult) {
                 token = instanceIdResult.getToken();
+                Log.v("aaaaaaa",token);
             }
         });
         loginViewModel = ViewModelProviders.of(this).get(LoginViewModel.class);

@@ -73,8 +73,11 @@ public class RegisterViewModel extends ViewModel {
     }
     public LiveData<Integer> register(final Context c,String name, String username,
                                       String email, String password,
-                                      String phone, String country, String city) {
-        LoginRepositry.register(name, username,email,password,phone,country,city)
+                                      String phone, String country, String city,
+                                      int user_type,String company_name,String admin_name,
+                                      String admin_conversion) {
+        LoginRepositry.register(name, username,email,password,phone,country,city
+                ,user_type,company_name,admin_name,admin_conversion)
                 .subscribeWith(new SingleObserver<ResponseBody>() {
             @Override
             public void onSubscribe(Disposable d) {

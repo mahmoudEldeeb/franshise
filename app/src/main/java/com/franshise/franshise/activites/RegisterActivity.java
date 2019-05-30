@@ -16,6 +16,8 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -34,7 +36,7 @@ import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
 ImageView star1;
-EditText name,user_name,email,password,city,phone,phone_key;
+EditText name,user_name,email,password,city,phone,phone_key,company_name,manager_name,transformation_number;
 Button register;
     ProgressDialog proDialog;
     Observer<Integer> registerObserver;
@@ -45,6 +47,9 @@ String county_name="";
 Spinner country;
 String token;
 CheckBox rules;
+RadioGroup user_type;
+int userType=-1;
+LinearLayout owner_register;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +66,10 @@ CheckBox rules;
         country=findViewById(R.id.country);
         phone_key=findViewById(R.id.phone_key);
         rules=findViewById(R.id.rules);
+        user_type=findViewById(R.id.user_type);
+        owner_register=findViewById(R.id.owner_register);
+        company_name=findViewById(R.id.company_name);manager_name=findViewById(R.id.manager_name);
+        transformation_number=findViewById(R.id.transformation_number);
 
         FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( RegisterActivity.this,  new OnSuccessListener<InstanceIdResult>() {
             @Override
@@ -72,7 +81,15 @@ CheckBox rules;
             startActivity(new Intent(RegisterActivity.this,ConformRegister.class));
             finish();
         }
-
+user_type.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        if(checkedId==R.id.investor){userType=1;
+            owner_register.setVisibility(View.GONE);}
+        else if(checkedId==R.id.franchise_marker){userType=0;
+            owner_register.setVisibility(View.VISIBLE);}
+    }
+});
 
         registerViewModel = ViewModelProviders.of(this).get(RegisterViewModel.class);
 
@@ -152,15 +169,22 @@ Log.v("qqqq",
         if(name.getText().toString().isEmpty()||user_name.getText().toString().isEmpty()||email.getText().toString().isEmpty()||
                 password.getText().toString().isEmpty()||city.getText().toString().isEmpty()
                 ||phone_key.getText().toString().isEmpty()||county_name.equals(getResources().getString(R.string.country))
-                ||!rules.isChecked()
+                ||!rules.isChecked()||userType==-1
         ){
+            proDialog.dismiss();
+            Toast.makeText(getBaseContext(),getResources().getString(R.string.fill_data),Toast.LENGTH_LONG).show();
+        }
+        else if(userType!=-1&&(company_name.getText().toString().isEmpty()||manager_name.getText().toString().isEmpty()
+        ||transformation_number.getText().toString().isEmpty())){
             proDialog.dismiss();
             Toast.makeText(getBaseContext(),getResources().getString(R.string.fill_data),Toast.LENGTH_LONG).show();
         }
         else if(checkMail()){
             registerViewModel.register(RegisterActivity.this,name.getText().toString(),user_name.getText().toString(),
                     email.getText().toString()
-                    ,password.getText().toString(),phone_key.getText().toString()+phone.getText().toString(),county_name,city.getText().toString())
+                    ,password.getText().toString(),phone_key.getText().toString()+phone.getText().toString(),county_name,city.getText().toString(),
+                    userType,company_name.getText().toString(),manager_name.getText().toString()
+                            ,transformation_number.getText().toString())
                     .observe(RegisterActivity.this, registerObserver);
         }
         else

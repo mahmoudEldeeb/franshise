@@ -39,9 +39,9 @@ public class EventsViewModel extends ViewModel {
                 });
         return events;
     }
-    public MutableLiveData<EventsModelResults> courses(String lang){
+    public MutableLiveData<EventsModelResults> courses(String lang,int country_id){
         MutableLiveData<EventsModelResults>events=new MutableLiveData<>();
-        EventRepositry.courses(lang)
+        EventRepositry.courses(lang,country_id)
                 .subscribeWith(new SingleObserver<EventsModelResults>() {
                     @Override
                     public void onSubscribe(Disposable d) {

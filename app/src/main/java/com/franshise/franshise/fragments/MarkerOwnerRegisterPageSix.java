@@ -286,12 +286,39 @@ createFranchiseViewModel.getCountry(0).observe(this, new Observer<DataResult>() 
 */
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+if(imageType==0)
+{
 
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-            intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE);
+    Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
+    getIntent.setType("image/*");
+
+    Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+    pickIntent.setType("image/*");
+    Intent chooserIntent = Intent.createChooser(getIntent, "Select Image");
+    chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {pickIntent});
+
+    startActivityForResult(chooserIntent, PICK_IMAGE);
+
+}
+           else{
+
+
+
+
+
+    Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
+    getIntent.setType("image/*");
+    getIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+    Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+    pickIntent.setType("image/*");
+    pickIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+    Intent chooserIntent = Intent.createChooser(getIntent, "Select Image");
+    chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {pickIntent});
+
+    startActivityForResult(chooserIntent, PICK_IMAGE);
+
+           }
+
         }
         else {
 
@@ -317,32 +344,42 @@ createFranchiseViewModel.getCountry(0).observe(this, new Observer<DataResult>() 
                         if (imageType == 0) {
 
                             final Uri imageUri = data.getData();
-
                             final InputStream imageStream = getActivity().getContentResolver().openInputStream(imageUri);
                             final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                             images.setImageBitmap(selectedImage);
                             image_franchise.setVisibility(View.VISIBLE);
                             imageFranchiseUri=imageUri;
+                            Log.v("ppppp1",imageFranchiseUri+"");
                         } else {
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
                                 ClipData clipData = data.getClipData();
-
-                                for(int i=0;i<clipData.getItemCount();i++){
-                                    ClipData.Item item = clipData.getItemAt(i);
-                                    Uri uri = item.getUri();
-                                    Log.v("qwwwwwwww",i+"   11");
-                                    final InputStream imageStream = getActivity().getContentResolver().openInputStream(uri);
+                                if(clipData==null){
+                                    final Uri imageUri = data.getData();
+                                    final InputStream imageStream = getActivity().getContentResolver().openInputStream(imageUri);
                                     final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                                     imagelist.add(selectedImage);
-                                    imagesOfProdust.add(uri);
+                                    imagesOfProdust.add(imageUri);
+                                    Log.v("rrrrrr",imageUri+"");
                                     giftStyleAdapter.notifyDataSetChanged();
+
+                                }
+                                else {
+                                    for(int i=0;i<clipData.getItemCount();i++) {
+                                        ClipData.Item item = clipData.getItemAt(i);
+                                        Uri uri = item.getUri();
+                                        Log.v("qwwwwwwww", i + "   11");
+                                        final InputStream imageStream = getActivity().getContentResolver().openInputStream(uri);
+                                        final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                                        imagelist.add(selectedImage);
+                                        imagesOfProdust.add(uri);
+                                        giftStyleAdapter.notifyDataSetChanged();
+                                    }
                                 }
                             }
                             else {
                                 Log.v("rrrrrr","reeeeeeeeeeeee");
                                 final Uri imageUri = data.getData();
-
                                 final InputStream imageStream = getActivity().getContentResolver().openInputStream(imageUri);
                                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                                 imagelist.add(selectedImage);
