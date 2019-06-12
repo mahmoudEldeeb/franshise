@@ -165,7 +165,6 @@ month=-1;
         Intent intent = new Intent(getActivity(), ShowEvents.class);
         intent.putExtra("eventModel", eventsViewModel);
         intent.putExtra("type",2);
-
         startActivity(intent);
     }
 }

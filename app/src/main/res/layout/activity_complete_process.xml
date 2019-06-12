@@ -19,7 +19,12 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_complete_process"
-        app:menu="@menu/activity_complete_process_drawer" />
+        app:itemTextColor="@color/white"
+        app:menu="@menu/activity_main2_drawer"
+        android:background="@color/blue"
+        app:itemTextAppearance="@color/black"
+        android:foregroundTint="@color/black"
+        app:itemIconTint="@color/black"
+        />
 
 </android.support.v4.widget.DrawerLayout>

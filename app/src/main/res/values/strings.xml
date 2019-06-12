@@ -307,7 +307,7 @@ Educational</string>
 
     <string name="gender">Candidate gender for this job
 </string>
-
+<string name="sucess">process sucess</string>
     <string name="from">from</string>
     <string name="to">to</string>
     <string name="no_preference">No preference</string>
@@ -357,9 +357,9 @@ Educational</string>
         <item>November</item>
         <item>December</item>
     </string-array>
-    <string name="title_activity_jobs_info">JobsInfo</string>
+    <string name="title_activity_jobs_info"> </string>
     <string name="update">Update</string>
     <string name="title_activity_pay">Pay</string>
     <string name="title_activity_complete_process">CompleteProcess</string>
-
+<string name="delete_job">Delete</string>
 </resources>

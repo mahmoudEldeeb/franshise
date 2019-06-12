@@ -42,6 +42,8 @@ import retrofit2.http.Multipart;
 public class CreateFranchiseViewModel extends ViewModel {
 Context context;
     public MutableLiveData<Integer> create(CreatFranchiseModel model,Context c){
+Log.v("rrrrrr",model.getMarketCounties().get(0)+"");
+//        Log.v("rrrrrr",model.().get(0)+"");
 
         context=c;
         MutableLiveData<Integer>resuls=new MutableLiveData<>();

@@ -32,7 +32,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.franshise.franshise.R;
-import com.franshise.franshise.fragments.AddJobs;
 import com.franshise.franshise.models.ResultNetworkModels.DataResult;
 import com.franshise.franshise.models.SharedPrefrenceModel;
 import com.franshise.franshise.models.dataModels.JobModel;
@@ -86,6 +85,10 @@ NavigationView navigationView;
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        // getSupportActionBar().setLogo(R.drawable.logo2);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
         layoutInflater=this.getLayoutInflater();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -410,8 +413,7 @@ NavigationView navigationView;
                 intent3.putExtra("framid",8);
                 startActivity(intent3);break;
             case R.id.nav_jobs:
-                Intent intent4=new Intent(JobsInfo.this,NavigationShow.class);
-                intent4.putExtra("framid",12);
+                Intent intent4=new Intent(JobsInfo.this, AddJobs.class);
                 startActivity(intent4);break;
             case R.id.nav_share:share();break;
             case R.id.nav_logout:logOut();break;

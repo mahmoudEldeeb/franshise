@@ -136,6 +136,8 @@ email=findViewById(R.id.email);
                         public void onChanged(@Nullable StatusModel statusModel) {
                             CustomProgressDialog.clodseProgress();
                             Toast.makeText(Pay.this,statusModel.getMessage(),Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(Pay.this,CompleteProcess.class));
+                            finish();
                         }
                     });
             Log.v("rrrrrrrrrr","fff");
@@ -247,8 +249,8 @@ email=findViewById(R.id.email);
                 intent3.putExtra("framid",8);
                 startActivity(intent3);break;
             case R.id.nav_jobs:
-                Intent intent4=new Intent(Pay.this,NavigationShow.class);
-                intent4.putExtra("framid",12);
+                Intent intent4=new Intent(Pay.this,AddJobs.class);
+                //intent4.putExtra("framid",12);
                 startActivity(intent4);break;
             case R.id.nav_share:share();break;
             case R.id.nav_logout:logOut();break;

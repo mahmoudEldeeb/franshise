@@ -59,7 +59,9 @@
             android:name=".activites.Setting"
             android:label="@string/title_activity_setting"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activites.Policey" />
+        <activity android:name=".activites.Policey"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity
             android:name=".activites.FranchiseOfCategory"
             android:label="@string/title_activity_franchise_of_category"

@@ -3,9 +3,11 @@ package com.franshise.franshise.activites;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,12 +22,14 @@ TextView title,details,date,type;
 ImageView image;
 EventsModel eventsModel;
     WebView web;
+    ImageButton back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_events);
         web=findViewById(R.id.web);
         type=findViewById(R.id.type);
+        back=findViewById(R.id.back);
         WebSettings webSettings = web.getSettings();
         webSettings.setJavaScriptEnabled(true);
         web.setWebViewClient(new WebViewClient(){
@@ -38,6 +42,12 @@ EventsModel eventsModel;
             @Override
             public void onPageFinished(WebView view, String url) {
                 CustomProgressDialog.clodseProgress();
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
 //        Bundle b=getArguments();

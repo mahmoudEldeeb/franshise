@@ -242,10 +242,10 @@ FrameLayout fram;
                 fragTransaction.replace(R.id.fragment, selected );
                 fragTransaction.commit();
                 break;
-            case R.id.nav_jobs :selected=new Jobs();
-                fragTransaction.replace(R.id.fragment, selected );
-                fragTransaction.commit();
-                break;
+            case R.id.nav_jobs :
+                startActivity(new Intent(NavigationShow.this,AddJobs.class));
+                finish();break;
+
             case R.id.nav_share:share();break;
             case R.id.nav_logout:logOut();
             default:break;

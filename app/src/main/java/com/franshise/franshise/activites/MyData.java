@@ -343,8 +343,8 @@ name.getText().toString(),email.getText().toString(),phone.getText().toString()
                 intent.putExtra("framid",8);
                 startActivity(intent);break;
             case R.id.nav_jobs:
-                Intent intent4=new Intent(MyData.this,NavigationShow.class);
-                intent4.putExtra("framid",12);
+                Intent intent4=new Intent(MyData.this,AddJobs.class);
+                //intent4.putExtra("framid",12);
                 startActivity(intent4);break;
 
             case R.id.nav_share:share();break;

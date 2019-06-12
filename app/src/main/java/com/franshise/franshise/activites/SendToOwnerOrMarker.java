@@ -37,7 +37,6 @@ TextView marker_name,tomarker;
         marker_name=findViewById(R.id.marker_name);
         tomarker=findViewById(R.id.tomarker);
         francise_image=findViewById(R.id.francise_image);
-
         ownerOrMarker=getIntent().getIntExtra("ownerOrMarker",0);
         id=getIntent().getIntExtra("id",0);
         if(ownerOrMarker==0){

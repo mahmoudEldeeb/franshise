@@ -45,9 +45,8 @@ public class AddFranchise extends AppCompatActivity implements FragmentTransform
             public void onChanged(@Nullable Integer integer) {
                 CustomProgressDialog.clodseProgress();
                 if(integer==1){
-
                     Toast.makeText(AddFranchise.this,"done",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(AddFranchise.this,AddMarker.class));
+                    startActivity(new Intent(AddFranchise.this,CompleteProcess.class));
                     finish();
                 }
                 else

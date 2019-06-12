@@ -35,7 +35,6 @@
             android:layout_height="wrap_content"
                 android:src="@drawable/logo2"
             android:layout_gravity="left"
-                android:paddingLeft="-10dp"
                 app:contentInsetStartWithNavigation="0dp"
                 />
         </android.support.v7.widget.Toolbar>

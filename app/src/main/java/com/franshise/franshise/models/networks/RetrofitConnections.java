@@ -9,8 +9,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitConnections {
 
-  //  final static  String RootUrl="http://204.93.167.45/~helix/franchise/api/";
-    final static String RootUrl="http://192.168.1.7/franchise/api/";
+    final static  String RootUrl="http://204.93.167.45/~helix/franchise/api/";
+    //final static String RootUrl="http://192.168.1.7/franchise/api/";
     private static Retrofit getInstance(){
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 

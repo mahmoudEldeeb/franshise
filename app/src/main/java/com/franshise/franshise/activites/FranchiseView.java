@@ -397,8 +397,8 @@ click_here.setOnClickListener(new View.OnClickListener() {
                 intent3.putExtra("framid",8);
                 startActivity(intent3);break;
             case R.id.nav_jobs:
-                Intent intent4=new Intent(FranchiseView.this,NavigationShow.class);
-                intent4.putExtra("framid",12);
+                Intent intent4=new Intent(FranchiseView.this,AddJobs.class);
+                //intent4.putExtra("framid",12);
                 startActivity(intent4);break;
             case R.id.nav_share:share();break;
             case R.id.nav_logout:logOut();break;

@@ -3,6 +3,7 @@ package com.franshise.franshise.activites;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -15,6 +16,13 @@ WebView web;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+       // getSupportActionBar().setDisplayShowHomeEnabled(true);
+       //  getSupportActionBar().setLogo(R.drawable.logo2);
+       // getSupportActionBar().setDisplayShowTitleEnabled(false);
+       // getSupportActionBar().setDisplayUseLogoEnabled(true);
         setContentView(R.layout.activity_policey);
         web=findViewById(R.id.webview);
         WebSettings webSettings = web.getSettings();

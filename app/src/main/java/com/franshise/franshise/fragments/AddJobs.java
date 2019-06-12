@@ -3,6 +3,7 @@ package com.franshise.franshise.fragments;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -22,6 +23,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.franshise.franshise.R;
+import com.franshise.franshise.activites.CompleteProcess;
+import com.franshise.franshise.activites.Pay;
 import com.franshise.franshise.activites.RegisterActivity;
 import com.franshise.franshise.interfaces.AddFranchiseData;
 import com.franshise.franshise.models.ResultNetworkModels.DataResult;
@@ -212,6 +215,8 @@ add_job.setOnClickListener(new View.OnClickListener() {
                         public void onChanged(@Nullable StatusModel statusModel) {
                             if(statusModel.getStatus()==1){
                                 Toast.makeText(getActivity(),statusModel.getMessage(),Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getActivity(), CompleteProcess.class));
+                               getActivity().finish();
                             }
                             else Toast.makeText(getActivity(),statusModel.getMessage(),Toast.LENGTH_SHORT).show();
                         }

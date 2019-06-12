@@ -33,7 +33,8 @@ import com.franshise.franshise.viewmodels.UpdateFranchiseViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UpdateFranchise extends AppCompatActivity implements AddFranchiseData, FragmentTransformer, GiftStyleAdapter.DeleteListener {
+public class UpdateFranchise extends AppCompatActivity
+        implements AddFranchiseData, FragmentTransformer, GiftStyleAdapter.DeleteListener {
     UpdateFranchiseViewModel updateFranchise;
     FragmentManager fragMan;
     FranchiseData franchise;

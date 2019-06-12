@@ -5,7 +5,7 @@
     <string name="arabic">العربية</string>
     <string name="english">ENGLISH</string>
 
-
+    <string name="sucess">تمت العملية بنجاح</string>
     <string name="username_or_mail">اسم المستخدم او البريد الالكترونى</string>
     <string name="password">كلمة المور</string>
     <string name="login">دخول</string>
@@ -23,6 +23,7 @@
     <string name="city">المدينة</string>
     <string name="read_rules">قرآت الشروط والاحكام </string>
     <string name="franchise_name">اسم العلامة</string>
+    <string name="delete_job">حذف الوظيفة</string>
     <string name="sendpassword">عزيزنا العميل لقد قمنا بارسال كلمة السر الجديدة الى بريدك الالكترونى</string>
     <array name="countries"><item>السعودية</item>
         <item>السعودية</item>
