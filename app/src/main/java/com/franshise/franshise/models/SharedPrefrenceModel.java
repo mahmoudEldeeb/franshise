@@ -127,6 +127,9 @@ public UserModel getUserModel(){
     public String getEmail(){
         return preferences.getString("email","");
     }
+    public String getName(){
+        return preferences.getString("name","");
+    }
 
     public int getId(){
         return preferences.getInt("id",0);

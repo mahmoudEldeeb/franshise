@@ -6,7 +6,6 @@ public class Franchise_gift {
     //List<Integer>
     private int value;
 String ar_name,en_name;
-
     public String getAr_name() {
         return ar_name;
     }

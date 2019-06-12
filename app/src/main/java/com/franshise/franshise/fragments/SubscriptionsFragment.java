@@ -46,23 +46,23 @@ public class SubscriptionsFragment extends Fragment implements SubscribtionAdapt
 RecyclerView sub_res;
 SubscribtionAdapter subscribtionAdapter;
 int sub_id=-1;
-ImageView bank_image;
+//ImageView bank_image;
 
     public SubscriptionsFragment() {
         // Required empty public constructor
     }
-Button pick_image,subscribe;
+//Button pick_image,subscribe;
     Uri imageBankUri;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_subscriptions, container, false);
-        bank_image=view.findViewById(R.id.bank_image);
+        //bank_image=view.findViewById(R.id.bank_image);
         sub_res=view.findViewById(R.id.sub_res);
-        pick_image=view.findViewById(R.id.pick_image);
+        /*pick_image=view.findViewById(R.id.pick_image);
         subscribe=view.findViewById(R.id.subscribe);
-
+*/
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         sub_res.setLayoutManager(mLayoutManager);
 CustomProgressDialog.showProgress(getActivity());
@@ -78,7 +78,7 @@ CustomProgressDialog.showProgress(getActivity());
                 }else Toast.makeText(getActivity(),subscribtioResult.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
-        pick_image.setOnClickListener(new View.OnClickListener() {
+    /*    pick_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -94,7 +94,7 @@ subscribe.setOnClickListener(new View.OnClickListener() {
             upload();
         }else startActivity(new Intent(getActivity(), LoginActivity.class));
     }
-});
+});*/
         return view;
     }
 
@@ -133,8 +133,8 @@ subscribe.setOnClickListener(new View.OnClickListener() {
 
                     final InputStream imageStream = getActivity().getContentResolver().openInputStream(imageUri);
                     final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
-                        bank_image.setImageBitmap(selectedImage);
-                    bank_image.setVisibility(View.VISIBLE);
+                      //  bank_image.setImageBitmap(selectedImage);
+                   // bank_image.setVisibility(View.VISIBLE);
                         imageBankUri=imageUri;
 
                 } catch (FileNotFoundException e) {

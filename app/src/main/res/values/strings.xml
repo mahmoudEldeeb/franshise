@@ -107,8 +107,9 @@
     <string name="DateEstablished">Date Established</string>
     <string name="numberofbranches">number of branches local</string>
     <string name="Average_space">Average space per sale port</string>
-
-
+<string name="subscribe">subscribe</string>
+<string name="see_more_details">To see more details you must subscribe</string>
+    <string name="click_here">Click Here</string>
     <string name="Typeofscholarship">Type of scholarship available</string>
     <string name="Commercialconcession">Commercial concession Development of one branch area</string>
     <string name="MajorCommercial">Major Commercial Franchise</string>
@@ -315,14 +316,14 @@ Educational qualification</string>
     <string name="add_job">Add Job</string>
     <string name="funding_companies">funding companies</string>
     <string name="base_url">http://204.93.167.45/~helix/franchise/api/</string>
-    <string name="base_image_url">http://192.168.1.104/franchise/public/uploads/thumbs/</string>
+    <string name="base_image_url">http://204.93.167.45/~helix/franchise/public/uploads/thumbs/</string>
     <string name="title_activity_franchises_of_category">FranchisesOfCategory</string>
-
+<string name="pay">Pay</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="anniual_sub">Annual subscription</string>
+<string name="payment_way">Choose your payment way</string>
     <string name="Commercial_Concession">http://204.93.167.45/~helix/franchise/api/page/en/Commercial_Concession</string>
-
     <string name="questionss">http://204.93.167.45/~helix/franchise/api/page/en/questions</string>
     <string name="contact_us">http://204.93.167.45/~helix/franchise/api/page/en/contact-us</string>
 
@@ -356,4 +357,8 @@ Educational qualification</string>
         <item>November</item>
         <item>December</item>
     </string-array>
+    <string name="title_activity_jobs_info">JobsInfo</string>
+    <string name="update">Update</string>
+    <string name="title_activity_pay">Pay</string>
+
 </resources>

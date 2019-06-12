@@ -49,7 +49,9 @@
                 android:gravity="center_vertical"
                 android:text="@string/name"
                 android:textColor="@color/text_register"
-                android:textSize="@dimen/text_register_size" />
+                android:textSize="@dimen/text_register_size"
+                android:fontFamily="@font/droid"
+                />
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,6 +64,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/register_edittext"
                     android:ems="10"
+                    android:fontFamily="@font/droid"
                     android:gravity="center"
                     android:inputType="textPersonName"
                     android:paddingStart="5dp"
@@ -86,7 +89,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/email"
                 android:textColor="@color/text_register"
-
+                android:fontFamily="@font/droid"
                 android:textSize="@dimen/text_register_size"
                 android:layout_marginTop="10dp"/>
             <FrameLayout
@@ -100,6 +103,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/register_edittext"
                     android:ems="10"
+                    android:fontFamily="@font/droid"
                     android:gravity="center"
                     android:inputType="textEmailAddress" />
                 <ImageView
@@ -120,7 +124,9 @@
                 android:gravity="center_vertical"
                 android:text="@string/phone"
                 android:textColor="@color/text_register"
-                android:textSize="@dimen/text_register_size"  />
+                android:textSize="@dimen/text_register_size"
+                android:fontFamily="@font/droid"
+                />
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -147,7 +153,7 @@
                         android:inputType="number"
                         android:paddingStart="10dp"
                         android:paddingLeft="10dp"
-
+                        android:fontFamily="@font/droid"
                         android:textSize="@dimen/text_register_size" />
                 </LinearLayout>
 
@@ -168,7 +174,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/country"
                 android:textColor="@color/text_register"
-
+                android:fontFamily="@font/droid"
                 android:textSize="@dimen/text_register_size" />
 
             <FrameLayout
@@ -209,7 +215,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/city"
                 android:textColor="@color/text_register"
-
+                android:fontFamily="@font/droid"
                 android:textSize="@dimen/text_register_size"
                 android:layout_marginTop="10dp"/>
             <FrameLayout
@@ -222,6 +228,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/register_edittext"
                     android:ems="10"
+                    android:fontFamily="@font/droid"
                     android:gravity="center"
                     android:inputType="text"
                     android:paddingStart="5dp"
@@ -260,7 +267,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/institutionname"
                         android:gravity="start"
-
+                        android:fontFamily="@font/droid"
                         android:textColor="@color/text_register"
                         />
 
@@ -274,7 +281,7 @@
                         android:inputType="textPersonName"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
-
+                        android:fontFamily="@font/droid"
                         android:paddingLeft="5dp"
                         android:paddingStart="5dp"
                         android:text="@null" />
@@ -293,6 +300,7 @@
                             android:layout_weight="0.7"
                             android:gravity="center_vertical"
                             android:text="@string/type"
+                            android:fontFamily="@font/droid"
                             android:textColor="@color/text_register"
                             />
 
@@ -310,7 +318,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:buttonTint="@color/white"
-
+                                android:fontFamily="@font/droid"
                                 android:text="@string/institution"
                                 android:textColor="@color/text_register" />
 
@@ -320,7 +328,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:buttonTint="@color/white"
-
+                                android:fontFamily="@font/droid"
                                 android:text="@string/company"
                                 android:textColor="@color/text_register" />
                         </RadioGroup>
@@ -346,6 +354,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/phone"
+                                android:fontFamily="@font/droid"
                                 android:layout_marginTop="10dp"
                                 android:textColor="@color/text_register"/>
 
@@ -359,6 +368,7 @@
                                 android:paddingStart="5dp"
                                 android:inputType="number"
                                 android:paddingTop="10dp"
+                                android:fontFamily="@font/droid"
                                 android:paddingBottom="10dp" />
 
                         </LinearLayout>
@@ -377,6 +387,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/fax"
                                 android:layout_marginTop="10dp"
+                                android:fontFamily="@font/droid"
                                 android:textColor="@color/text_register"/>
 
                             <EditText
@@ -385,7 +396,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/register_edittext"
                                 android:ems="10"
-
+                                android:fontFamily="@font/droid"
                                 android:paddingLeft="5dp"
                                 android:paddingStart="5dp"
                                 android:inputType="number"
@@ -416,6 +427,8 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/manager"
                                 android:layout_marginTop="10dp"
+                                android:fontFamily="@font/droid"
+
                                 android:textColor="@color/text_register"/>
 
                             <EditText
@@ -426,6 +439,8 @@
                                 android:ems="10"
                                 android:inputType="textPersonName"
                                 android:paddingTop="10dp"
+                                android:fontFamily="@font/droid"
+
                                 android:paddingLeft="5dp"
                                 android:paddingStart="5dp"
                                 android:paddingBottom="10dp" />
@@ -447,6 +462,8 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/transference"
                                 android:layout_marginTop="10dp"
+                                android:fontFamily="@font/droid"
+
                                 android:textColor="@color/text_register"/>
 
                             <EditText
@@ -455,7 +472,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/register_edittext"
                                 android:ems="10"
-
+                                android:fontFamily="@font/droid"
                                 android:paddingLeft="5dp"
                                 android:paddingStart="5dp"
                                 android:inputType="number"
@@ -476,7 +493,9 @@
                     android:textSize="@dimen/text_register_size"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/droid"
+                    />
 
             </LinearLayout>
         </LinearLayout>

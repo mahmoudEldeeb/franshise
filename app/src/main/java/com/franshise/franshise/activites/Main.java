@@ -73,6 +73,10 @@ public class Main extends AppCompatActivity
         getBaseContext().getResources().updateConfiguration(config,
                 getBaseContext().getResources().getDisplayMetrics());
         setContentView(R.layout.activity_main2);
+        if(!new SharedPrefrenceModel(this).isLogined()){
+            startActivity(new Intent(Main.this,LoginActivity.class));
+            finish();
+        }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -277,13 +281,12 @@ boolean searchback=false;
                 intent.putExtra("framid",8);
                 startActivity(intent);break;
             case R.id.nav_jobs:
-            Intent intent4=new Intent(Main.this,NavigationShow.class);
-            intent4.putExtra("framid",12);
+            Intent intent4=new Intent(Main.this,AddJobs.class);
             startActivity(intent4);break;
             case R.id.nav_share:share();break;
             case R.id.nav_logout:logOut();break;
             case R.id.nav_setting:startActivity(new Intent(Main.this,Setting.class));break;
-
+            case R.id.nav_funding:startActivity(new Intent(Main.this,FundingCompanies.class));break;
             default:break;
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -293,7 +296,7 @@ boolean searchback=false;
 public void share(){
     Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
     sharingIntent.setType("text/plain");
-    String shareBody = "https://play.google.com/store/movies/details/Spider_Man_Into_the_Spider_Verse?id=vTg25S6WRVY";
+    String shareBody = "https://play.google.com/store/apps/details?id=com.franshise.franshise";
     sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "share franchise");
     sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
     startActivity(Intent.createChooser(sharingIntent, "Share via"));

@@ -13,32 +13,48 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.franshise.franshise.R;
 import com.franshise.franshise.activites.ShowEvents;
 import com.franshise.franshise.adapters.CourseAdapter;
+import com.franshise.franshise.adapters.CoursesAdapter;
 import com.franshise.franshise.adapters.EventsAdapter;
+import com.franshise.franshise.models.ResultNetworkModels.DataResult;
 import com.franshise.franshise.models.ResultNetworkModels.EventsModelResults;
 import com.franshise.franshise.models.SharedPrefrenceModel;
 import com.franshise.franshise.models.dataModels.EventsModel;
 import com.franshise.franshise.utils.CustomProgressDialog;
 import com.franshise.franshise.viewmodels.EventsViewModel;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.TreeSet;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class TrainingFragment extends Fragment  implements EventsAdapter.Click {
     RecyclerView events_recycle;
-    CourseAdapter eventsAdapter;
-
+    CoursesAdapter coursesAdapter;
+Spinner country_spinner;
+LayoutInflater layoutInflater;
+LinearLayout spaceParent;
     public TrainingFragment() {
         // Required empty public constructor
     }
 
     EventsViewModel eventsViewModel;
-
+    List<Integer> countryIds=new ArrayList<>();
     //
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,31 +62,145 @@ public class TrainingFragment extends Fragment  implements EventsAdapter.Click {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_training, container, false);
         events_recycle = view.findViewById(R.id.events_recycle);
-
+        layoutInflater=inflater;
         RecyclerView.LayoutManager mLayoutManager1 = new LinearLayoutManager(getActivity());
         events_recycle.setLayoutManager(mLayoutManager1);
-
+        country_spinner=view.findViewById(R.id.country_spinner);
+        spaceParent=view.findViewById(R.id.spaceParent);
+        List<String> list=new ArrayList<>();
+        list.add(getResources().getString(R.string.all));
+        ArrayAdapter<String> adp1 = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1, list);
+        adp1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        country_spinner.setAdapter(adp1);
 
         eventsViewModel = ViewModelProviders.of(this).get(EventsViewModel.class);
         Bundle bundle = getArguments();
+        eventsViewModel.getCountries().observe(this, new Observer<DataResult>() {
+    @Override
+    public void onChanged(@Nullable DataResult result) {
+        for(int i=0;i<result.getData().size();i++) {
+            countryIds.add(result.getData().get(i).getId());
+            if (new SharedPrefrenceModel(getActivity()).getLanguage().equals("en")) {
+                list.add(result.getData().get(i).getEn_name()) ;
+            } else {
+                list.add(result.getData().get(i).getEn_name()) ;
+            }
+        }
+        adp1.notifyDataSetChanged();
 
-        CustomProgressDialog.showProgress(getActivity());
-        eventsViewModel.courses(new SharedPrefrenceModel(getActivity()).getLanguage(),0).observe(this, new Observer<EventsModelResults>() {
+    }
+});
+country_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        if(position!=0)
+        getcourses(countryIds.get(position-1));
+        else getcourses(0);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+});
+//getcourses(0);
+
+        return view;
+    }
+    private void addElement2(EventsModel eventsModel) {
+        View itemView=layoutInflater.inflate(R.layout.shows_item, spaceParent, false);
+        TextView name,date,details,type;
+        ImageView profile_image;
+
+            name = itemView.findViewById(R.id.name);
+            profile_image = itemView.findViewById(R.id.profile_image);
+            details = itemView.findViewById(R.id.details);
+            date = itemView.findViewById(R.id.date);
+
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // View v2=spaceParent2.getChildAt( spaceParent2.indexOfChild(v3));
+                //spaceParent2.removeView(v2);
+            }
+        });
+        details.setText(eventsModel.getDetails());
+        name.setText(eventsModel.getTitle());
+        date.setText(eventsModel.getDate());
+      /*  Spinner spinner=v3.findViewById(R.id.value);
+        ArrayAdapter<String> adp1 = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1, countryList);
+        adp1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adp1);
+
+        re2.setText("Country ");*/
+        spaceParent.addView(itemView,spaceParent.getChildCount());
+
+    }int month=-1;
+    private void getcourses(int i) {
+month=-1;
+        spaceParent.removeAllViews();
+       CustomProgressDialog.showProgress(getActivity());
+       if(coursesAdapter!=null)
+           coursesAdapter.clear();
+        eventsViewModel.courses(new SharedPrefrenceModel(getActivity()).getLanguage(),i,getActivity()).observe(this, new Observer<EventsModelResults>() {
             @Override
             public void onChanged(@Nullable EventsModelResults eventsModelResults) {
+                Log.v("eeeeeeee",eventsModelResults.getData().size()+"");
                 CustomProgressDialog.clodseProgress();
-                HashSet<Integer>hashSetDate=new HashSet<>();
+                if(eventsModelResults.getData().size()>0){
+
+                TreeSet<Integer> hashSetDate=new TreeSet<>();
                 for (int i=0;i<eventsModelResults.getData().size();i++){
-                    String month=eventsModelResults.getData().get(i).getDate().substring(5,7);
-                    Log.v("mmmm",month);
-                    hashSetDate.add(Integer.parseInt(month));
+                    String month1=eventsModelResults.getData().get(i).getDate().substring(5,7);
+
+
+                    Log.v("aaaaaaa",month1+"   "+month);
+                    hashSetDate.add(Integer.parseInt(month1));
+
                 }
-                eventsAdapter = new CourseAdapter(getActivity(), TrainingFragment.this::onclick, eventsModelResults.getData(),hashSetDate.size());
-                events_recycle.setAdapter(eventsAdapter);
+                  /*  Iterator iterator = hashSetDate.iterator();
+
+                    for(int i=0;i<hashSetDate.size();i++){
+                    while (iterator.hasNext()){
+                        addElement((Integer) iterator.next());
+                        for(int j=0;j<eventsModelResults.getData().size();j++){
+                            String month1=eventsModelResults.getData().get(i).getDate().substring(5,7);
+
+                        }
+                    }
+                    //addElement(0);
+
+                }*/
+                coursesAdapter = new CoursesAdapter(getActivity(), TrainingFragment.this::onclick,
+                        eventsModelResults.getData(),hashSetDate.size());
+                events_recycle.setHasFixedSize(true);
+                events_recycle.setAdapter(coursesAdapter);
+            }
             }
         });
 
-        return view;
+    }
+
+    private void addElement(int parseInt) {
+        View itemView=layoutInflater.inflate(R.layout.month_item, spaceParent, false);
+        TextView month;
+
+
+        month = itemView.findViewById(R.id.month);
+      month.setText(getResources().getStringArray(R.array.months)[parseInt - 1]);
+
+      /*  Spinner spinner=v3.findViewById(R.id.value);
+        ArrayAdapter<String> adp1 = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1, countryList);
+        adp1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adp1);
+
+        re2.setText("Country ");*/
+        spaceParent.addView(itemView,spaceParent.getChildCount());
+
     }
 
     @Override

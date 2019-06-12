@@ -6,20 +6,44 @@
     tools:context=".fragments.TrainingFragment"
     android:orientation="vertical" android:background="@color/send_blue"
     >
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:background="@color/blue_subscribtion_button"
+    android:paddingLeft="20dp"
+    android:paddingStart="20dp"
+    android:orientation="horizontal"
+    android:weightSum="100">
     <TextView
         android:id="@+id/textView15h"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="60"
         android:layout_height="wrap_content"
         android:text="@string/training"
-        android:paddingLeft="20dp"
-        android:paddingStart="20dp"
+        android:fontFamily="@font/droid"
         android:textColor="@color/white"
-        android:textSize="20dp"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:background="@color/blue_subscribtion_button"/>
+        android:textSize="20dp"/>
+    <Spinner
+        android:layout_width="0dp"
+        android:layout_weight="40"
+        android:layout_height="wrap_content"
+        android:id="@+id/country_spinner"
+        android:layout_gravity="end"
+        android:fontFamily="@font/droid"
+        android:gravity="center_horizontal"></Spinner>
 
+</LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/spaceParent"></LinearLayout>
+    </ScrollView>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -24,6 +24,8 @@
             android:textColor="@color/black"
             android:text="@string/notification"
             android:layout_gravity="start"
+            android:fontFamily="@font/droid"
+
             />
         <ImageView
             android:layout_width="0dp"

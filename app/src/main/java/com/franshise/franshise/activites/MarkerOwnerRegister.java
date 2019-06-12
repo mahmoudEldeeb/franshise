@@ -72,6 +72,7 @@ markerOwnerRegisterViewModel= ViewModelProviders.of(this).get(MarkerOwnerRegiste
              }
             }
 
+
         };
 if(new SharedPrefrenceModel(MarkerOwnerRegister.this).isLogined()){
         if(!new SharedPrefrenceModel(this).getCompleteregister()) {

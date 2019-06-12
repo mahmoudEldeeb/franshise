@@ -40,7 +40,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/francise_image"
-        android:visibility="gone"/>
+        android:visibility="gone"
+
+        android:fontFamily="@font/droid"/>
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -70,6 +72,8 @@
             android:text="from:"
             android:textColor="@color/black"
             android:textSize="16dp"
+
+            android:fontFamily="@font/droid"
             />
 
         <EditText
@@ -80,7 +84,9 @@
             android:background="@null"
             android:ems="10"
             android:inputType="textPersonName"
-            android:paddingLeft="20dp" />
+            android:paddingLeft="20dp"
+
+            android:fontFamily="@font/droid"/>
 
     </LinearLayout>
 
@@ -111,7 +117,9 @@
             android:gravity="start"
             android:text="country:"
             android:textColor="@color/black"
-            android:textSize="16dp"/>
+            android:textSize="16dp"
+
+            android:fontFamily="@font/droid"/>
 
         <EditText
             android:id="@+id/country"
@@ -121,6 +129,8 @@
             android:background="@null"
             android:paddingLeft="5dp"
             android:ems="10"
+
+            android:fontFamily="@font/droid"
             android:inputType="textPersonName" />
 
     </LinearLayout>
@@ -151,7 +161,9 @@
             android:gravity="start"
             android:text="email:"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+
+            android:fontFamily="@font/droid"/>
 
         <EditText
             android:id="@+id/email"
@@ -160,6 +172,8 @@
             android:layout_weight="75"
             android:background="@null"
             android:ems="10"
+
+            android:fontFamily="@font/droid"
             android:inputType="textEmailAddress" />
 
     </LinearLayout>
@@ -178,6 +192,8 @@
         android:gravity="top"
         android:inputType="textMultiLine"
         android:paddingLeft="5dp"
+
+        android:fontFamily="@font/droid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -193,6 +209,8 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:gravity="start"
+
+        android:fontFamily="@font/droid"
         android:textColor="@color/black"
         android:textSize="15dp"
         android:text="@string/ToMangmentFranchise"
@@ -217,6 +235,8 @@
         android:text="@string/Send"
         android:textColor="@color/white"
         android:textSize="20dp"
+
+        android:fontFamily="@font/droid"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

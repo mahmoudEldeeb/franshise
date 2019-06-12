@@ -18,6 +18,7 @@ android:orientation="vertical" android:background="@color/send_blue"
     android:textSize="20dp"
     android:paddingTop="20dp"
     android:paddingBottom="20dp"
+    android:fontFamily="@font/droid"
     android:background="@color/blue_subscribtion_button"/>
 <ScrollView
     android:layout_width="match_parent"
@@ -36,7 +37,9 @@ android:orientation="vertical" android:background="@color/send_blue"
             android:layout_height="wrap_content"
             android:text="@string/Averagetotal"
             android:textColor="@color/white"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/droid"
+            />
 
         <LinearLayout
             android:id="@+id/spaceParent"
@@ -53,6 +56,8 @@ android:orientation="vertical" android:background="@color/send_blue"
             android:text="@string/TermoftheCommercial"
             android:textColor="@color/white"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/droid"
+
             />
         <RelativeLayout
             android:layout_width="match_parent"
@@ -66,7 +71,10 @@ android:orientation="vertical" android:background="@color/send_blue"
             <Spinner
                 android:id="@+id/period_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+
+                android:fontFamily="@font/droid"
+                />
         </RelativeLayout>
 
         <TextView
@@ -75,6 +83,7 @@ android:orientation="vertical" android:background="@color/send_blue"
             android:layout_height="wrap_content"
             android:text="@string/Thepriority"
             android:textColor="@color/white"
+            android:fontFamily="@font/droid"
             android:layout_marginTop="10dp"
             />
         <LinearLayout
@@ -95,9 +104,11 @@ android:orientation="vertical" android:background="@color/send_blue"
             android:gravity="start|center_vertical"
             android:paddingStart="20dp"
             android:paddingLeft="20dp"
+            android:fontFamily="@font/droid"
             android:layout_marginTop="10dp"
             />
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -107,12 +118,14 @@ android:orientation="vertical" android:background="@color/send_blue"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/white"
+                android:fontFamily="@font/droid"
                 android:text="@string/images_franchises"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/white"
+                android:fontFamily="@font/droid"
                 android:text="@string/images_products"/>
         </LinearLayout>
         <LinearLayout
@@ -139,6 +152,7 @@ android:orientation="vertical" android:background="@color/send_blue"
                     android:gravity="start"
                     android:paddingStart="5dp"
                     android:paddingLeft="5dp"
+                    android:fontFamily="@font/droid"
                     android:layout_marginRight="5dp"
                     android:layout_marginEnd="5dp"
                     />
@@ -167,7 +181,9 @@ android:orientation="vertical" android:background="@color/send_blue"
                     android:background="@drawable/owner_register_editext_back"
                     android:paddingBottom="10dp"
                     android:paddingTop="10dp"
-                    android:text="+"/>
+                    android:text="+"
+                    android:fontFamily="@font/droid"
+                    />
             </LinearLayout>
         </LinearLayout>
 
@@ -181,6 +197,7 @@ android:orientation="vertical" android:background="@color/send_blue"
             android:background="@drawable/owner_register_editext_back"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
+            android:fontFamily="@font/droid"
             android:text="@string/upload_franchise" />
 
     </LinearLayout>

@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.franshise.franshise.R;
@@ -45,7 +46,7 @@ import java.util.TimerTask;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment implements MarkerAdapter.EventListener {
-
+ProgressBar progress;
    static int count=0;
    static FranchisesResult franchisesResult1=new FranchisesResult();
    static CategorysResult categorysResult=new CategorysResult();
@@ -75,6 +76,7 @@ static CategorysResult result;
         slider=view.findViewById(R.id.slider);
         main_recycle=view.findViewById(R.id.main_recycle);
         marker_recycle=view.findViewById(R.id.marker_recycle);
+        progress=view.findViewById(R.id.progress);
         homeBannerList=new ArrayList<>();
         currentPage=slider.getCurrentItem();
 
@@ -116,6 +118,8 @@ static CategorysResult result;
         categoryObserver = new Observer<CategorysResult>() {
             @Override
             public void onChanged(@Nullable CategorysResult result) {
+                //CustomProgressDialog.clodseProgress();
+                progress.setVisibility(View.GONE);
                 if(result.getStatus()==1) {
                     categorysResult=result;
                     mainCategorysAdapter = new MainCategorysAdapter(getActivity(),result.getData());
@@ -123,7 +127,7 @@ static CategorysResult result;
                     count=1;
                 }
                 else Toast.makeText(getActivity(),"connection error",Toast.LENGTH_LONG).show();
-                CustomProgressDialog.clodseProgress();
+
             }
         };
 
@@ -141,7 +145,8 @@ if (count==0){
     });
     homeViewModel.getbannesr(new SharedPrefrenceModel(getActivity()).getLanguage())
             .observe(HomeFragment.this, bannerObserver);
-    CustomProgressDialog.showProgress(getActivity());
+ //   CustomProgressDialog.showProgress(getActivity());
+    progress.setVisibility(View.VISIBLE);
     homeViewModel.getCategorys().observe(HomeFragment.this,categoryObserver);
 
 }

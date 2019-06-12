@@ -28,6 +28,7 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:text="@string/search"
+            android:fontFamily="@font/droid"
             android:textSize="20dp" />
 
     </LinearLayout>
@@ -54,6 +55,7 @@
             android:text="@string/search"
             android:textSize="15dp"
             android:gravity="start"
+            android:fontFamily="@font/droid"
             />
          <RelativeLayout
             android:layout_width="match_parent"
@@ -65,6 +67,7 @@
                  android:layout_height="50dp"
                  android:background="@drawable/login_edittext"
                  android:ems="10"
+                 android:fontFamily="@font/droid"
                  android:inputType="textPersonName" />
             </RelativeLayout>
 
@@ -76,6 +79,7 @@
             android:textSize="15dp"
             android:gravity="start"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/droid"
             />
 
         <RelativeLayout
@@ -86,6 +90,7 @@
                 android:id="@+id/money_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:fontFamily="@font/droid"
                 />
         </RelativeLayout>
 
@@ -97,6 +102,7 @@
             android:textSize="15dp"
             android:gravity="start"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/droid"
             />
         <RelativeLayout
     android:layout_width="match_parent"
@@ -106,7 +112,9 @@
             android:id="@+id/spinner_cat"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-             />
+        android:fontFamily="@font/droid"
+
+        />
 </RelativeLayout>
         <Button
             android:id="@+id/search"
@@ -119,7 +127,9 @@
             android:text="@string/search"
             android:textColor="@color/white"
             android:textSize="15dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:fontFamily="@font/droid"
+            />
 
     </LinearLayout>
     <android.support.v7.widget.RecyclerView

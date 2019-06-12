@@ -11,11 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/from"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:fontFamily="@font/droid"
+        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/message"
+        android:fontFamily="@font/droid"
 
         android:textColor="@color/white"/>
     <LinearLayout
@@ -29,6 +32,7 @@
             android:id="@+id/email"
             android:layout_weight="1"
             android:gravity="center"
+            android:fontFamily="@font/droid"
 
             android:layout_gravity="center"
             android:textColor="@color/white"/>

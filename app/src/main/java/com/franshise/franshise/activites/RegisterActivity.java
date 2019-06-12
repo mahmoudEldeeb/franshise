@@ -86,7 +86,8 @@ user_type.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         if(checkedId==R.id.investor){userType=1;
             owner_register.setVisibility(View.GONE);}
-        else if(checkedId==R.id.franchise_marker){userType=0;
+        else if(checkedId==R.id.franchise_marker){
+            userType=0;
             owner_register.setVisibility(View.VISIBLE);}
     }
 });
@@ -174,7 +175,7 @@ Log.v("qqqq",
             proDialog.dismiss();
             Toast.makeText(getBaseContext(),getResources().getString(R.string.fill_data),Toast.LENGTH_LONG).show();
         }
-        else if(userType!=-1&&(company_name.getText().toString().isEmpty()||manager_name.getText().toString().isEmpty()
+        else if(userType!=0&&(company_name.getText().toString().isEmpty()||manager_name.getText().toString().isEmpty()
         ||transformation_number.getText().toString().isEmpty())){
             proDialog.dismiss();
             Toast.makeText(getBaseContext(),getResources().getString(R.string.fill_data),Toast.LENGTH_LONG).show();

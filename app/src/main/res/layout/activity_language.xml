@@ -27,6 +27,8 @@
         android:layout_width="298dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+
+        android:fontFamily="@font/droid"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="124dp"
         android:layout_marginEnd="8dp"
@@ -55,6 +57,7 @@
         android:textColor="@color/white"
         android:textSize="15dp"
 
+        android:fontFamily="@font/droid"
         android:background="@drawable/lang_button_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

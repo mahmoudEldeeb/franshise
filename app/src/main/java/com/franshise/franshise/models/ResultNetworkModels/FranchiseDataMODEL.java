@@ -14,6 +14,15 @@ String mainImage;
 String about ;
 String name;
 int user_id;
+int portsNumber;
+
+    public int getPortsNumber() {
+        return portsNumber;
+    }
+
+    public void setPortsNumber(int portsNumber) {
+        this.portsNumber = portsNumber;
+    }
 
     public int getUser_id() {
         return user_id;

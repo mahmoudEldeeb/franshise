@@ -25,6 +25,7 @@
         android:textSize="20dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
+        android:fontFamily="@font/droid"
         android:background="@color/blue_subscribtion_button"/>
 
     <TextView
@@ -33,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-
+        android:fontFamily="@font/droid"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
@@ -45,9 +46,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:fontFamily="@font/droid"
         android:background="@drawable/owner_register_editext_back"
         android:ems="10"
-
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
@@ -63,7 +64,7 @@
         android:layout_height="wrap_content"
         android:text="@string/category1"
         android:textColor="@color/white"
-
+        android:fontFamily="@font/droid"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
@@ -85,6 +86,7 @@
             android:id="@+id/spinner_cat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/droid"
             />
     </RelativeLayout>
 
@@ -94,7 +96,7 @@
         android:layout_height="wrap_content"
         android:text="@string/brief_about"
         android:textColor="@color/white"
-
+        android:fontFamily="@font/droid"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
@@ -121,6 +123,7 @@
             android:inputType="textMultiLine"
             android:lines="13"
             android:text="@null"
+            android:fontFamily="@font/droid"
             android:paddingBottom="20dp"/>
 
         <TextView
@@ -130,6 +133,7 @@
             android:text="@string/nomore"
             android:textColor="@color/red"
             android:gravity="center"
+            android:fontFamily="@font/droid"
             android:layout_gravity="bottom"/>
     </FrameLayout>
 
@@ -144,7 +148,9 @@
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/owner_register_editext_back"
-        android:text="@string/next" />
+        android:text="@string/next"
+        android:fontFamily="@font/droid"
+        />
 
 
 </LinearLayout>

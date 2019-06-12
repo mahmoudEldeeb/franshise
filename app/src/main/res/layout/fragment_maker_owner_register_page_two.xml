@@ -27,6 +27,7 @@ android:layout_height="match_parent"
         android:textSize="20dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
+        android:fontFamily="@font/droid"
         android:background="@color/blue_subscribtion_button"/>
 
     <LinearLayout
@@ -42,7 +43,7 @@ android:layout_height="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/institutionname"
         android:gravity="start"
-
+        android:fontFamily="@font/droid"
         android:textColor="@color/white"
         />
 
@@ -56,7 +57,7 @@ android:layout_height="match_parent"
             android:inputType="textPersonName"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-
+            android:fontFamily="@font/droid"
             android:paddingLeft="5dp"
             android:paddingStart="5dp"
             android:text="@null" />
@@ -75,6 +76,7 @@ android:layout_height="match_parent"
                 android:layout_weight="0.7"
                 android:gravity="center_vertical"
                 android:text="@string/type"
+                android:fontFamily="@font/droid"
                 android:textColor="@color/white"
                  />
 
@@ -92,7 +94,7 @@ android:layout_height="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:buttonTint="@color/white"
-
+                    android:fontFamily="@font/droid"
                     android:text="@string/institution"
                     android:textColor="@color/white" />
 
@@ -102,7 +104,7 @@ android:layout_height="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:buttonTint="@color/white"
-
+                    android:fontFamily="@font/droid"
                     android:text="@string/company"
                     android:textColor="@color/white" />
             </RadioGroup>
@@ -128,6 +130,7 @@ android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/phone"
+                    android:fontFamily="@font/droid"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/white"/>
 
@@ -140,6 +143,8 @@ android:layout_height="match_parent"
                     android:paddingLeft="5dp"
                     android:paddingStart="5dp"
                     android:inputType="number"
+                    android:fontFamily="@font/droid"
+
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp" />
 
@@ -158,6 +163,7 @@ android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/fax"
+                    android:fontFamily="@font/droid"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/white"/>
 
@@ -167,7 +173,7 @@ android:layout_height="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/owner_register_editext_back"
                     android:ems="10"
-
+                    android:fontFamily="@font/droid"
                     android:paddingLeft="5dp"
                     android:paddingStart="5dp"
                     android:inputType="number"
@@ -183,7 +189,9 @@ android:layout_height="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/category1"
             android:layout_marginTop="10dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:fontFamily="@font/droid"
+            />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -196,7 +204,9 @@ android:layout_height="match_parent"
             <Spinner
                 android:id="@+id/cat"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/droid"
+                />
         </RelativeLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -219,7 +229,9 @@ android:layout_height="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/manager"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/droid"
+                    />
 
                 <EditText
                     android:id="@+id/manager"
@@ -231,7 +243,9 @@ android:layout_height="match_parent"
                     android:paddingTop="10dp"
                     android:paddingLeft="5dp"
                     android:paddingStart="5dp"
-                    android:paddingBottom="10dp" />
+                    android:paddingBottom="10dp"
+                    android:fontFamily="@font/droid"
+                    />
 
             </LinearLayout>
 
@@ -250,7 +264,9 @@ android:layout_height="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/transference"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/droid"
+                    />
 
                 <EditText
                     android:id="@+id/conversion"
@@ -258,7 +274,7 @@ android:layout_height="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/owner_register_editext_back"
                     android:ems="10"
-
+                    android:fontFamily="@font/droid"
                     android:paddingLeft="5dp"
                     android:paddingStart="5dp"
                     android:inputType="number"
@@ -278,6 +294,7 @@ android:layout_height="match_parent"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="@string/completeRegister"
+            android:fontFamily="@font/droid"
             android:textColor="@color/black" />
 
     </LinearLayout>

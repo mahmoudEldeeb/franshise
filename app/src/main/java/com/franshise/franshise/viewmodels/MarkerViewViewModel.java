@@ -85,15 +85,17 @@ List<String>franchiseList;
                     space+="Moldel"+i+":  "+franchiseData.getFranchise().getPorts().get(i).getSpace()+"\n";
                     investment+="Moldel"+i+":  "+franchiseData.getFranchise().getPorts().get(i).getTotal_Investment()+"\n";
                 }
+
+                for(int i=0;i<franchiseData.getFranchise_gift().size();i++){
+                    franchiseList.add(franchiseData.getFranchise_gift().get(i).getValue()+"");
+                    franchiseListTitle.add(franchiseData.getFranchise_type().get(i).getEn_name()+"/"+franchiseData.getFranchise_type().get(i).getAr_name()) ;
+                }
+                franchiseDataMODEL.setPortsNumber(franchiseData.getFranchise_gift().size());
                 franchiseList.add(space+"");
                 franchiseList.add(investment+"");
                 franchiseList.add(franchiseData.getFranchise().getPeriods().getName()+"");
                 //franchiseList.add(".");
                 //franchiseList.add(".");
-                for(int i=0;i<franchiseData.getFranchise_gift().size();i++){
-                    franchiseList.add(franchiseData.getFranchise_gift().get(i).getValue()+"");
-                    franchiseListTitle.add(franchiseData.getFranchise_type().get(i).getEn_name()+"/"+franchiseData.getFranchise_type().get(i).getAr_name()) ;
-                }
 
                 franchiseList.add(franchiseData.getFranchise().getOwner_ship_commission()+" %");
                 franchiseList.add(franchiseData.getFranchise().getMarketing_commission()+" %");
@@ -109,6 +111,7 @@ List<String>franchiseList;
                 franchiseDataMODEL.setImages(franchiseData.getFranchise().getImages());
                 franchiseDataMODEL.setMainImage(franchiseData.getFranchise().getImage());
                 franchiseDataMODEL.setUser_id(franchiseData.getFranchise().getUser_id());
+
                 franchisesResults.setValue(franchiseDataMODEL);
 
             }

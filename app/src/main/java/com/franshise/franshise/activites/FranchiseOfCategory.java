@@ -325,7 +325,7 @@ public class FranchiseOfCategory extends AppCompatActivity
     public void share(){
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
-        String shareBody = "https://play.google.com/store/movies/details/Spider_Man_Into_the_Spider_Verse?id=vTg25S6WRVY";
+        String shareBody = "https://play.google.com/store/apps/details?id=com.franshise.franshise";
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "share franchise");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
         startActivity(Intent.createChooser(sharingIntent, "Share via"));

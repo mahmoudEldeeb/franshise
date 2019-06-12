@@ -4,6 +4,7 @@ package com.franshise.franshise.models.repositry;
 import com.franshise.franshise.models.ResultNetworkModels.CategorysResult;
 import com.franshise.franshise.models.ResultNetworkModels.DataResult;
 import com.franshise.franshise.models.ResultNetworkModels.FundCompanyModelResult;
+import com.franshise.franshise.models.dataModels.PayModel;
 import com.franshise.franshise.models.dataModels.StatusModel;
 import com.franshise.franshise.models.networks.RetrofitConnections;
 
@@ -38,4 +39,23 @@ public class RepositryData {
                 city_id,start,end,gender,currency,number)
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
+    public static Single<StatusModel> updateJob( int id,String name, int number_require,
+                                                 int qualification_id, String details,
+                                                 int country_id, List<Integer> city_id, int start, int end,
+                                                 int gender, String currency, int number){
+        return RetrofitConnections.getNetworkConnection().updateJob(id,name,number_require,qualification_id,details,country_id,
+                city_id,start,end,gender,currency,number)
+                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    }
+    public static Single<StatusModel> deleteJob( int id){
+        return RetrofitConnections.getNetworkConnection().delete(id)
+                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    }
+
+
+    public static Single<PayModel> pay_way(){
+        return RetrofitConnections.getNetworkConnection().pay_way()
+                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    }
+
 }

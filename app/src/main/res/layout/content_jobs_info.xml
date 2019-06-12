@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+app:layout_behavior="@string/appbar_scrolling_view_behavior"
+tools:context=".activites.JobsInfo"
+tools:showIn="@layout/app_bar_jobs_info"
+android:orientation="vertical"
+android:background="@color/blue">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/delete"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp"
+        android:id="@+id/delete"
+        android:textColor="@color/white"
+        android:background="@color/blue_subscribtion_button"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:textSize="20dp"
+        android:paddingLeft="10dp"
+        android:paddingStart="10dp"
+        android:paddingRight="10dp"
+        android:paddingEnd="10dp"
+        android:fontFamily="@font/droid"
+        />
+    <Button
+        android:id="@+id/update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/update"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp"
+
+        android:fontFamily="@font/droid"
+        android:textColor="@color/white"
+        android:background="@color/blue_subscribtion_button"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:textSize="20dp"
+        android:paddingLeft="10dp"
+        android:paddingStart="10dp"
+        android:paddingRight="10dp"
+        android:paddingEnd="10dp"
+        />
+
+</LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:text="@string/job_number"
+
+                    android:fontFamily="@font/droid"
+                    android:textSize="@dimen/text_register_size"
+                    android:textColor="@color/white"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    />
+
+                <EditText
+                    android:id="@+id/job_number"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1.3"
+                    android:background="@drawable/owner_register_editext_back"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:fontFamily="@font/droid"
+                    android:inputType="number" 
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:text="@string/job_name"
+                    android:textSize="@dimen/text_register_size"
+                    android:textColor="@color/white"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+
+                    android:fontFamily="@font/droid"
+                    />
+
+                <EditText
+                    android:id="@+id/job_name"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1.3"
+                    android:background="@drawable/owner_register_editext_back"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:fontFamily="@font/droid"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/job_describtion"
+                    android:textSize="@dimen/text_register_size"
+                    android:textColor="@color/white"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/droid"
+                    android:layout_gravity="center_vertical|start"
+                    />
+
+                <EditText
+                    android:id="@+id/job_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/owner_register_editext_back"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:fontFamily="@font/droid"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Educational_qualification"
+                    android:textSize="@dimen/text_register_size"
+                    android:textColor="@color/white"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/droid"
+                    android:layout_gravity="center_vertical"
+                    />
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/owner_register_editext_back"
+                    >
+                    <Spinner
+                        android:id="@+id/job_qualification"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:fontFamily="@font/droid"
+                        />
+
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/country"
+                    android:textSize="@dimen/text_register_size"
+                    android:textColor="@color/white"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/droid"
+                    android:layout_gravity="center_vertical"
+                    />
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/owner_register_editext_back"
+                    >
+                    <Spinner
+                        android:id="@+id/job_coountry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:fontFamily="@font/droid"
+                        />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/job_place"
+                    android:textSize="@dimen/text_register_size"
+                    android:textColor="@color/white"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/droid"
+                    android:layout_gravity="center_vertical"
+                    />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/spaceParent"
+                    android:orientation="vertical"
+                    >
+                </LinearLayout>
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/add_city"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:background="@drawable/owner_register_editext_back"
+                android:textSize="15dp"
+                android:text="+"
+                android:layout_gravity="end"
+                android:gravity="start|center_vertical"
+                android:paddingStart="20dp"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="10dp"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/vacancy"
+                    android:textSize="@dimen/text_register_size"
+                    android:textColor="@color/white"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/droid"
+                    android:layout_gravity="center_vertical"
+                    />
+
+                <EditText
+                    android:id="@+id/job_vacancy"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/owner_register_editext_back"
+                    android:gravity="center"
+                    android:fontFamily="@font/droid"
+                    android:inputType="number"
+                    android:layout_marginRight="5dp"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/droid"
+                    android:gravity="center_vertical"
+                    android:text="@string/job_sallary"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_register_size" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/from"
+                    android:fontFamily="@font/droid"
+                    android:textSize="@dimen/text_register_size"
+                    android:textColor="@color/white"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="5dp"
+                    />
+                <EditText
+                    android:id="@+id/sallary_from"
+                    android:layout_width="60dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/owner_register_editext_back"
+                    android:gravity="center"
+                    android:fontFamily="@font/droid"
+                    android:inputType="number"
+                    android:layout_marginRight="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/to"
+                    android:fontFamily="@font/droid"
+                    android:textSize="@dimen/text_register_size"
+                    android:textColor="@color/white"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="5dp"
+                    />
+                <EditText
+                    android:id="@+id/sallary_to"
+                    android:layout_width="60dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/owner_register_editext_back"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:fontFamily="@font/droid"
+                    android:inputType="number" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:text="@string/currency"
+
+                    android:fontFamily="@font/droid"
+                    android:textSize="@dimen/text_register_size"
+                    android:textColor="@color/white"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    />
+
+                <EditText
+                    android:id="@+id/sallary_currency"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1.3"
+                    android:background="@drawable/owner_register_editext_back"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:fontFamily="@font/droid"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/gender"
+                    android:textSize="@dimen/text_register_size"
+                    android:textColor="@color/white"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/droid"
+                    android:layout_gravity="center_vertical"
+                    />
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="start"
+                    android:layout_gravity="start"
+                    android:id="@+id/user_type"
+                    >
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/male"
+                        android:textColor="@color/white"
+                        android:id="@+id/male"
+                        android:textSize="@dimen/text_register_size"
+                        android:layout_gravity="start"
+                        />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/female"
+                        android:textColor="@color/white"
+                        android:id="@+id/female"
+                        android:textSize="@dimen/text_register_size"
+                        android:layout_gravity="start"
+
+                        />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no_preference"
+                        android:textColor="@color/white"
+                        android:id="@+id/no_preference"
+                        android:textSize="@dimen/text_register_size"
+                        android:layout_gravity="start"
+
+                        />
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -27,6 +27,7 @@
             android:textSize="20dp"
             android:paddingStart="10dp"
             android:paddingLeft="10dp"
+            android:fontFamily="@font/droid"
 
             />
 
@@ -48,6 +49,7 @@
                 android:text="@string/delete"
                 android:textColor="@color/white"
                 android:textSize="10dp"
+                android:fontFamily="@font/droid"
                 android:alpha="0.5"/>
 
             <Button
@@ -59,6 +61,8 @@
                 android:text="@string/add_franchises"
                 android:textColor="@color/white"
                 android:id="@+id/add_franchise1"
+
+                android:fontFamily="@font/droid"
                 android:textSize="10dp" />
         </LinearLayout>
     </LinearLayout>

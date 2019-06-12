@@ -1,6 +1,8 @@
 package com.franshise.franshise.models.dataModels;
 
-public class DataModel {
+import java.io.Serializable;
+
+public class DataModel implements Serializable {
 
     private String en_name;
 private int id;

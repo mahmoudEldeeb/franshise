@@ -81,7 +81,7 @@ EditText email,password;
                     ,new SharedPrefrenceModel(LoginActivity.this).getId());
 
                    // startService(i);
-                    //startActivity(new Intent(LoginActivity.this,Main.class));
+                    startActivity(new Intent(LoginActivity.this,Main.class));
                  //   onBackPressed();
                    finish();
 

@@ -1,8 +1,22 @@
 package com.franshise.franshise.models.dataModels;
 
-public class SubscribtionMode {
+import java.io.Serializable;
+
+public class SubscribtionMode implements Serializable {
     private int id;
-    private String name,price,duration;
+    private String name;
+    private String price;
+    private String duration;
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    private String details;
 
     public int getId() {
         return id;

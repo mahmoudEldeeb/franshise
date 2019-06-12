@@ -10,8 +10,10 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.franshise.franshise.models.ResultNetworkModels.SubscribtioResult;
+import com.franshise.franshise.models.dataModels.PayModel;
 import com.franshise.franshise.models.dataModels.StatusModel;
 import com.franshise.franshise.models.repositry.MessagesRepositry;
+import com.franshise.franshise.models.repositry.RepositryData;
 import com.franshise.franshise.models.repositry.SubscribtioRepositry;
 import com.franshise.franshise.utils.CustomProgressDialog;
 
@@ -51,6 +53,28 @@ public class SubscribtionViewModel extends ViewModel {
         );
         return result;
     }
+
+    public MutableLiveData<PayModel>pay_way(){
+       MutableLiveData<PayModel> result1=new MutableLiveData<>();
+        RepositryData.pay_way().subscribeWith(new SingleObserver<PayModel>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onSuccess(PayModel payModel) {
+                result1.setValue(payModel);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+CustomProgressDialog.clodseProgress();
+            }
+        });
+    return result1;
+    }
+
     public MutableLiveData<StatusModel>new_subscription(int user_id, int sub_id, Uri image,Context c){
 context=c;
         MultipartBody.Part imagepart=prepareFilePart("image",image);

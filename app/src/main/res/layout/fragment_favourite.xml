@@ -26,7 +26,9 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:text="@string/favourite"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:fontFamily="@font/droid"
+            />
 
     </LinearLayout>
 

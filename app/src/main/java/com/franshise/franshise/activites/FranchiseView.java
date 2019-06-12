@@ -71,9 +71,9 @@ public class FranchiseView extends AppCompatActivity
     Timer timer;
     String mainImage;
     String name;
-    TextView owner_phone,owner_name,owner_email;
+    TextView owner_phone,owner_name,owner_email,click_here;
     int id;String title,image;
-    LinearLayout contacts;
+    LinearLayout contacts,see_more;
     Date datenow;Date endDate;
     SimpleDateFormat sdf ;
     MenuItem nav_camara;
@@ -115,7 +115,8 @@ public class FranchiseView extends AppCompatActivity
         owner_phone=findViewById(R.id.owner_phone);
         owner_email=findViewById(R.id.owner_email);
         owner_name=findViewById(R.id.owner_name);
-
+        see_more=findViewById(R.id.see_more);
+        click_here=findViewById(R.id.click_here);
         marker_details_resycle=findViewById(R.id.marker_details_resycle);
         marker_details_resycle.setNestedScrollingEnabled(false);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
@@ -165,7 +166,8 @@ public class FranchiseView extends AppCompatActivity
                    // int i=franchiseDataMODEL.getData().size()-1;
                     //franchiseDataMODEL.getData().remove(i);
                     getData(franchiseDataMODEL.getUser_id());
-                    markerDetailsAdapter = new MarkerDetailsAdapter(FranchiseView.this, franchiseDataMODEL.getData(),franchiseDataMODEL.getFranchiseType());
+                    markerDetailsAdapter = new MarkerDetailsAdapter(FranchiseView.this, franchiseDataMODEL.getData(),
+                            franchiseDataMODEL.getFranchiseType());
                     marker_details_resycle.setAdapter(markerDetailsAdapter);
 
                 }
@@ -202,15 +204,7 @@ public class FranchiseView extends AppCompatActivity
                     datenow = sdf.parse(sdf.format(date));
                 }catch (ParseException e) {
 
-                    Date date = new Date();
-                    try {
 
-                        endDate = sdf.parse("2019-01-02");
-                        Date date1 = new Date();
-                        datenow = sdf.parse(sdf.format(date1));
-                    } catch (ParseException e1) {
-                        e1.printStackTrace();
-                    }
                     Log.v("qqqqqq",e.getMessage());
                     e.printStackTrace();
                 }
@@ -285,7 +279,14 @@ public class FranchiseView extends AppCompatActivity
                 }
             }
         };
-
+click_here.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent intent= new Intent(FranchiseView.this,NavigationShow.class);
+        intent.putExtra("framid",0);
+        startActivity(intent);
+    }
+});
     }
 
     @Override
@@ -315,7 +316,7 @@ public class FranchiseView extends AppCompatActivity
         datenow= sdf.parse(sdf.format(date));
 
         if(new SharedPrefrenceModel(FranchiseView.this).isLogined()) {
-    //        if(endDate.after(datenow)){
+            if(endDate.after(datenow)){
 
                 markerViewViewModel.getOwnerData(id).observe(this, new Observer<UserModel>() {
                     @Override
@@ -328,7 +329,8 @@ public class FranchiseView extends AppCompatActivity
 
                     }
                 });
-           // }
+           }
+           else see_more.setVisibility(View.VISIBLE);
 
         }
 
@@ -412,7 +414,7 @@ public class FranchiseView extends AppCompatActivity
     public void share(){
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
-        String shareBody = "https://play.google.com/store/movies/details/Spider_Man_Into_the_Spider_Verse?id=vTg25S6WRVY";
+        String shareBody = "https://play.google.com/store/apps/details?id=com.franshise.franshise";
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "share franchise");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
         startActivity(Intent.createChooser(sharingIntent, "Share via"));

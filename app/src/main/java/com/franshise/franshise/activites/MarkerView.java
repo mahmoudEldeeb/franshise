@@ -96,7 +96,8 @@ Button send_to_owner,sen_to_marker,fav;
                         mainImage=franchiseDataMODEL.getMainImage();
                        // name=franchiseDataMODEL.getName();
                         //Log.v("ssss",name);
-                        markerDetailsAdapter = new MarkerDetailsAdapter(MarkerView.this, franchiseDataMODEL.getData(), franchiseDataMODEL.getFranchiseType());
+                        markerDetailsAdapter = new MarkerDetailsAdapter(MarkerView.this, franchiseDataMODEL.getData(),
+                                franchiseDataMODEL.getFranchiseType());
                         marker_details_resycle.setAdapter(markerDetailsAdapter);
 
                     }

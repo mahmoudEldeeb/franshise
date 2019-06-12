@@ -11,7 +11,7 @@
     <string name="login">دخول</string>
     <string name="forget_password">هل نسيت كلمة المرور</string>
     <string name="new_user">مستخدم جديد </string>
-
+    <string name="pay">الدفع</string>
     <string name="change">تعديل</string>
     <string name="name">الاسم الثلاثى</string>
     <string name="user_name">اسم المستخدم</string>
@@ -28,9 +28,8 @@
         <item>السعودية</item>
         <item>السعودية</item>
     </array>
-
-
-
+    <string name="anniual_sub">الاشتراك السنوى</string>
+    <string name="payment_way">اختر طريقة الدفع الخاصة بك</string>
     <string name="franchise_marker">مالك علامة</string>
     <string name="investor">مستثمر</string>
 
@@ -45,7 +44,9 @@
     <string name="confirm_line3">المكون من 5 ارقام</string>
     <string name="confirm">تاكيد</string>
 
-
+    <string name="see_more_details">لرؤية المزيد من التفاصيل لابد من الاشتراك</string>
+    <string name="click_here">للاشتراك اضغط هنا</string>
+    <string name="subscribe">اشتراك</string>
     <string name="company_name">اسم الشركة</string>
     <string name="franchise_manager_name">اسم مدير الامتياز</string>
     <string name="number_of_transformation">رقم تلفون التحويلة</string>
@@ -314,19 +315,19 @@
     <string name="job_sallary">الراتب المقدم</string>
     <string name="funding_companies">شركات التمويل</string>
 
-    <string name="currency">Currency</string>
-    <string name="gender">Candidate gender for this job
+    <string name="currency">العملة</string>
+    <string name="gender">الجنس المرشح لهذهالوظيفة
 </string>
     <string name="incorrect">اسم المستخدم او كلمة السرغير صحيح</string>
     <string name="register">تسجيل</string>
 
     <string name="from">من</string>
     <string name="to">الى</string>
-
     <string name="no_preference">لا تفضيل</string>
     <string name="male">ذكر</string>
     <string name="female">انثى</string>
     <string name="vacancy">عدد الشواغر</string>
+    <string name="update">تعديل</string>
     <string name="base_url">http://204.93.167.45/~helix/franchise/api/</string>
     <string-array name="months">
         <item>يناير</item>
@@ -344,7 +345,7 @@
     </string-array>
     <string name="add_job">اضافة وظيفة</string>
     <string name="code_wrong">الكود غير صحيح حاولمرة اخرى</string>
-    <string name="base_image_url">http://192.168.1.104/franchise/public/uploads/thumbs/</string>
+    <string name="base_image_url">http://204.93.167.45/~helix/franchise/public/uploads/thumbs/</string>
 
     <string name="Commercial_Concession">http://204.93.167.45/~helix/franchise/api/page/ar/Commercial_Concession</string>
 

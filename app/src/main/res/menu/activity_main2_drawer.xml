@@ -35,6 +35,9 @@
             android:id="@+id/nav_subscriptions"
             android:title="@string/subscriptions" />
         <item
+            android:id="@+id/nav_funding"
+            android:title="@string/funding_companies"/>
+        <item
             android:id="@+id/nav_share"
             android:title="@string/share" />
         <item

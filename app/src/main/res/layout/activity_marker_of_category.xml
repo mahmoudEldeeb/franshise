@@ -42,6 +42,7 @@
         android:textSize="18dp"
         android:textStyle="bold"
 
+        android:fontFamily="@font/droid"
  />
     </LinearLayout>
 <LinearLayout
@@ -60,6 +61,7 @@
         android:gravity="end|center_vertical"
         android:text="@string/restaurant"
 
+        android:fontFamily="@font/droid"
         android:textColor="@color/category"
         android:textSize="20dp"
         android:textStyle="bold"

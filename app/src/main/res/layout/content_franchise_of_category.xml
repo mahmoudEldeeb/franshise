@@ -42,6 +42,7 @@
                     android:textSize="18dp"
                     android:layout_marginLeft="5dp"
 
+                    android:fontFamily="@font/droid"
                     />
             </LinearLayout>
             <LinearLayout

@@ -6,6 +6,8 @@
     android:background="@color/white"
     android:textColor="@color/black"
     android:textSize="15dp"
-    android:id="@+id/month">
+    android:id="@+id/month"
+    android:fontFamily="@font/droid"
+    >
 
 </TextView>

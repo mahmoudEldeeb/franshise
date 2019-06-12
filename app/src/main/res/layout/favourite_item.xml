@@ -13,6 +13,7 @@
         android:layout_height="70dp"
         android:layout_centerInParent="true"
         android:src="@drawable/company"
+        android:background="@drawable/company"
         app:civ_border_color="@color/colorPrimary"
         app:civ_border_width="2dp"
         android:layout_marginLeft="20dp"
@@ -27,6 +28,7 @@
         android:layout_marginLeft="10dp"
         android:gravity="center_vertical"
         android:text="kentaky"
+        android:fontFamily="@font/droid"
         android:textSize="20dp"/>
 
 </LinearLayout>

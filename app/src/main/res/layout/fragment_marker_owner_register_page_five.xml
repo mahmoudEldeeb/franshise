@@ -20,7 +20,9 @@
         android:paddingBottom="20dp"
         android:text="@string/add_franchises"
         android:textColor="@color/white"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:fontFamily="@font/droid"
+        />
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -39,6 +41,7 @@
     android:layout_height="wrap_content"
     android:textColor="@color/white"
     android:textSize="15dp"
+    android:fontFamily="@font/droid"
     android:text="@string/Typeofscholarship"
     />
        <LinearLayout
@@ -52,6 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/droid"
             android:text="@string/monthly_commissions"
             android:textColor="@color/white" />
 
@@ -81,6 +85,8 @@
                 android:textColor="@color/white"
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
+                android:fontFamily="@font/droid"
+
                 />
             <RelativeLayout
                 android:layout_width="0dp"
@@ -100,7 +106,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/commission"
-
+                    android:fontFamily="@font/droid"
                     />
             </RelativeLayout>
 
@@ -112,7 +118,9 @@
                 android:text="%"
                 android:textColor="@color/white"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/droid"
+                />
 
         </LinearLayout>
 
@@ -142,6 +150,7 @@
                 android:textColor="@color/white"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
+                android:fontFamily="@font/droid"
 
                 />
 
@@ -162,6 +171,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/commission"
+                    android:fontFamily="@font/droid"
 
                     />
             </RelativeLayout>
@@ -174,7 +184,9 @@
                 android:text="%"
                 android:textColor="@color/white"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/droid"
+                />
 
         </LinearLayout>
 
@@ -204,7 +216,9 @@
                 android:layout_marginRight="5dp"
                 android:text="@string/other"
                 android:textColor="@color/white"
-                android:checked="true"/>
+                android:checked="true"
+                android:fontFamily="@font/droid"
+                />
 
             <EditText
                 android:id="@+id/other_commsion"
@@ -218,7 +232,9 @@
                 android:inputType="textPersonName"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:text="" />
+                android:text=""
+                android:fontFamily="@font/droid"
+                />
 
             <RelativeLayout
                 android:layout_width="0dp"
@@ -238,6 +254,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:entries="@array/commission"
+                    android:fontFamily="@font/droid"
 
                     />
             </RelativeLayout>
@@ -250,7 +267,9 @@
                 android:text="%"
                 android:textColor="@color/white"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/droid"
+                />
 
         </LinearLayout>
 
@@ -263,7 +282,9 @@
             android:background="@drawable/owner_register_editext_back"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:text="next" />
+            android:text="next"
+            android:fontFamily="@font/droid"
+            />
 
 
     </LinearLayout>

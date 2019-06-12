@@ -70,7 +70,8 @@
                 android:gravity="center_vertical"
                 android:text="@string/name"
                 android:textColor="@color/text_register"
-                android:textSize="@dimen/text_register_size" />
+                android:textSize="@dimen/text_register_size"
+                android:fontFamily="@font/droid"/>
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,6 +85,8 @@
                     android:background="@drawable/register_edittext"
                     android:ems="10"
                     android:gravity="center"
+
+                    android:fontFamily="@font/droid"
                     android:inputType="textPersonName" />
                 <ImageView
                     android:id="@+id/star1"
@@ -104,7 +107,9 @@
                 android:text="@string/user_name"
                 android:textColor="@color/text_register"
                 android:layout_marginTop="10dp"
-                android:textSize="@dimen/text_register_size" />
+                android:textSize="@dimen/text_register_size"
+
+                android:fontFamily="@font/droid"/>
 
             <FrameLayout
                 android:id="@+id/user_naggme"
@@ -118,6 +123,8 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/register_edittext"
                     android:ems="10"
+
+                    android:fontFamily="@font/droid"
                     android:gravity="center"
                     android:inputType="textPersonName" />
 
@@ -136,6 +143,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="@string/email"
+
+                android:fontFamily="@font/droid"
                 android:textColor="@color/text_register"
 
                 android:textSize="@dimen/text_register_size"
@@ -151,6 +160,8 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/register_edittext"
                     android:ems="10"
+
+                    android:fontFamily="@font/droid"
                     android:gravity="center"
                     android:inputType="textEmailAddress" />
                 <ImageView
@@ -170,6 +181,7 @@
                 android:text="@string/password"
                 android:textColor="@color/text_register"
 
+                android:fontFamily="@font/droid"
                 android:textSize="@dimen/text_register_size"
                 android:layout_marginTop="10dp"/>
             <FrameLayout
@@ -184,6 +196,8 @@
                     android:background="@drawable/register_edittext"
                     android:ems="10"
                     android:gravity="center"
+
+                    android:fontFamily="@font/droid"
                     android:inputType="textPassword" />
                 <ImageView
                     android:layout_width="20dp"
@@ -205,6 +219,7 @@
                 android:text="@string/phone"
                 android:textColor="@color/text_register"
 
+                android:fontFamily="@font/droid"
                 android:textSize="@dimen/text_register_size"  />
 
             <FrameLayout
@@ -231,6 +246,8 @@
                         android:hint="phone key"
                         android:gravity="center"
                         android:inputType="number"
+
+                        android:fontFamily="@font/droid"
                         />
 
                     <View
@@ -252,6 +269,8 @@
                         android:textSize="@dimen/text_register_size"
                         android:paddingStart="10dp"
                         android:paddingLeft="10dp"
+
+                        android:fontFamily="@font/droid"
                         android:inputType="number" />
                 </LinearLayout>
 
@@ -274,6 +293,7 @@
                 android:text="@string/country"
                 android:textColor="@color/text_register"
 
+                android:fontFamily="@font/droid"
                 android:textSize="@dimen/text_register_size" />
 
             <FrameLayout
@@ -313,6 +333,8 @@ android:paddingRight="20dp"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="@string/city"
+
+                android:fontFamily="@font/droid"
                 android:textColor="@color/text_register"
 
                 android:textSize="@dimen/text_register_size"
@@ -328,6 +350,8 @@ android:paddingRight="20dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/register_edittext"
                     android:ems="10"
+
+                    android:fontFamily="@font/droid"
                     android:gravity="center"
                     android:inputType="text" />
                 <ImageView
@@ -353,7 +377,9 @@ android:paddingRight="20dp"
                     android:gravity="center_vertical"
                     android:text="@string/company_name"
                     android:textColor="@color/text_register"
-                    android:textSize="@dimen/text_register_size" />
+                    android:textSize="@dimen/text_register_size"
+
+                    android:fontFamily="@font/droid"/>
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -367,6 +393,8 @@ android:paddingRight="20dp"
                         android:background="@drawable/register_edittext"
                         android:ems="10"
                         android:gravity="center"
+
+                        android:fontFamily="@font/droid"
                         android:inputType="textPersonName" />
                     <ImageView
                         android:layout_width="20dp"
@@ -384,7 +412,9 @@ android:paddingRight="20dp"
                     android:gravity="center_vertical"
                     android:text="@string/franchise_manager_name"
                     android:textColor="@color/text_register"
-                    android:textSize="@dimen/text_register_size" />
+                    android:textSize="@dimen/text_register_size"
+
+                    android:fontFamily="@font/droid"/>
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -397,6 +427,8 @@ android:paddingRight="20dp"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/register_edittext"
                         android:ems="10"
+
+                        android:fontFamily="@font/droid"
                         android:gravity="center"
                         android:inputType="textPersonName" />
                     <ImageView
@@ -415,7 +447,9 @@ android:paddingRight="20dp"
                     android:gravity="center_vertical"
                     android:text="@string/number_of_transformation"
                     android:textColor="@color/text_register"
-                    android:textSize="@dimen/text_register_size" />
+                    android:textSize="@dimen/text_register_size"
+
+                    android:fontFamily="@font/droid"/>
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -429,6 +463,8 @@ android:paddingRight="20dp"
                         android:background="@drawable/register_edittext"
                         android:ems="10"
                         android:gravity="center"
+
+                        android:fontFamily="@font/droid"
                         android:inputType="textPersonName" />
                     <ImageView
                         android:layout_width="20dp"
@@ -460,6 +496,8 @@ android:paddingRight="20dp"
                 android:background="@drawable/lang_button_background"
                 android:text="@string/register"
                 android:textSize="@dimen/text_register_size"
+
+                android:fontFamily="@font/droid"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
                 android:textColor="@color/white"/>

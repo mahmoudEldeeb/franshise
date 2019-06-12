@@ -3,6 +3,7 @@ package com.franshise.franshise.adapters;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,20 +44,18 @@ public class FundingCompanyAdapter  extends RecyclerView.Adapter<FundingCompanyA
         if(new SharedPrefrenceModel(context).getLanguage().equals("ar"))
             viewHolder.name.setText(list.get(i).getAr_name());
         else viewHolder.name.setText(list.get(i).getEn_name());
-
+        Log.v("wwwwww",context.getResources().getString(R.string.base_image_url)+list.get(i).getImage());
         Picasso.get()
                 .load(context.getResources().getString(R.string.base_image_url)+
                         list.get(i).getImage())
                 .into(viewHolder.profile_image);
     }
 
-
     // total number of rows
     @Override
     public int getItemCount() {
         return list.size();
     }
-
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

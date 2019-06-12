@@ -25,6 +25,7 @@
             android:src="@drawable/restaurant" />
 
         <TextView
+
             android:id="@+id/cat_title"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -35,7 +36,7 @@
             android:textColor="@color/white"
             android:textSize="10sp"
             android:textStyle="bold"
-            android:fontFamily="@font/droid_font"
+            android:fontFamily="@font/droid"
             />
     </LinearLayout>
 </android.support.v7.widget.CardView>

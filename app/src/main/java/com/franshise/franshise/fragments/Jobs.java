@@ -1,6 +1,5 @@
 package com.franshise.franshise.fragments;
 
-
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
@@ -14,21 +13,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.franshise.franshise.R;
+import com.franshise.franshise.activites.JobsInfo;
 import com.franshise.franshise.activites.ShowEvents;
 import com.franshise.franshise.adapters.EventsAdapter;
+import com.franshise.franshise.adapters.JobAdapter;
 import com.franshise.franshise.adapters.ServicesAdapter;
 import com.franshise.franshise.models.ResultNetworkModels.EventsModelResults;
+import com.franshise.franshise.models.ResultNetworkModels.JobsResults;
 import com.franshise.franshise.models.SharedPrefrenceModel;
 import com.franshise.franshise.models.dataModels.EventsModel;
+import com.franshise.franshise.models.dataModels.JobModel;
 import com.franshise.franshise.utils.CustomProgressDialog;
 import com.franshise.franshise.viewmodels.EventsViewModel;
-
-/**
- * A simple {@link Fragment} subclass.
- */
-public class Jobs extends Fragment implements EventsAdapter.Click {
+public class Jobs extends Fragment implements JobAdapter.Click {
     RecyclerView events_recycle;
-    ServicesAdapter eventsAdapter;
+    JobAdapter eventsAdapter;
     public Jobs() {
         // Required empty public constructor
     }
@@ -46,24 +45,23 @@ public class Jobs extends Fragment implements EventsAdapter.Click {
         eventsViewModel = ViewModelProviders.of(this).get(EventsViewModel.class);
         Bundle bundle=getArguments();
         CustomProgressDialog.showProgress(getActivity());
-        eventsViewModel.jobs(new SharedPrefrenceModel(getActivity()).getLanguage()).observe(this, new Observer<EventsModelResults>() {
+        eventsViewModel.get_job(new SharedPrefrenceModel(getActivity()).getLanguage()).observe(this, new Observer<JobsResults>() {
             @Override
-            public void onChanged(@Nullable EventsModelResults eventsModelResults) {
+            public void onChanged(@Nullable JobsResults eventsModelResults) {
                 CustomProgressDialog.clodseProgress();
-                eventsAdapter=new ServicesAdapter(getActivity(),Jobs.this::onclick,eventsModelResults.getData());
+                eventsAdapter=new JobAdapter(getActivity(),Jobs.this::onclick,eventsModelResults.data);
                 events_recycle.setAdapter(eventsAdapter);
             }
         });
-
         return view;
     }
 
-    @Override
-    public void onclick(EventsModel eventsViewModel) {
-        Intent intent=new Intent(getActivity(), ShowEvents.class);
-        intent.putExtra("eventModel",eventsViewModel);
-        intent.putExtra("type",3);
 
+    @Override
+    public void onclick(JobModel jobModel) {
+        Intent intent=new Intent(getActivity(), JobsInfo.class);
+        intent.putExtra("job",jobModel);
+        intent.putExtra("type",3);
         startActivity(intent);
     }
 }

@@ -19,7 +19,7 @@
         android:text="TextView"
         android:gravity="start"
         android:textSize="12dp"
-
+        android:fontFamily="@font/droid"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:background="@color/login_gray"/>
@@ -34,6 +34,7 @@
         android:paddingRight="5dp"
         android:gravity="start"
         android:textSize="12dp"
+        android:fontFamily="@font/droid"
         android:background="@color/login_gray"/>
 
 </LinearLayout>
@@ -44,5 +45,6 @@
         android:layout_weight="1"
         android:gravity="center"
         android:textSize="12dp"
+        android:fontFamily="@font/droid"
         android:background="@color/details_blue"/>
 </LinearLayout>

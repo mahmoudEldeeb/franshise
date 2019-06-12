@@ -30,6 +30,8 @@
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
         android:textColor="@color/white"
+        android:fontFamily="@font/droid"
+
         />
 </RelativeLayout>
     <LinearLayout
@@ -50,6 +52,8 @@
             android:textColor="@color/white"
             android:text="@string/notification"
             android:layout_gravity="start"
+            android:fontFamily="@font/droid"
+
             />
         <ImageView
             android:layout_width="0dp"
@@ -70,6 +74,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginTop="30dp"
 android:text="@string/data"
+        android:fontFamily="@font/droid"
 
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -85,6 +90,7 @@ android:text="@string/data"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="30dp"
+        android:fontFamily="@font/droid"
         android:text="@string/change_password"
         />
 

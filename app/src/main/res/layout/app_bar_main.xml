@@ -37,7 +37,8 @@
             android:layout_gravity="left"
                 android:paddingLeft="-10dp"
                 app:contentInsetStartWithNavigation="0dp"
-                /></android.support.v7.widget.Toolbar>
+                />
+        </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
     <include layout="@layout/content_main" />

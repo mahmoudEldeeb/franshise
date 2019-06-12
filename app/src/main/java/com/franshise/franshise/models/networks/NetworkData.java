@@ -8,11 +8,13 @@ import com.franshise.franshise.models.ResultNetworkModels.FranchiseResultModel;
 import com.franshise.franshise.models.ResultNetworkModels.FranchiseResultsView;
 import com.franshise.franshise.models.ResultNetworkModels.FranchisesResult;
 import com.franshise.franshise.models.ResultNetworkModels.FundCompanyModelResult;
+import com.franshise.franshise.models.ResultNetworkModels.JobsResults;
 import com.franshise.franshise.models.ResultNetworkModels.MessageResults;
 import com.franshise.franshise.models.ResultNetworkModels.PeriodResult;
 import com.franshise.franshise.models.ResultNetworkModels.SubscribtioResult;
 import com.franshise.franshise.models.ResultNetworkModels.UserProfileResult;
 import com.franshise.franshise.models.dataModels.CategorysModels;
+import com.franshise.franshise.models.dataModels.PayModel;
 import com.franshise.franshise.models.dataModels.StatusModel;
 import com.franshise.franshise.models.dataModels.UserProfileModel;
 
@@ -74,6 +76,9 @@ public interface NetworkData {
 
     @GET("banners/{lang}")
     Single<BannersResult> getHomeBanners(@Path("lang") String lang);
+
+    @GET("pay_way")
+    Single<PayModel> pay_way();
 
     @GET("cats")
     Single<CategorysResult> getAllCategorys();
@@ -376,6 +381,9 @@ public interface NetworkData {
     @GET("jobs/{lang}")
     Single<EventsModelResults> jobs	(@Path("lang") String lang);
 
+    @GET("get_job")
+    Single<JobsResults> get_job	();
+
     @GET("courses/{lang}/{country_id}")
     Single<EventsModelResults> courses(@Path("lang") String lang,@Path("country_id")int country_id);
 
@@ -400,6 +408,31 @@ public interface NetworkData {
                                         @Field("number") int number
 
 
+
+    );
+
+
+    @POST("update_job")
+    @FormUrlEncoded
+    Single<StatusModel> updateJob(
+            @Field("id") int id,
+            @Field("name") String name,
+            @Field("number_require") int number_require,
+            @Field("qualification_id") int qualification_id,
+            @Field("details") String details,
+            @Field("country_id") int country_id,
+            @Field("city_id[]") List<Integer> city_id,
+            @Field("start") int start,
+            @Field("end") int end,
+            @Field("gender") int gender,
+            @Field("currency") String currency,
+            @Field("number") int number
+
+    );
+    @POST("delete_job")
+    @FormUrlEncoded
+    Single<StatusModel> delete(
+            @Field("id") int id
 
     );
 

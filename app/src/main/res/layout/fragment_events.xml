@@ -18,6 +18,7 @@
         android:textSize="20dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
+        android:fontFamily="@font/droid"
         android:background="@color/blue_subscribtion_button"/>
 
     <android.support.v7.widget.RecyclerView

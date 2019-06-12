@@ -24,8 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.7"
             android:text="@string/job_number"
-
-            android:fontFamily="@font/droid_font"
+            android:fontFamily="@font/droid"
             android:textSize="@dimen/text_register_size"
             android:textColor="@color/white"
             android:gravity="center_vertical"
@@ -41,7 +40,7 @@
             android:background="@drawable/owner_register_editext_back"
             android:ems="10"
             android:gravity="center"
-            android:fontFamily="@font/droid_font"
+            android:fontFamily="@font/droid"
             android:inputType="number" />
     </LinearLayout>
     <LinearLayout
@@ -58,7 +57,7 @@
             android:textColor="@color/white"
             android:gravity="center_vertical"
             android:layout_gravity="center_vertical"
-            android:fontFamily="@font/droid_font"
+            android:fontFamily="@font/droid"
             />
 
         <EditText
@@ -70,7 +69,7 @@
             android:background="@drawable/owner_register_editext_back"
             android:ems="10"
             android:gravity="center"
-            android:fontFamily="@font/droid_font"
+            android:fontFamily="@font/droid"
             android:inputType="textPersonName" />
     </LinearLayout>
     <LinearLayout
@@ -86,8 +85,9 @@
             android:textSize="@dimen/text_register_size"
             android:textColor="@color/white"
             android:gravity="center_vertical"
-            android:fontFamily="@font/droid_font"
-            android:layout_gravity="center_vertical"
+
+            android:fontFamily="@font/droid"
+            android:layout_gravity="center_vertical|start"
             />
 
         <EditText
@@ -99,7 +99,7 @@
             android:background="@drawable/owner_register_editext_back"
             android:ems="10"
             android:gravity="center"
-            android:fontFamily="@font/droid_font"
+            android:fontFamily="@font/droid"
             android:inputType="textPersonName" />
     </LinearLayout>
     <LinearLayout
@@ -115,7 +115,7 @@
             android:textSize="@dimen/text_register_size"
             android:textColor="@color/white"
             android:gravity="center_vertical"
-            android:fontFamily="@font/droid_font"
+            android:fontFamily="@font/droid"
             android:layout_gravity="center_vertical"
             />
 <RelativeLayout
@@ -126,10 +126,10 @@
     >
     <Spinner
         android:id="@+id/job_qualification"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:fontFamily="@font/droid_font"
+        android:fontFamily="@font/droid"
         />
 
 </RelativeLayout>
@@ -147,7 +147,7 @@
             android:textSize="@dimen/text_register_size"
             android:textColor="@color/white"
             android:gravity="center_vertical"
-            android:fontFamily="@font/droid_font"
+            android:fontFamily="@font/droid"
             android:layout_gravity="center_vertical"
             />
         <RelativeLayout
@@ -158,10 +158,10 @@
             >
             <Spinner
                 android:id="@+id/job_coountry"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:fontFamily="@font/droid_font"
+                android:fontFamily="@font/droid"
                 />
 
         </RelativeLayout>
@@ -180,7 +180,7 @@
             android:textSize="@dimen/text_register_size"
             android:textColor="@color/white"
             android:gravity="center_vertical"
-            android:fontFamily="@font/droid_font"
+            android:fontFamily="@font/droid"
             android:layout_gravity="center_vertical"
             />
         <LinearLayout
@@ -220,7 +220,7 @@
             android:textSize="@dimen/text_register_size"
             android:textColor="@color/white"
             android:gravity="center_vertical"
-            android:fontFamily="@font/droid_font"
+            android:fontFamily="@font/droid"
             android:layout_gravity="center_vertical"
             />
 
@@ -231,7 +231,7 @@
             android:layout_weight="1"
         android:background="@drawable/owner_register_editext_back"
         android:gravity="center"
-        android:fontFamily="@font/droid_font"
+        android:fontFamily="@font/droid"
         android:inputType="number"
         android:layout_marginRight="5dp"/>
 
@@ -242,22 +242,22 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="10dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/job_sallary"
-            android:fontFamily="@font/droid_font"
-            android:textSize="@dimen/text_register_size"
-            android:textColor="@color/white"
-            android:gravity="center_vertical"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="100dp"
-            />
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/droid"
+            android:gravity="center_vertical"
+            android:text="@string/job_sallary"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_register_size" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/from"
-            android:fontFamily="@font/droid_font"
+            android:fontFamily="@font/droid"
             android:textSize="@dimen/text_register_size"
             android:textColor="@color/white"
             android:gravity="center_vertical"
@@ -270,7 +270,7 @@
             android:layout_height="35dp"
             android:background="@drawable/owner_register_editext_back"
             android:gravity="center"
-            android:fontFamily="@font/droid_font"
+            android:fontFamily="@font/droid"
             android:inputType="number"
             android:layout_marginRight="20dp"/>
 
@@ -278,7 +278,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/to"
-            android:fontFamily="@font/droid_font"
+            android:fontFamily="@font/droid"
             android:textSize="@dimen/text_register_size"
             android:textColor="@color/white"
             android:gravity="center_vertical"
@@ -292,7 +292,7 @@
             android:background="@drawable/owner_register_editext_back"
             android:ems="10"
             android:gravity="center"
-            android:fontFamily="@font/droid_font"
+            android:fontFamily="@font/droid"
             android:inputType="number" />
 
     </LinearLayout>
@@ -307,7 +307,7 @@
             android:layout_weight="0.7"
             android:text="@string/currency"
 
-            android:fontFamily="@font/droid_font"
+            android:fontFamily="@font/droid"
             android:textSize="@dimen/text_register_size"
             android:textColor="@color/white"
             android:gravity="center_vertical"
@@ -323,7 +323,7 @@
             android:background="@drawable/owner_register_editext_back"
             android:ems="10"
             android:gravity="center"
-            android:fontFamily="@font/droid_font"
+            android:fontFamily="@font/droid"
             android:inputType="textPersonName" />
     </LinearLayout>
 
@@ -336,19 +336,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/gender"
             android:textSize="@dimen/text_register_size"
             android:textColor="@color/white"
             android:gravity="center_vertical"
-            android:fontFamily="@font/droid_font"
+            android:fontFamily="@font/droid"
             android:layout_gravity="center_vertical"
             />
         <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="left"
+            android:gravity="start"
+            android:layout_gravity="start"
             android:id="@+id/user_type"
             >
             <RadioButton
@@ -358,6 +358,7 @@
                 android:textColor="@color/white"
                 android:id="@+id/male"
                 android:textSize="@dimen/text_register_size"
+                android:layout_gravity="start"
                 />
             <RadioButton
                 android:layout_width="wrap_content"
@@ -366,6 +367,8 @@
                 android:textColor="@color/white"
                 android:id="@+id/female"
                 android:textSize="@dimen/text_register_size"
+
+                android:layout_gravity="start"
                 />
             <RadioButton
                 android:layout_width="wrap_content"
@@ -373,6 +376,8 @@
                 android:text="@string/no_preference"
                 android:textColor="@color/white"
                 android:id="@+id/no_preference"
+
+                android:layout_gravity="start"
                 android:textSize="@dimen/text_register_size"
                 />
         </RadioGroup>

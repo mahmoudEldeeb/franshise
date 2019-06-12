@@ -39,7 +39,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+
+        android:fontFamily="@font/droid"/>
 
     <EditText
         android:id="@+id/country"
@@ -59,7 +61,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/email"
+
+        android:fontFamily="@font/droid"/>
 
     <Button
         android:id="@+id/change"
@@ -77,6 +81,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
 
+        android:fontFamily="@font/droid"
         app:layout_constraintTop_toBottomOf="@+id/country" />
     <TextView
         android:id="@+id/forget"
@@ -93,7 +98,9 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/change" />
+        app:layout_constraintTop_toBottomOf="@+id/change"
+
+        android:fontFamily="@font/droid"/>
 
     <TextView
         android:id="@+id/newUser"
@@ -109,6 +116,8 @@
         android:text="@string/new_user"
         android:textColor="@color/black"
         android:textSize="15sp"
+
+        android:fontFamily="@font/droid"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"

@@ -19,6 +19,7 @@
         android:textSize="20dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
+        android:fontFamily="@font/droid"
         android:background="@color/blue_subscribtion_button"/>
 
     <TextView
@@ -36,6 +37,7 @@
         android:textColor="@color/white"
         android:paddingBottom="20dp"
         android:paddingTop="20dp"
+        android:fontFamily="@font/droid"
         />
 
     <Button
@@ -48,6 +50,6 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:background="@color/white"
-
+        android:fontFamily="@font/droid"
         android:text="@string/completeRegister" />
 </LinearLayout>

@@ -3,6 +3,7 @@ package com.franshise.franshise.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,17 +41,21 @@ TextView title,details;
 //title.setText(fundingCompanyMode.);
         if(new SharedPrefrenceModel(getActivity()).getLanguage().equals("ar"))
         {
-            Log.v("vvvvv",fundingCompanyMode.getAr_name()+" j");
-          title.setText(fundingCompanyMode.getAr_name()+"hh");
-        details.setText(fundingCompanyMode.getAr_details());
+            String data=fundingCompanyMode.getAr_details().replace("<p>","");
+            data=data.replace("</p>","");
+            Log.v("vvvvv",fundingCompanyMode.getAr_name());
+          title.setText(fundingCompanyMode.getAr_name());
+        details.setText(data);
         }
-        else   {  title.setText(fundingCompanyMode.getAr_name());
-            details.setText(fundingCompanyMode.getAr_details());
+        else   {
+            String data=fundingCompanyMode.getEn_details().replace("<p>","");
+            data=data.replace("</p>","");
+            title.setText(fundingCompanyMode.getEn_name());
+            details.setText(data);
         }
         /*
 
          */
-
         Picasso.get()
                 .load(getActivity().getResources().getString(R.string.base_image_url)+
                         fundingCompanyMode.getImage())

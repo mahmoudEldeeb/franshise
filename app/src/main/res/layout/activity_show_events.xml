@@ -53,6 +53,8 @@
                 android:textSize="20dp"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp"
+
+                android:fontFamily="@font/droid"
                 android:background="@color/blue_subscribtion_button"/>
             <WebView
                 android:layout_width="match_parent"
