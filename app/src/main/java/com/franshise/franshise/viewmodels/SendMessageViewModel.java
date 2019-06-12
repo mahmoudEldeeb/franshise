@@ -11,9 +11,9 @@ import io.reactivex.disposables.Disposable;
 
 public class SendMessageViewModel extends ViewModel{
     MutableLiveData<StatusModel>result;
-    public MutableLiveData<StatusModel>sendSugetion(String type,String from,String email,String country,String message){
+    public MutableLiveData<StatusModel>sendSugetion(String type,String from,String email,String country,String message, int sender){
         result=new MutableLiveData<>();
-        MessagesRepositry.sendSuggestion(type,from,email, country, message).subscribeWith(new SingleObserver<StatusModel>() {
+        MessagesRepositry.sendSuggestion(type,from,email, country, message,sender).subscribeWith(new SingleObserver<StatusModel>() {
             @Override
             public void onSubscribe(Disposable d) {
 

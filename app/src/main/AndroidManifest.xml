@@ -16,9 +16,13 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activites.CompleteProcess"
+            android:label="@string/title_activity_complete_process"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".activites.Pay"
             android:label="@string/title_activity_pay"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activites.JobsInfo"
             android:label="@string/title_activity_jobs_info"
@@ -101,9 +105,7 @@
         <activity
             android:name=".activites.Main"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".activites.ConformRegister"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -118,7 +120,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".activites.SplashActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

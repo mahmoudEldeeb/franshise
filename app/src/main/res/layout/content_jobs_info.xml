@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activites.JobsInfo"
+    tools:showIn="@layout/app_bar_jobs_info">
+<LinearLayout
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-app:layout_behavior="@string/appbar_scrolling_view_behavior"
-tools:context=".activites.JobsInfo"
-tools:showIn="@layout/app_bar_jobs_info"
 android:orientation="vertical"
 android:background="@color/blue">
 <LinearLayout
@@ -146,11 +151,13 @@ android:background="@color/blue">
                     android:layout_height="100dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
                     android:background="@drawable/owner_register_editext_back"
                     android:ems="10"
                     android:gravity="center"
                     android:fontFamily="@font/droid"
-                    android:inputType="textPersonName" />
+                    android:inputType="textMultiLine"  />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -381,7 +388,7 @@ android:background="@color/blue">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_marginTop="10dp">
                 <TextView
                     android:layout_width="wrap_content"
@@ -438,3 +445,4 @@ android:background="@color/blue">
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
+</ScrollView>

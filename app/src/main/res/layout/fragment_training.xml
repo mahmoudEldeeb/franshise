@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.TrainingFragment"
-    android:orientation="vertical" android:background="@color/send_blue"
+    android:orientation="vertical" android:background="@color/blue_subscribtion_button"
     >
 <LinearLayout
     android:layout_width="match_parent"
@@ -48,8 +48,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="55dp"
         android:id="@+id/events_recycle"
+        android:background="@color/blue_subscribtion_button"
         />
 
 

@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.franshise.franshise.R;
+import com.franshise.franshise.models.SharedPrefrenceModel;
+import com.franshise.franshise.models.dataModels.DataModel;
 import com.franshise.franshise.models.dataModels.EventsModel;
 import com.squareup.picasso.Picasso;
 
@@ -27,18 +29,15 @@ public class CoursesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private static int counterMonth=-1;
 
     private List<Integer> monthPositions=new ArrayList<>();
+    List<DataModel>countryData=new ArrayList<>();
     int count;
-    public CoursesAdapter(Context c, EventsAdapter.Click cl, List<EventsModel>lis,int co) {
-       // list=new ArrayList<>();
-        //list.clear();
-        //count=0;
-        //counterMonth=-1;
+    public CoursesAdapter(Context c, EventsAdapter.Click cl, List<EventsModel>lis,List<DataModel> co) {
+
         context=c;
         list=lis;
-        count=co+lis.size();
         setHasStableIds(true);
         click=cl;
-        Log.v("rrrr",co+lis.size()+"");
+        countryData=co;
     }
 
     @NonNull
@@ -79,6 +78,17 @@ public class CoursesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             }
 
         }
+        try{
+        for(int j=0;j<countryData.size();j++){
+            Log.v("eeee","ggggggggggg");
+            if(Integer.parseInt(list.get(i).getCountry_id())==countryData.get(j).getId())
+            { Log.v("eeee","fffffff");
+                if(new SharedPrefrenceModel(context).getLanguage().equals("en"))
+                      viewHolderDta.country.setText(countryData.get(j).getEn_name());
+                else viewHolderDta.country.setText(countryData.get(j).getAr_name());}
+        }
+        }catch (NullPointerException e){}
+        catch (NumberFormatException e){}
             viewHolderDta.details.setText(list.get(i).getDetails());
             viewHolderDta.name.setText(list.get(i).getTitle());
             viewHolderDta.date.setText(list.get(i).getDate());
@@ -158,7 +168,7 @@ public class CoursesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
 
     public class ViewHolderDta extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView name,date,details,type,month;
+        TextView name,date,details,country,month;
         ImageView profile_image;
         LinearLayout course;
         ViewHolderDta(View itemView) {
@@ -169,6 +179,7 @@ public class CoursesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             date = itemView.findViewById(R.id.date);
             month = itemView.findViewById(R.id.month);
             course=itemView.findViewById(R.id.course);
+            country=itemView.findViewById(R.id.country);
             course.setOnClickListener(this);
         }
 

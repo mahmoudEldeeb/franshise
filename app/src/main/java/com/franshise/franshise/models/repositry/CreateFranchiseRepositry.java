@@ -27,7 +27,7 @@ public class CreateFranchiseRepositry {
 
     public static Single<StatusModel> create(List<MultipartBody.Part> imagespart, MultipartBody.Part imagepart, CreatFranchiseModel model, int id){
 
-        return RetrofitConnections.getNetworkConnection().createfranchise(
+        return RetrofitConnections.getNetworkConnection(0).createfranchise(
                 createPartFromString(model.getName()),
                 createPartFromString(id+""),
                 createPartFromString(model.getDetails())
@@ -55,7 +55,7 @@ public class CreateFranchiseRepositry {
     }
     public static Single<StatusModel> updateFranchise(int franchiseId,List<MultipartBody.Part> imagespart, MultipartBody.Part imagepart,List<Integer>ids, CreatFranchiseModel model, int id){
 
-        return RetrofitConnections.getNetworkConnection().updatefranchise(
+        return RetrofitConnections.getNetworkConnection(0).updatefranchise(
                 createPartFromString(franchiseId+""),
                 createPartFromString(model.getName()),
                 createPartFromString(id+""),
@@ -85,7 +85,7 @@ public class CreateFranchiseRepositry {
 
     public static Single<StatusModel> updateFranchise(int franchiseId,List<MultipartBody.Part> imagespart,List<Integer>ids, CreatFranchiseModel model, int id){
 
-        return RetrofitConnections.getNetworkConnection().updatefranchise(
+        return RetrofitConnections.getNetworkConnection(0).updatefranchise(
                 createPartFromString(franchiseId+""),
                 createPartFromString(model.getName()),
                 createPartFromString(id+""),
@@ -114,7 +114,7 @@ public class CreateFranchiseRepositry {
     }
     public static Single<StatusModel> updateFranchise(int franchiseId, MultipartBody.Part imagepart,List<Integer>ids, CreatFranchiseModel model, int id){
 
-        return RetrofitConnections.getNetworkConnection().updatefranchise(
+        return RetrofitConnections.getNetworkConnection(0).updatefranchise(
                 createPartFromString(franchiseId+""),
                 createPartFromString(model.getName()),
                 createPartFromString(id+""),
@@ -143,7 +143,7 @@ public class CreateFranchiseRepositry {
     }
     public static Single<StatusModel> updateFranchise(int franchiseId,List<Integer>ids, CreatFranchiseModel model, int id){
 
-        return RetrofitConnections.getNetworkConnection().updatefranchise(
+        return RetrofitConnections.getNetworkConnection(0).updatefranchise(
                 createPartFromString(franchiseId+""),
                 createPartFromString(model.getName()),
                 createPartFromString(id+""),

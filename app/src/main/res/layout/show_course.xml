@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginBottom="5dp"
+    android:background="@color/send_blue">
     <TextView
         xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,31 +40,48 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_vertical"
-        android:layout_gravity="center_vertical">
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:text="name"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:fontFamily="@font/droid"
+            />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp">
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/country"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="start"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical|start"
-                android:text="name"
+                android:text=""
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:fontFamily="@font/droid"
                 />
 
             <TextView
                 android:id="@+id/date"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="30dp"
@@ -79,10 +98,8 @@
         <TextView
             android:id="@+id/details"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
             android:gravity="center_vertical|start"
             android:text="first show in worled to do any thing "
             android:textColor="@color/white"

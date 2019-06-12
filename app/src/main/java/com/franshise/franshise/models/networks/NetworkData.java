@@ -220,7 +220,8 @@ public interface NetworkData {
     @FormUrlEncoded
     Single<StatusModel> suggestions(@Field("type") String type, @Field("from") String from,
                                     @Field("email") String email, @Field("country") String country,
-                                    @Field("message") String message);
+                                    @Field("message") String message,
+                                    @Field("sender") int sender);
 
     @POST("send-for-consultant")
     @FormUrlEncoded

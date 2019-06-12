@@ -341,6 +341,7 @@ if(imageType==0)
             if (resultCode == RESULT_OK) {
 
                 try {
+
                         if (imageType == 0) {
 
                             final Uri imageUri = data.getData();
@@ -393,8 +394,10 @@ if(imageType==0)
                     e.printStackTrace();
                     Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_LONG).show();
                 }
+                catch (OutOfMemoryError e){Toast.makeText(getActivity(), "Choose small image ", Toast.LENGTH_LONG).show();}
 
-            } else {
+
+        } else {
                 Toast.makeText(getActivity(), "You haven't picked Image", Toast.LENGTH_LONG).show();
             }
         }

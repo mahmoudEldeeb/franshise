@@ -188,7 +188,7 @@ LoginRepositry.removetoken(token,api_token).subscribeWith(new SingleObserver<Sta
                 }
                 @Override
                 public void onError(Throwable e) {
-                    Log.v("ddd",e.getMessage());
+                    Log.v("ddd",e.getMessage()+"0");
                 }
             });
 

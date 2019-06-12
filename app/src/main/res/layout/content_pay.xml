@@ -68,8 +68,9 @@
             android:layout_weight="75"
             android:background="@null"
             android:ems="10"
-            android:paddingLeft="20dp"
+            android:paddingLeft="5dp"
             android:fontFamily="@font/droid"
+            android:gravity="center_vertical"
             />
 
     </LinearLayout>
@@ -109,8 +110,9 @@
             android:layout_weight="75"
             android:background="@null"
             android:ems="10"
-            android:paddingLeft="20dp"
+            android:paddingLeft="5dp"
             android:fontFamily="@font/droid"
+            android:gravity="center_vertical"
             />
 
     </LinearLayout>

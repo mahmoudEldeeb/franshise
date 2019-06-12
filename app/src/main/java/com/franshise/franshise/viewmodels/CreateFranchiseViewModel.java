@@ -63,9 +63,8 @@ Context context;
             @Override
             public void onSuccess(StatusModel responseBody) {
 
-                    Log.v("wwww",responseBody.getMessage()+"");
+                    Log.v("wwwwwww",responseBody.getMessage()+"  "+responseBody.getStatus());
                     resuls.setValue(responseBody.getStatus());
-
             }
 
             @Override

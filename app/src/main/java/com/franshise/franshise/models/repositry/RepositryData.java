@@ -35,7 +35,7 @@ public class RepositryData {
                                                 int qualification_id, String details,
                                                 int country_id, List<Integer> city_id, int start, int end,
                                                 int gender, String currency, int number){
-        return RetrofitConnections.getNetworkConnection().createJob(name,number_require,qualification_id,details,country_id,
+        return RetrofitConnections.getNetworkConnection(0).createJob(name,number_require,qualification_id,details,country_id,
                 city_id,start,end,gender,currency,number)
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
@@ -43,7 +43,7 @@ public class RepositryData {
                                                  int qualification_id, String details,
                                                  int country_id, List<Integer> city_id, int start, int end,
                                                  int gender, String currency, int number){
-        return RetrofitConnections.getNetworkConnection().updateJob(id,name,number_require,qualification_id,details,country_id,
+        return RetrofitConnections.getNetworkConnection(0).updateJob(id,name,number_require,qualification_id,details,country_id,
                 city_id,start,end,gender,currency,number)
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }

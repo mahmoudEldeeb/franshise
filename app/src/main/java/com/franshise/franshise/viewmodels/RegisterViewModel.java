@@ -13,6 +13,7 @@ import com.franshise.franshise.models.SharedPrefrenceModel;
 import com.franshise.franshise.models.UserModel;
 import com.franshise.franshise.models.dataModels.DataModel;
 import com.franshise.franshise.models.repositry.LoginRepositry;
+import com.franshise.franshise.models.repositry.RepositryData;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -71,6 +72,30 @@ public class RegisterViewModel extends ViewModel {
         });
         return countries;
     }
+    public MutableLiveData<DataResult> city_with_country(int  country_id){
+        MutableLiveData<DataResult>  getQualification=new MutableLiveData<>();
+        RepositryData.city_with_country(country_id)
+                .subscribeWith(new SingleObserver<DataResult>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(DataResult dataResult) {
+
+                        getQualification.setValue(dataResult);
+                        Log.v("eeeee",dataResult.getData().get(0).getAr_name());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+                });
+        return getQualification;
+    }
+
     public LiveData<Integer> register(final Context c,String name, String username,
                                       String email, String password,
                                       String phone, String country, String city,
@@ -84,6 +109,7 @@ public class RegisterViewModel extends ViewModel {
             }
             @Override
             public void onSuccess(ResponseBody responseBody) {
+                Log.v("aaaaaaa","ddddddddd");
                 try {
                     String result=responseBody.string();
                     JSONObject jsonObject=new JSONObject(result);
@@ -131,12 +157,14 @@ public class RegisterViewModel extends ViewModel {
                        registerResult.setValue(jsonObject.getInt("status"));
                     }
                 } catch (IOException e) {
-
+                    Log.v("dddddddvvv",e.toString());
                     Toast.makeText(c, "there is error try later",Toast.LENGTH_LONG).show();
+                    registerResult.setValue(0);
                     e.printStackTrace();
                 } catch (JSONException e) {
-                    Log.v("ddddddd",e.toString());
+                    Log.v("dddddddmmm",e.toString());
                     Toast.makeText(c, "there is error try later",Toast.LENGTH_LONG).show();
+                   // registerResult.setValue(0);
                     e.printStackTrace();
                 } catch (ParseException e) {
                     e.printStackTrace();
@@ -145,7 +173,9 @@ public class RegisterViewModel extends ViewModel {
 
             @Override
             public void onError(Throwable e) {
-
+                Log.v("ddddddd",e.getMessage());
+                registerResult.setValue(0);
+                Toast.makeText(c, e.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
         return registerResult;

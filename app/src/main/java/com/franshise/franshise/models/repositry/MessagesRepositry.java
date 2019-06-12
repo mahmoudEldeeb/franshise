@@ -12,8 +12,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 public class MessagesRepositry {
-    public static Single<StatusModel> sendSuggestion(String type,String from,String email,String country,String message){
-        return RetrofitConnections.getNetworkConnection().suggestions(type,from,email, country, message)
+    public static Single<StatusModel> sendSuggestion(String type,String from,String email,String country,String message, int sender){
+        return RetrofitConnections.getNetworkConnection().suggestions(type,from,email, country, message, sender)
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 

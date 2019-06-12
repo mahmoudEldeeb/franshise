@@ -36,7 +36,7 @@ import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
 ImageView star1;
-EditText name,user_name,email,password,city,phone,phone_key,company_name,manager_name,transformation_number;
+EditText name,user_name,email,password,phone,phone_key,company_name,manager_name,transformation_number;
 Button register;
     ProgressDialog proDialog;
     Observer<Integer> registerObserver;
@@ -44,12 +44,16 @@ Button register;
     Observer<DataResult> countriesObserver;
 RegisterViewModel registerViewModel;
 String county_name="";
-Spinner country;
+Spinner country,city;
 String token;
+String cityName;
 CheckBox rules;
 RadioGroup user_type;
+    List<String>cityList=new ArrayList<>();
+    List<Integer>countryIds=new ArrayList<>();
 int userType=-1;
 LinearLayout owner_register;
+    Observer<DataResult>cityObserver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,10 +118,18 @@ user_type.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
         adp1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         country.setAdapter(adp1);
 
+
+        ArrayAdapter<String> adp2 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, cityList);
+        adp1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        city.setAdapter(adp2);
+
 countriesObserver=new Observer<DataResult>() {
     @Override
     public void onChanged(@Nullable DataResult result) {
+
         for(int i=0;i<result.getData().size();i++) {
+            countryIds.add(result.getData().get(i).getId());
             if (new SharedPrefrenceModel(RegisterActivity.this).getLanguage().equals("en")) {
             list.add(result.getData().get(i).getEn_name()) ;
             } else {
@@ -127,21 +139,53 @@ countriesObserver=new Observer<DataResult>() {
         adp1.notifyDataSetChanged();
     }
 };
+
+        cityObserver=new Observer<DataResult>() {
+            @Override
+            public void onChanged(@Nullable DataResult result) {
+                cityList.clear();
+
+                for(int i=0;i<result.getData().size();i++) {
+
+                    if (new SharedPrefrenceModel(RegisterActivity.this).getLanguage().equals("en")) {
+                        cityList.add(result.getData().get(i).getEn_name()) ;
+                    } else {
+                        cityList.add(result.getData().get(i).getEn_name()) ;
+
+                    }
+                }
+                adp2.notifyDataSetChanged();
+            }
+        };
+city.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        cityName=cityList.get(position);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+});
+
         registerViewModel.getCountries(this).observe(this,countriesObserver);
 
         register.setOnClickListener(new View.OnClickListener() {
                  @Override
               public void onClick(View v) {
-
                      proDialog = ProgressDialog.show(RegisterActivity.this, "", "Looding.....");
                      checkValues();
 
                  }
                 });
+
 country.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         county_name=list.get(position);
+        if(position!=0)
+        registerViewModel.city_with_country(countryIds.get(position-1)).observe(RegisterActivity.this,cityObserver);
     }
 
     @Override
@@ -164,11 +208,11 @@ rules.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
     private void checkValues() {
 Log.v("qqqq",
         name.getText().toString()+user_name.getText().toString()+email.getText().toString()+
-                password.getText().toString()+city.getText()
+                password.getText().toString()
                 +phone_key.getText().toString());
 
         if(name.getText().toString().isEmpty()||user_name.getText().toString().isEmpty()||email.getText().toString().isEmpty()||
-                password.getText().toString().isEmpty()||city.getText().toString().isEmpty()
+                password.getText().toString().isEmpty()||cityName.isEmpty()
                 ||phone_key.getText().toString().isEmpty()||county_name.equals(getResources().getString(R.string.country))
                 ||!rules.isChecked()||userType==-1
         ){
@@ -183,7 +227,7 @@ Log.v("qqqq",
         else if(checkMail()){
             registerViewModel.register(RegisterActivity.this,name.getText().toString(),user_name.getText().toString(),
                     email.getText().toString()
-                    ,password.getText().toString(),phone_key.getText().toString()+phone.getText().toString(),county_name,city.getText().toString(),
+                    ,password.getText().toString(),phone_key.getText().toString()+phone.getText().toString(),county_name,cityList.get(city.getSelectedItemPosition()),
                     userType,company_name.getText().toString(),manager_name.getText().toString()
                             ,transformation_number.getText().toString())
                     .observe(RegisterActivity.this, registerObserver);

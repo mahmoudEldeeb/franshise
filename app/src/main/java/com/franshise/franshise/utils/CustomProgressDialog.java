@@ -19,14 +19,20 @@ public static ProgressDialog dialog;
        proDialog.show();
    }
    catch (Exception e){}*/
-          dialog = new ProgressDialog(context, AlertDialog.THEME_DEVICE_DEFAULT_DARK);
+    try {
+
+
+        dialog = new ProgressDialog(context, AlertDialog.THEME_DEVICE_DEFAULT_DARK);
         dialog.setMessage("loading.....");
         dialog.setIndeterminate(true);
         dialog.setCancelable(false);
         dialog.show();
+    }catch (Exception e){}
 
     }
 public static void clodseProgress(){
-        dialog.dismiss();
+        try {
+            dialog.dismiss();
+        }catch (Exception e){}
 }
 }

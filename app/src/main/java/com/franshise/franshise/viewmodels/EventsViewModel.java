@@ -78,7 +78,8 @@ public class EventsViewModel extends ViewModel {
 
                     @Override
                     public void onSuccess(EventsModelResults dataResult) {
-
+                        Log.v("aaaa","ggggggg");
+                        Log.v("aaaa",dataResult.getData().size()+"");
                         events.setValue(dataResult);
 
                     }
@@ -86,7 +87,6 @@ public class EventsViewModel extends ViewModel {
                     @Override
                     public void onError(Throwable e) {
                         CustomProgressDialog.clodseProgress();
-
                         Log.v("aaaa",e.getMessage());
 
                     }

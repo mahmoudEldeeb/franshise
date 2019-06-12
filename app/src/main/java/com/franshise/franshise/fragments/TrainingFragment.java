@@ -30,6 +30,7 @@ import com.franshise.franshise.adapters.EventsAdapter;
 import com.franshise.franshise.models.ResultNetworkModels.DataResult;
 import com.franshise.franshise.models.ResultNetworkModels.EventsModelResults;
 import com.franshise.franshise.models.SharedPrefrenceModel;
+import com.franshise.franshise.models.dataModels.DataModel;
 import com.franshise.franshise.models.dataModels.EventsModel;
 import com.franshise.franshise.utils.CustomProgressDialog;
 import com.franshise.franshise.viewmodels.EventsViewModel;
@@ -55,6 +56,7 @@ LinearLayout spaceParent;
 
     EventsViewModel eventsViewModel;
     List<Integer> countryIds=new ArrayList<>();
+    List<DataModel>countryDat=new ArrayList<>();
     //
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -79,7 +81,9 @@ LinearLayout spaceParent;
         eventsViewModel.getCountries().observe(this, new Observer<DataResult>() {
     @Override
     public void onChanged(@Nullable DataResult result) {
+        countryDat=result.getData();
         for(int i=0;i<result.getData().size();i++) {
+
             countryIds.add(result.getData().get(i).getId());
             if (new SharedPrefrenceModel(getActivity()).getLanguage().equals("en")) {
                 list.add(result.getData().get(i).getEn_name()) ;
@@ -108,37 +112,7 @@ country_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener
 
         return view;
     }
-    private void addElement2(EventsModel eventsModel) {
-        View itemView=layoutInflater.inflate(R.layout.shows_item, spaceParent, false);
-        TextView name,date,details,type;
-        ImageView profile_image;
-
-            name = itemView.findViewById(R.id.name);
-            profile_image = itemView.findViewById(R.id.profile_image);
-            details = itemView.findViewById(R.id.details);
-            date = itemView.findViewById(R.id.date);
-
-
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               // View v2=spaceParent2.getChildAt( spaceParent2.indexOfChild(v3));
-                //spaceParent2.removeView(v2);
-            }
-        });
-        details.setText(eventsModel.getDetails());
-        name.setText(eventsModel.getTitle());
-        date.setText(eventsModel.getDate());
-      /*  Spinner spinner=v3.findViewById(R.id.value);
-        ArrayAdapter<String> adp1 = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1, countryList);
-        adp1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adp1);
-
-        re2.setText("Country ");*/
-        spaceParent.addView(itemView,spaceParent.getChildCount());
-
-    }int month=-1;
+int month=-1;
     private void getcourses(int i) {
 month=-1;
         spaceParent.removeAllViews();
@@ -153,14 +127,14 @@ month=-1;
                 if(eventsModelResults.getData().size()>0){
 
                 TreeSet<Integer> hashSetDate=new TreeSet<>();
-                for (int i=0;i<eventsModelResults.getData().size();i++){
+              /*  for (int i=0;i<eventsModelResults.getData().size();i++){
                     String month1=eventsModelResults.getData().get(i).getDate().substring(5,7);
 
 
                     Log.v("aaaaaaa",month1+"   "+month);
                     hashSetDate.add(Integer.parseInt(month1));
 
-                }
+                }*/
                   /*  Iterator iterator = hashSetDate.iterator();
 
                     for(int i=0;i<hashSetDate.size();i++){
@@ -175,7 +149,7 @@ month=-1;
 
                 }*/
                 coursesAdapter = new CoursesAdapter(getActivity(), TrainingFragment.this::onclick,
-                        eventsModelResults.getData(),hashSetDate.size());
+                        eventsModelResults.getData(),countryDat);
                 events_recycle.setHasFixedSize(true);
                 events_recycle.setAdapter(coursesAdapter);
             }
@@ -184,24 +158,6 @@ month=-1;
 
     }
 
-    private void addElement(int parseInt) {
-        View itemView=layoutInflater.inflate(R.layout.month_item, spaceParent, false);
-        TextView month;
-
-
-        month = itemView.findViewById(R.id.month);
-      month.setText(getResources().getStringArray(R.array.months)[parseInt - 1]);
-
-      /*  Spinner spinner=v3.findViewById(R.id.value);
-        ArrayAdapter<String> adp1 = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1, countryList);
-        adp1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adp1);
-
-        re2.setText("Country ");*/
-        spaceParent.addView(itemView,spaceParent.getChildCount());
-
-    }
 
     @Override
     public void onclick(EventsModel eventsViewModel) {

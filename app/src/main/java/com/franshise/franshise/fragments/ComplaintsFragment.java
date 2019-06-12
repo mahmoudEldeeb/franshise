@@ -16,6 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.franshise.franshise.R;
+import com.franshise.franshise.models.SharedPrefrenceModel;
 import com.franshise.franshise.models.dataModels.StatusModel;
 import com.franshise.franshise.utils.CustomProgressDialog;
 import com.franshise.franshise.viewmodels.SendMessageViewModel;
@@ -84,7 +85,7 @@ String type="";
 
     private void sendMessage() {
     sendMessageViewModel.sendSugetion(type,from.getText().toString(),email.getText().toString(),country.getText().toString(),
-            message.getText().toString()).observe(this,messageObserver);
+            message.getText().toString(),new SharedPrefrenceModel(getActivity()).getId()).observe(this,messageObserver);
         CustomProgressDialog.showProgress(getActivity());
 
     }
